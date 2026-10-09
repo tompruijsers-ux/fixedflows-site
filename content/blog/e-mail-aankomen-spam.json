@@ -1,0 +1,116 @@
+{
+  "slug": "e-mail-aankomen-spam",
+  "titel": "Waarom je e-mails in de spam belanden (en wat je eraan doet)",
+  "categorie": "E-mailmarketing",
+  "datum": "2026-06-30",
+  "datumTekst": "30 juni 2026",
+  "leestijd": "8 min",
+  "auteur": "Team FixedFlows",
+  "samenvatting": "De mooiste flow is waardeloos als niemand hem ziet. Over SPF, DKIM, DMARC en de fouten die je bezorging stilletjes slopen.",
+  "description": "Praktische uitleg over e-mailbezorging: SPF, DKIM en DMARC instellen, domeinen warmdraaien en waarom je transactionele en marketingmail moet scheiden.",
+  "kopjes": [
+    "Bezorging is reputatie, geen techniek",
+    "De drie records die je moet instellen",
+    "Scheiden wat je verstuurt"
+  ],
+  "cta": {
+    "tekst": "Bekijk e-mailmarketing",
+    "href": "service-e-mailmarketing.html"
+  },
+  "body": [
+    {
+      "t": "p",
+      "tekst": "Je bouwt een flow van zeven mails, schrijft ze zorgvuldig, test ze — en dan blijkt dat een derde van je lijst ze nooit heeft gezien. Bezorging is het onderdeel van e-mailmarketing waar niemand het over heeft en waar alles op stukloopt."
+    },
+    {
+      "t": "h2",
+      "tekst": "Bezorging is reputatie, geen techniek"
+    },
+    {
+      "t": "p",
+      "tekst": "Providers als Gmail en Outlook kijken niet naar hoe mooi je mail is. Ze kijken naar hoe mensen op je eerdere mails reageerden: openen ze, klikken ze, of markeren ze je als spam. Dat oordeel bouw je over maanden op en verspeel je in één campagne."
+    },
+    {
+      "t": "feit",
+      "titel": "Openpercentages zeggen weinig meer",
+      "tekst": "Sinds Apple Mail Privacy Protection worden veel openingen automatisch geregistreerd zonder dat iemand de mail las. Stuur op kliks, uitschrijvingen en spamklachten — dat zijn de cijfers die providers ook zien."
+    },
+    {
+      "t": "h2",
+      "tekst": "De drie records die je moet instellen"
+    },
+    {
+      "t": "p",
+      "tekst": "Deze zet je bij je domeinhoster. Ze bewijzen aan de ontvangende partij dat jij daadwerkelijk mag versturen namens jouw domein."
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Record",
+        "Wat het doet",
+        "Zonder dit"
+      ],
+      "rijen": [
+        [
+          "SPF",
+          "Bepaalt welke servers namens jou mogen versturen",
+          "Je mail wordt eerder als vervalsing gezien"
+        ],
+        [
+          "DKIM",
+          "Zet een digitale handtekening onder elke mail",
+          "De ontvanger kan de afzender niet verifiëren"
+        ],
+        [
+          "DMARC",
+          "Vertelt wat er moet gebeuren als een controle faalt",
+          "Je hebt geen zicht op misbruik van je domein"
+        ]
+      ]
+    },
+    {
+      "t": "tip",
+      "titel": "Begin met een rustige DMARC-instelling",
+      "tekst": "Zet DMARC eerst op alleen rapporteren. Zo zie je een paar weken wat er misgaat voordat je mails laat weigeren. Meteen streng instellen blokkeert vaak je eigen facturatiesysteem of je CRM."
+    },
+    {
+      "t": "afb",
+      "bijschrift": "Een nieuw verzenddomein bouw je rustig op: eerst kleine volumes naar je actiefste contacten."
+    },
+    {
+      "t": "h2",
+      "tekst": "Scheiden wat je verstuurt"
+    },
+    {
+      "t": "p",
+      "tekst": "Dit is de belangrijkste beslissing en vrijwel iedereen doet het fout. Bevestigingsmails en bestelbevestigingen zijn <b>transactioneel</b>: die moeten altijd aankomen. Nieuwsbrieven en aanbiedingen zijn <b>marketing</b>. Verstuur je beide vanaf hetzelfde domein, dan sleept een tegenvallende campagne je bevestigingsmails mee omlaag."
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Gebruik een apart subdomein voor marketing, bijvoorbeeld mail.jouwdomein.nl.",
+        "Gebruik een tweede subdomein voor transactionele mail, bijvoorbeeld send.jouwdomein.nl.",
+        "Draai een nieuw domein twee weken warm voordat je het volume opvoert.",
+        "Verwijder harde bounces meteen en houd klachten onder de 0,1 procent."
+      ]
+    },
+    {
+      "t": "quote",
+      "tekst": "De helft van e-mailmarketing is schrijven. De andere helft is aankomen. Die tweede helft krijgt bijna nooit aandacht.",
+      "bron": "FixedFlows, over bezorging"
+    },
+    {
+      "t": "link",
+      "titel": "Verder lezen: automatische segmentatie",
+      "tekst": "Relevante mail wordt minder vaak als spam gemarkeerd. Segmentatie is dus ook een bezorgingsmaatregel.",
+      "href": "service-automatische-segmentatie.html"
+    },
+    {
+      "t": "cta",
+      "titel": "Laat FixedFlows je records controleren",
+      "tekst": "Bij het koppelen van je domein genereren we de sleutels, tonen we welke records je moet zetten en controleren we automatisch of het klopt.",
+      "knop": "Probeer 14 dagen gratis",
+      "href": "app-account.html"
+    }
+  ]
+}

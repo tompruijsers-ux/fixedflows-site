@@ -1,0 +1,107 @@
+{
+  "slug": "cookies",
+  "soort": "juridisch",
+  "volgorde": 13,
+  "label": "Juridisch",
+  "titel": "Cookiebeleid",
+  "versie": "1.0",
+  "bijgewerkt": "21 augustus 2026",
+  "title": "Cookiebeleid — FixedFlows",
+  "description": "Welke cookies FixedFlows gebruikt, waarvoor, en hoe je je voorkeuren aanpast.",
+  "sub": "Welke cookies we gebruiken en hoe je ze uitzet.",
+  "intro": "We gebruiken zo min mogelijk cookies. Wat we plaatsen en waarom, staat hieronder.",
+  "body": [
+    {
+      "t": "h2",
+      "tekst": "Wat cookies zijn"
+    },
+    {
+      "t": "p",
+      "tekst": "Kleine bestandjes die een website op je apparaat zet. Sommige zijn nodig om de site te laten werken, andere niet. Voor die laatste groep vragen we vooraf toestemming."
+    },
+    {
+      "t": "h2",
+      "tekst": "Welke we plaatsen"
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Cookie",
+        "Waarvoor",
+        "Bewaartermijn",
+        "Toestemming"
+      ],
+      "rijen": [
+        [
+          "Sessie",
+          "Onthouden dat je bent ingelogd",
+          "7 dagen",
+          "Niet nodig"
+        ],
+        [
+          "Voorkeuren",
+          "Je gekozen weergave en instellingen onthouden",
+          "1 jaar",
+          "Niet nodig"
+        ],
+        [
+          "Beveiliging",
+          "Misbruik en geautomatiseerde aanvallen tegengaan",
+          "Sessie",
+          "Niet nodig"
+        ],
+        [
+          "Statistiek",
+          "Anoniem meten welke pagina's worden bezocht",
+          "1 jaar",
+          "Wel nodig"
+        ],
+        [
+          "Advertentiemeting",
+          "Meten of een advertentie tot een aanmelding leidde",
+          "90 dagen",
+          "Wel nodig"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "De eerste drie zijn noodzakelijk: zonder die cookies kun je niet inloggen of blijven je instellingen niet bewaard. Daarvoor is volgens de wet geen toestemming nodig. De laatste twee plaatsen we alleen als je daarmee akkoord gaat."
+    },
+    {
+      "t": "feit",
+      "titel": "Geen advertentienetwerken",
+      "tekst": "We plaatsen geen cookies van advertentienetwerken en verkopen geen gegevens aan derden. De advertentiemeting die we gebruiken vertelt ons alleen of een campagne aanmeldingen oplevert, niet wie je bent."
+    },
+    {
+      "t": "h2",
+      "tekst": "Je voorkeuren aanpassen"
+    },
+    {
+      "t": "p",
+      "tekst": "Bij je eerste bezoek vraagt een melding om je keuze. Je kunt die later altijd wijzigen via <b>Cookievoorkeuren</b> onderaan elke pagina. Weigeren kan met één klik; er zit geen verborgen knop achter."
+    },
+    {
+      "t": "p",
+      "tekst": "Je kunt cookies ook in je browser blokkeren of verwijderen. Blokkeer je de noodzakelijke cookies, dan werkt inloggen niet meer."
+    },
+    {
+      "t": "h2",
+      "tekst": "Cookies binnen het product"
+    },
+    {
+      "t": "p",
+      "tekst": "In de ingelogde omgeving gebruiken we alleen noodzakelijke cookies. Er wordt daar niet gemeten voor advertentiedoeleinden."
+    },
+    {
+      "t": "h2",
+      "tekst": "Vragen"
+    },
+    {
+      "t": "p",
+      "tekst": "Mail <a href=\"mailto:privacy@fixedflows.nl\">privacy@fixedflows.nl</a>. In onze <a href=\"privacy.html\">privacyverklaring</a> staat wat we verder met gegevens doen."
+    }
+  ],
+  "slotTitel": "Meer weten over je gegevens?",
+  "slotTekst": "In de privacyverklaring staat precies welke gegevens we verwerken en hoe lang we ze bewaren."
+}

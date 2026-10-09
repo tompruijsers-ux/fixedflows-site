@@ -1,0 +1,70 @@
+{
+  "volgorde": 2,
+  "slug": "google-ads",
+  "naam": "Google Ads",
+  "icoon": "doel",
+  "kort": "Direct zichtbaar bij de juiste zoekopdracht",
+  "title": "Google Ads beheer door FixedFlows | Diensten",
+  "description": "Wij zetten je Google Ads-campagnes op en beheren ze: zoekwoorden, advertenties, biedstrategie en landingspagina's. Gericht op een gezonde kosten-per-lead, niet op zoveel mogelijk klikken.",
+  "h1": "Google Ads",
+  "sub": "Bovenaan zodra iemand zoekt naar wat jij aanbiedt.",
+  "lede": "SEO kost tijd om op te bouwen; Google Ads levert vanaf dag één zichtbaarheid. Het risico is dat je budget wegloopt naar klikken die nooit klant worden. Wij bouwen campagnes die sturen op een gezonde kosten-per-lead, niet op een zo hoog mogelijk aantal klikken.",
+  "checks": [
+    "Campagnestructuur en zoekwoorden afgestemd op koopintentie",
+    "Advertentieteksten en extensies die opvallen tussen de concurrentie",
+    "Wekelijkse bijsturing op biedingen, budget en uitsluitingen"
+  ],
+  "voordelen": [
+    {
+      "t": "Budget naar wat werkt",
+      "d": "We volgen niet alleen kliks, maar welke zoekwoorden en advertenties daadwerkelijk tot een aanvraag of verkoop leiden, en sturen het budget daarheen."
+    },
+    {
+      "t": "Geen verspilling aan verkeerde zoekopdrachten",
+      "d": "Uitsluitingen worden actief bijgehouden, zodat je niet betaalt voor kliks van mensen die iets heel anders zoeken dan wat jij aanbiedt."
+    },
+    {
+      "t": "Landingspagina's die matchen met de advertentie",
+      "d": "Een klik die op een generieke homepagina landt, converteert nauwelijks. We adviseren over of bouwen gerichte landingspagina's die aansluiten op de zoekopdracht."
+    },
+    {
+      "t": "Transparante rapportage",
+      "d": "Je ziet precies wat er is uitgegeven, wat het heeft opgeleverd en wat de kosten per lead zijn — geen verzamelstatistieken die de werkelijke prestatie verbergen."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Opzetten",
+      "t": "Een structuur die schaalbaar is",
+      "d": "Campagnes en advertentiegroepen worden ingericht rond specifieke diensten of producten, zodat je later gericht kunt bijsturen in plaats van alles in één grote pot te gooien."
+    },
+    {
+      "k": "Testen",
+      "t": "Meerdere advertentieteksten tegelijk",
+      "d": "We laten meerdere varianten tegen elkaar draaien en houden wat werkt, in plaats van te gokken op één versie."
+    },
+    {
+      "k": "Bijsturen",
+      "t": "Wekelijks kijken naar wat het kost",
+      "d": "Biedingen, budgetten en zoekwoorden worden wekelijks bijgesteld op basis van de daadwerkelijke resultaten, niet één keer ingesteld en losgelaten."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Hoeveel advertentiebudget heb ik nodig?",
+      "a": "Dat hangt van je branche en concurrentie af. In het kennismakingsgesprek geven we een realistische inschatting voordat je iets vastlegt."
+    },
+    {
+      "v": "Is het beheer apart van het advertentiebudget?",
+      "a": "Ja. Het advertentiebudget gaat rechtstreeks naar Google; onze beheerkosten zijn daar los van, zodat je precies weet waar elk deel van je geld naartoe gaat."
+    },
+    {
+      "v": "Kan dit gekoppeld worden aan mijn leadmagnets in FixedFlows?",
+      "a": "Ja, we kunnen advertenties direct naar een leadmagnet-landingspagina sturen, zodat een klik meteen in je opvolgflow terechtkomt."
+    },
+    {
+      "v": "Wat is de looptijd van deze dienst?",
+      "a": "Maandelijks opzegbaar. Campagnes hebben doorgaans wel een paar weken nodig om voldoende data te verzamelen voor goede bijsturing."
+    }
+  ]
+}

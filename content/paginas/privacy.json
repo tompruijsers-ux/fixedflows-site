@@ -1,0 +1,269 @@
+{
+  "slug": "privacy",
+  "soort": "juridisch",
+  "volgorde": 10,
+  "label": "Juridisch",
+  "titel": "Privacyverklaring",
+  "versie": "1.0",
+  "bijgewerkt": "21 augustus 2026",
+  "title": "Privacyverklaring — FixedFlows",
+  "description": "Hoe FixedFlows omgaat met persoonsgegevens: welke gegevens we verwerken, waarom, hoe lang en welke rechten je hebt.",
+  "sub": "Wat we met je gegevens doen, waarom, en wat je daaraan kunt veranderen.",
+  "intro": "FixedFlows verwerkt persoonsgegevens. Deze verklaring legt uit welke, waarvoor, en welke rechten je hebt. We proberen dat in gewone taal te doen; waar een juridische term nodig is, leggen we hem uit.",
+  "body": [
+    {
+      "t": "feit",
+      "titel": "Belangrijk onderscheid",
+      "tekst": "Voor de gegevens van jou als klant zijn wij <b>verwerkingsverantwoordelijke</b> — wij bepalen wat ermee gebeurt. Voor de gegevens die jij met FixedFlows verwerkt, bijvoorbeeld de contacten van jouw klanten, zijn wij <b>verwerker</b> en ben jij verantwoordelijk. Daarvoor geldt de verwerkersovereenkomst."
+    },
+    {
+      "t": "h2",
+      "tekst": "Wie wij zijn"
+    },
+    {
+      "t": "p",
+      "tekst": "FixedFlows, gevestigd in Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 00000000. Voor privacyvragen: <a href=\"mailto:privacy@fixedflows.nl\">privacy@fixedflows.nl</a>."
+    },
+    {
+      "t": "h2",
+      "tekst": "Welke gegevens we verwerken"
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Soort gegevens",
+        "Wat dat concreet is",
+        "Waarom"
+      ],
+      "rijen": [
+        [
+          "Accountgegevens",
+          "Naam, e-mailadres, bedrijfsnaam, versleuteld wachtwoord",
+          "Om je account aan te maken en je te laten inloggen"
+        ],
+        [
+          "Gebruiksgegevens",
+          "Welke schermen je opent, welke functies je gebruikt, foutmeldingen",
+          "Om het product te verbeteren en storingen op te lossen"
+        ],
+        [
+          "Content",
+          "Posts, afbeeldingen, video's, schrijfstijl en instellingen",
+          "Om de dienst te kunnen leveren"
+        ],
+        [
+          "Koppelingsgegevens",
+          "Toegangstokens voor je social media accounts, versleuteld opgeslagen",
+          "Om namens jou te kunnen publiceren"
+        ],
+        [
+          "Contactgegevens",
+          "Wat je ons mailt of vertelt aan de telefoon",
+          "Om je vraag te beantwoorden"
+        ],
+        [
+          "Facturatiegegevens",
+          "Bedrijfsnaam, adres, btw-nummer, factuurhistorie",
+          "Wettelijke administratieplicht"
+        ],
+        [
+          "Technische gegevens",
+          "IP-adres, browser, tijdstip van inloggen",
+          "Beveiliging en misbruikpreventie"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Betaalgegevens zoals kaartnummers verwerken wij niet zelf. Die gaan rechtstreeks naar onze betaaldienstverlener; wij zien alleen of een betaling is gelukt en de laatste vier cijfers."
+    },
+    {
+      "t": "h2",
+      "tekst": "Op welke grondslag"
+    },
+    {
+      "t": "p",
+      "tekst": "De AVG vereist dat elke verwerking een grondslag heeft. Voor ons zijn dat er vier:"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "<b>Uitvoering van de overeenkomst.</b> Zonder je e-mailadres kunnen we geen account maken en zonder tokens niet publiceren.",
+        "<b>Gerechtvaardigd belang.</b> Beveiliging, misbruikpreventie en het verbeteren van het product op basis van gebruiksgegevens.",
+        "<b>Wettelijke verplichting.</b> Facturen bewaren we zeven jaar omdat de Belastingdienst dat eist.",
+        "<b>Toestemming.</b> Voor niet-noodzakelijke cookies en voor onze nieuwsbrief. Die toestemming kun je altijd intrekken."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "Hoe lang we gegevens bewaren"
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Gegevens",
+        "Bewaartermijn"
+      ],
+      "rijen": [
+        [
+          "Account en content",
+          "Zolang je account actief is, daarna dertig dagen"
+        ],
+        [
+          "Toestemmingslogboek",
+          "Vijf jaar na het intrekken van de toestemming"
+        ],
+        [
+          "Facturen en boekhouding",
+          "Zeven jaar, wettelijk verplicht"
+        ],
+        [
+          "Gebruiksgegevens",
+          "Vierentwintig maanden, daarna geaggregeerd"
+        ],
+        [
+          "Supportcontact",
+          "Twee jaar na het laatste contact"
+        ],
+        [
+          "Beveiligingslogs",
+          "Twaalf maanden"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Na het opzeggen van je abonnement blijft je data dertig dagen beschikbaar zodat je hem kunt exporteren. Daarna wordt hij verwijderd uit onze actieve systemen; uit reservekopieën verdwijnt hij binnen negentig dagen."
+    },
+    {
+      "t": "h2",
+      "tekst": "Met wie we gegevens delen"
+    },
+    {
+      "t": "p",
+      "tekst": "We verkopen je gegevens niet en gebruiken ze niet voor advertenties. We schakelen wel andere partijen in om de dienst te kunnen leveren. Met elk van hen hebben we een verwerkersovereenkomst."
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Partij",
+        "Waarvoor",
+        "Waar"
+      ],
+      "rijen": [
+        [
+          "Hostingpartij",
+          "Draaien van de applicatie en de database",
+          "Europese Unie"
+        ],
+        [
+          "Opslagdienst",
+          "Bewaren van foto's en video's",
+          "Europese Unie"
+        ],
+        [
+          "E-maildienst",
+          "Versturen van bevestigingen en meldingen",
+          "Europese Unie"
+        ],
+        [
+          "Betaaldienstverlener",
+          "Afhandelen van betalingen",
+          "Europese Unie"
+        ],
+        [
+          "AI-aanbieder",
+          "Genereren van teksten op jouw verzoek",
+          "Zie hieronder"
+        ],
+        [
+          "Social media platforms",
+          "Publiceren namens jou",
+          "Volgens hun eigen beleid"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Wanneer je de AI-assistent gebruikt, wordt je opdracht en je schrijfstijlprofiel naar de AI-aanbieder gestuurd om de tekst te genereren. Deze gegevens worden niet gebruikt om modellen te trainen. Vindt die verwerking buiten de EU plaats, dan gebeurt dat op basis van de standaardcontractbepalingen van de Europese Commissie."
+    },
+    {
+      "t": "tip",
+      "titel": "Let op bij het koppelen van kanalen",
+      "tekst": "Zodra je een social media account koppelt, geldt daarvoor ook het privacybeleid van dat platform. Wij krijgen alleen de rechten die je op het inlogscherm van dat platform zelf goedkeurt, en je kunt die toegang daar op elk moment intrekken."
+    },
+    {
+      "t": "h2",
+      "tekst": "Je rechten"
+    },
+    {
+      "t": "p",
+      "tekst": "Je hebt het recht op inzage, correctie, verwijdering, beperking van de verwerking, overdraagbaarheid van je gegevens en bezwaar tegen verwerking op grond van gerechtvaardigd belang. Ook kun je gegeven toestemming altijd intrekken."
+    },
+    {
+      "t": "stap",
+      "items": [
+        {
+          "k": "Stuur je verzoek",
+          "v": "Mail naar privacy@fixedflows.nl vanaf het adres waarmee je bent geregistreerd."
+        },
+        {
+          "k": "We controleren wie je bent",
+          "v": "Zo voorkomen we dat iemand anders jouw gegevens opvraagt. We vragen daarbij nooit om een kopie van je identiteitsbewijs."
+        },
+        {
+          "k": "Je krijgt binnen een maand antwoord",
+          "v": "Is je verzoek ingewikkeld, dan mogen we die termijn met twee maanden verlengen. We laten het je dan weten."
+        }
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Ben je het niet eens met hoe we je verzoek afhandelen, dan kun je een klacht indienen bij de <a href=\"https://autoriteitpersoonsgegevens.nl\">Autoriteit Persoonsgegevens</a>. We stellen het op prijs als je het eerst met ons probeert op te lossen."
+    },
+    {
+      "t": "h2",
+      "tekst": "Hoe we gegevens beveiligen"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Verkeer tussen jouw browser en onze servers loopt versleuteld via TLS.",
+        "Wachtwoorden worden gehasht opgeslagen en zijn nooit leesbaar, ook niet voor ons.",
+        "Toegangstokens voor je social media accounts worden versleuteld bewaard.",
+        "Gegevens van verschillende klanten zijn op databaseniveau van elkaar gescheiden.",
+        "Toegang van medewerkers is beperkt tot wat nodig is en wordt vastgelegd.",
+        "We maken dagelijks reservekopieën, versleuteld en binnen de EU."
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Bij een datalek met een risico voor jouw rechten melden we dat binnen 72 uur bij de Autoriteit Persoonsgegevens en informeren we jou zonder onnodige vertraging."
+    },
+    {
+      "t": "h2",
+      "tekst": "Geautomatiseerde besluitvorming"
+    },
+    {
+      "t": "p",
+      "tekst": "FixedFlows kent scores toe aan contacten in jouw werkruimte op basis van hun gedrag, bijvoorbeeld het openen van een e-mail. Die score is een hulpmiddel voor jou en heeft geen rechtsgevolgen voor de betrokkene. Er worden geen besluiten uitsluitend geautomatiseerd genomen."
+    },
+    {
+      "t": "h2",
+      "tekst": "Wijzigingen"
+    },
+    {
+      "t": "p",
+      "tekst": "Wanneer deze verklaring verandert, passen we de datum bovenaan aan. Bij ingrijpende wijzigingen laten we het je weten per e-mail, minimaal dertig dagen voordat ze ingaan."
+    },
+    {
+      "t": "cta",
+      "titel": "Vraag over je gegevens?",
+      "tekst": "Mail privacy@fixedflows.nl. Je krijgt antwoord van een mens, meestal binnen één werkdag.",
+      "knop": "Neem contact op",
+      "href": "contact.html"
+    }
+  ],
+  "slotTitel": "Ook een verwerkersovereenkomst nodig?",
+  "slotTekst": "Verwerk je met FixedFlows gegevens van jouw eigen klanten, dan is een verwerkersovereenkomst verplicht. Die staat klaar."
+}

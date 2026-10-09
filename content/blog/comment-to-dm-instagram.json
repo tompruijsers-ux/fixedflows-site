@@ -1,0 +1,124 @@
+{
+  "slug": "comment-to-dm-instagram",
+  "titel": "Van reactie naar klant: hoe comment-to-DM écht werkt",
+  "categorie": "Automatisering",
+  "datum": "2026-08-04",
+  "datumTekst": "4 augustus 2026",
+  "leestijd": "7 min",
+  "auteur": "Team FixedFlows",
+  "samenvatting": "Iedereen zet \"reageer met INFO\" onder een post. Bijna niemand haalt er iets uit. Dit is waar het misgaat en hoe je het wel goed inricht.",
+  "description": "Comment-to-DM op Instagram: hoe je van een reactie een e-mailadres maakt, wat Meta wel en niet toestaat, en de fouten die de meeste bedrijven maken.",
+  "kopjes": [
+    "Waarom de meeste comment-to-DM-flows leeglopen",
+    "Wat Meta wel en niet toestaat",
+    "De opzet die wél e-mailadressen oplevert"
+  ],
+  "cta": {
+    "tekst": "Probeer het zelf",
+    "href": "service-automatische-leads.html"
+  },
+  "body": [
+    {
+      "t": "p",
+      "tekst": "Je ziet het onder elke tweede post: <b>\"Reageer met INFO en ik stuur je de gids.\"</b> Het werkt, maar bij de meeste bedrijven levert het een handvol reacties op en verder niets. Het probleem zit zelden in de techniek. Het zit in wat er ná de reactie gebeurt."
+    },
+    {
+      "t": "h2",
+      "tekst": "Waarom de meeste flows leeglopen"
+    },
+    {
+      "t": "p",
+      "tekst": "Een reactie is geen lead. Het is een signaal dat iemand nieuwsgierig is, en die nieuwsgierigheid heeft een houdbaarheid van ongeveer twee minuten. Elke stap tussen die reactie en het moment dat je iets waardevols levert, kost je mensen."
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "De DM komt pas uren later, omdat iemand hem handmatig stuurt.",
+        "Het bericht vraagt meteen om een e-mailadres, zonder eerst iets te geven.",
+        "Er wordt niets gevraagd over de situatie van de persoon, dus iedereen krijgt dezelfde opvolging.",
+        "Na de levering van de gids gebeurt er niets meer."
+      ]
+    },
+    {
+      "t": "afb",
+      "bijschrift": "Een gesprek dat binnen enkele seconden start, houdt aanzienlijk meer mensen vast dan een handmatige reactie een uur later."
+    },
+    {
+      "t": "tip",
+      "titel": "Gebruik nooit twee keer hetzelfde trefwoord",
+      "tekst": "Zet onder elke post een ander woord: DAK, GIDS, START. Dan weet je precies welke post welke leads opleverde. Met één woord voor alles ben je die informatie kwijt en kun je niet optimaliseren."
+    },
+    {
+      "t": "h2",
+      "tekst": "Wat Meta wel en niet toestaat"
+    },
+    {
+      "t": "p",
+      "tekst": "Dit is waar veel accounts sneuvelen. De regel is simpel: de gebruiker moet het gesprek starten. Een reactie of een bericht telt als zo'n start. Ongevraagd mensen aanschrijven die niets deden, mag niet — en de handhaving daarop is streng."
+    },
+    {
+      "t": "feit",
+      "titel": "Het venster van 24 uur",
+      "tekst": "Na het laatste bericht van de gebruiker mag je 24 uur vrij communiceren. Daarna gelden strengere regels. Zorg dus dat je binnen dat venster een e-mailadres hebt, want e-mail heeft die beperking niet."
+    },
+    {
+      "t": "p",
+      "tekst": "Daarnaast eist Meta dat er altijd een weg naar een mens is. Een bot die blijft doorvragen zonder uitweg, komt niet door de beoordeling en irriteert je publiek. Bouw dus vanaf het begin een optie in om het gesprek over te dragen."
+    },
+    {
+      "t": "h2",
+      "tekst": "De opzet die wél e-mailadressen oplevert"
+    },
+    {
+      "t": "stap",
+      "items": [
+        {
+          "k": "Reageer binnen seconden",
+          "v": "Automatisch, niet handmatig. Snelheid van opvolgen is de sterkste voorspeller van conversie die er is."
+        },
+        {
+          "k": "Vraag eerst, lever daarna",
+          "v": "Stel één vraag met drie keuzes over waar iemand mee zit. Dat antwoord is meteen het segment."
+        },
+        {
+          "k": "Vraag pas dan om het e-mailadres",
+          "v": "Op dat moment heeft de persoon al twee keer iets ingevuld. De kans dat hij afhaakt is veel kleiner."
+        },
+        {
+          "k": "Bevestig via e-mail",
+          "v": "Stuur een bevestigingsmail en lever pas na bevestiging. Zo houd je een lijst over die ook echt bestaat."
+        },
+        {
+          "k": "Volg op per segment",
+          "v": "Wie \"zonnepanelen\" koos, krijgt een andere reeks dan wie \"thuisbatterij\" koos. Zelfde opbouw, andere inhoud."
+        }
+      ]
+    },
+    {
+      "t": "quote",
+      "tekst": "De vraag is niet hoeveel reacties je krijgt, maar hoeveel e-mailadressen. Dat verschil is waar het geld zit.",
+      "bron": "Uit een gesprek met een klant, mei 2026"
+    },
+    {
+      "t": "link",
+      "titel": "Verder lezen: automatische segmentatie",
+      "tekst": "Wat iemand zegt en wat iemand doet, zijn twee verschillende dingen. Zo laat je je segmenten meebewegen met gedrag.",
+      "href": "service-automatische-segmentatie.html"
+    },
+    {
+      "t": "h2",
+      "tekst": "Wat je hiervan meeneemt"
+    },
+    {
+      "t": "p",
+      "tekst": "Comment-to-DM is geen trucje maar het scharnierpunt tussen bereik en omzet. Wie het goed inricht, verandert een post die alleen likes opleverde in een reeks gesprekken met mensen die zelf hebben verteld waar ze mee zitten."
+    },
+    {
+      "t": "cta",
+      "titel": "Zet je eerste flow in twintig minuten op",
+      "tekst": "Koppel je Instagram-account, kies een trefwoord en laat FixedFlows de rest doen. Veertien dagen gratis, zonder betaalgegevens.",
+      "knop": "Probeer 14 dagen gratis",
+      "href": "app-account.html"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "volgorde": 1,
+  "slug": "contentkalender",
+  "naam": "Contentkalender",
+  "icoon": "kalender",
+  "kort": "Plannen, goedkeuren, publiceren",
+  "stap": 2,
+  "title": "Contentkalender voor social media plannen | FixedFlows",
+  "description": "Plan je posts vooruit in één kalender, laat je klant goedkeuren vanaf de telefoon en publiceer automatisch op acht kanalen.",
+  "h1": "Contentkalender",
+  "sub": "Alle kanalen, één overzicht, en publiceren dat vanzelf gebeurt.",
+  "lede": "Zolang je content in losse berichtjes en notities leeft, blijft publiceren iets wat erbij komt. In een kalender wordt het iets wat af is. Je ziet je maand als geheel, je klant kijkt mee, en publiceren doet zichzelf.",
+  "checks": [
+    "Acht kanalen naast elkaar in dezelfde maandweergave",
+    "Goedkeuring vanaf de telefoon, zonder dat je klant inlogt",
+    "Automatisch publiceren via de officiële koppelingen"
+  ],
+  "voordelen": [
+    {
+      "t": "Je maand in één blik",
+      "d": "Zie meteen waar de gaten vallen en of je niet drie keer hetzelfde onderwerp hebt staan."
+    },
+    {
+      "t": "Slepen en klaar",
+      "d": "Verplaats een post naar een andere dag of een ander kanaal. Formaten worden per kanaal gecontroleerd."
+    },
+    {
+      "t": "Goedkeuren zonder gedoe",
+      "d": "Je klant krijgt een link, keurt goed of af met reden, en hoeft nergens een account voor aan te maken."
+    },
+    {
+      "t": "Publiceren op tijd",
+      "d": "Posts gaan live op het ingestelde moment. Hapert een koppeling, dan hoor je het voordat de post gemist wordt."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Overzicht",
+      "t": "Een kalender die je team ook echt gebruikt",
+      "d": "Maand-, week- en lijstweergave, met een kleur per kanaal en per status. Concepten, wat op goedkeuring wacht en wat gepland staat, zichtbaar in hetzelfde beeld. Geen apart bestand, geen tweede plek waar de waarheid staat."
+    },
+    {
+      "k": "Samenwerken",
+      "t": "Goedkeuren waar het gebeurt",
+      "d": "Je klant klikt op een link en ziet de post zoals die er op het kanaal uit gaat zien. Goedkeuren of afkeuren met reden, vanaf de telefoon. Opmerkingen blijven bij de post staan, zodat je niet in een mailwisseling belandt over versie drie."
+    },
+    {
+      "k": "Publiceren",
+      "t": "De laatste stap doet zichzelf",
+      "d": "Op het ingestelde moment gaat de post live via de officiële API van het kanaal. Waar automatisch publiceren niet mag — Facebook-groepen, stories — krijg je een melding op je telefoon en plaats je met één tik."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Welke kanalen kan ik koppelen?",
+      "a": "Facebook, Instagram, LinkedIn, TikTok, X, Pinterest, Threads en YouTube. Per kanaal staat op de kanaalpagina precies wat er automatisch kan en wat niet."
+    },
+    {
+      "v": "Kan mijn klant meekijken zonder licentie?",
+      "a": "Ja. Meekijken en goedkeuren kost niets — je betaalt per merk, niet per gebruiker."
+    },
+    {
+      "v": "Kan ik posts in bulk inplannen?",
+      "a": "Ja, vanaf het pakket Groei. Je selecteert meerdere posts en verplaatst, dupliceert of stuurt ze in één keer ter goedkeuring."
+    },
+    {
+      "v": "Hoe ver vooruit kan ik plannen?",
+      "a": "Onbeperkt. Bij Pinterest en seizoensgebonden campagnes is maanden vooruit plannen zelfs aan te raden."
+    },
+    {
+      "v": "Wat als een post mislukt?",
+      "a": "Je krijgt direct een melding met de reden, en de post blijft klaarstaan zodat je hem opnieuw kunt inplannen zodra het probleem verholpen is."
+    }
+  ]
+}

@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Contentkalender — FixedFlows</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script src="app-sessie.js"></script>
+<script>
+  // Afscherming: zonder geldige sessie kom je hier niet binnen.
+  if (!window.Sessie.huidige()) {
+    window.location.replace('app-login.html?terug=app-kalender.html');
+  }
+</script>
+<style>
+body{background:var(--bg);overflow:hidden}
+.app{display:grid;grid-template-columns:236px minmax(0,1fr);height:100vh}
+body.met-rail{padding-left:0}
+body.met-rail .app{margin-left:66px}
+@media(max-width:760px){body.met-rail .app{margin-left:0}}
+
+/* ---------------- zijbalk ---------------- */
+.zij{background:var(--ink);color:#fff;display:flex;flex-direction:column;padding:18px 15px 16px;gap:20px;overflow-y:auto}
+.zij .logo{color:#fff;font-size:20px}
+.zij h5{font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-size:11px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:#6E7A9B;margin-bottom:9px}
+.zij-nav a{display:block;padding:8px 11px;border-radius:9px;font-size:14.5px;font-weight:500;color:#B7C1D8;cursor:pointer}
+.zij-nav a.on{background:rgba(255,255,255,.1);color:#fff;font-weight:600}
+.zij-nav a:hover{color:#fff}
+
+.rolkies{background:rgba(255,255,255,.07);border-radius:11px;padding:11px}
+.rolkies .rij{display:flex;gap:4px;background:rgba(0,0,0,.25);border-radius:8px;padding:3px;margin-top:8px}
+.rolkies button{flex:1;border:none;background:none;color:#9AA6C2;font-family:inherit;font-size:12.5px;font-weight:600;
+  padding:7px 5px;border-radius:6px;cursor:pointer}
+.rolkies button.on{background:var(--purple);color:#fff}
+.rolkies p{font-size:11.5px;color:#8B97B5;line-height:1.45;margin-top:9px}
+.wieben{border-top:1px solid rgba(255,255,255,.12);margin-top:11px;padding-top:10px;color:#B7C1D8!important}
+.wieben b{display:block;color:#fff;font-weight:600;font-size:12.5px}
+
+.wachtrij{background:var(--purple);border-radius:11px;padding:12px;cursor:pointer;border:none;width:100%;
+  text-align:left;font-family:inherit;color:#fff}
+.wachtrij[hidden]{display:none}
+.wachtrij b{display:block;font-size:14px;margin-bottom:3px}
+.wachtrij span{font-size:12px;color:#E2D9FB}
+
+.filt{display:flex;flex-direction:column;gap:1px}
+.filt label{display:flex;align-items:center;gap:9px;padding:6px 9px;border-radius:7px;font-size:13.5px;color:#B7C1D8;cursor:pointer}
+.filt label:hover{background:rgba(255,255,255,.06)}
+.filt input{accent-color:var(--purple-mid);width:14px;height:14px;cursor:pointer}
+.filt i{width:9px;height:9px;border-radius:3px;display:block}
+.zij-onder{margin-top:auto;display:flex;flex-direction:column;gap:9px}
+.zij-knop{width:100%;background:rgba(255,255,255,.1);color:#fff;border:none;border-radius:9px;padding:10px;
+  font-family:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.zij-knop:hover{background:rgba(255,255,255,.16)}
+
+/* ---------------- balk ---------------- */
+.hoofd{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.balk{display:flex;align-items:center;gap:12px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.maandnav{display:flex;align-items:center;gap:4px}
+.maandnav button{border:1px solid var(--line);background:#fff;width:32px;height:32px;border-radius:9px;
+  font-size:17px;color:var(--ink-2);cursor:pointer;line-height:1}
+.maandnav button:hover{border-color:var(--ink-3)}
+.maandnav h1{font-size:20px;font-weight:700;letter-spacing:-.03em;min-width:186px;text-align:center;margin:0 4px}
+.vandaagknop{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 14px;font-family:inherit;
+  font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.vandaagknop:hover{border-color:var(--ink-3)}
+.tel{font-size:13.5px;color:var(--ink-3)}
+.balk-rechts{margin-left:auto;display:flex;align-items:center;gap:10px}
+.schakel{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-2);cursor:pointer;user-select:none}
+.schakel input{accent-color:var(--purple);width:15px;height:15px;cursor:pointer}
+.seg2{display:flex;background:var(--bg);border-radius:9px;padding:3px}
+.seg2 button{border:none;background:none;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--ink-3);
+  padding:7px 14px;border-radius:7px;cursor:pointer}
+.seg2 button.on{background:#fff;color:var(--ink);box-shadow:0 1px 2px rgba(10,36,71,.12)}
+.werkvlak{flex:1;overflow:auto;padding:20px 22px 40px}
+
+/* ---------------- maandraster ---------------- */
+.raster{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:720px}
+.r-kop,.r-wk{display:grid}
+.r-kop{background:#FBFCFE;border-bottom:1px solid var(--line-soft)}
+.r-kop span{padding:11px 0;text-align:center;font-size:11px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3)}
+.r-wk{border-bottom:1px solid var(--line-soft)}
+.r-wk:last-child{border-bottom:none}
+.dag{min-height:118px;border-right:1px solid var(--line-soft);padding:6px 6px 8px;position:relative;
+  transition:background .12s ease;overflow-y:auto}
+.dag:last-child{border-right:none}
+.dag::-webkit-scrollbar{width:5px}
+.dag::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+.dag.buiten{background:#FAFBFD}
+.dag.buiten .dnr{color:#B4BCD0}
+.dag.weekend{background:#FCFDFE}
+.dag.over{background:var(--purple-soft);box-shadow:inset 0 0 0 2px var(--purple)}
+.dnr{font-size:11.5px;font-weight:600;color:var(--ink-3);display:inline-block;padding:2px 6px;border-radius:6px;margin-bottom:5px}
+.dag.nu .dnr{background:var(--ink);color:#fff}
+.plus{position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:7px;border:1px dashed var(--line);
+  background:#fff;color:var(--ink-3);font-size:14px;line-height:1;cursor:pointer;opacity:0;transition:opacity .12s ease}
+.dag:hover .plus{opacity:1}
+.plus:hover{border-color:var(--purple);color:var(--purple)}
+
+.kaart{border:1px solid var(--line-soft);border-radius:9px;padding:6px 7px;margin-bottom:5px;background:#fff;
+  cursor:grab;display:flex;gap:7px;align-items:flex-start;transition:box-shadow .14s ease,transform .14s ease}
+.kaart:hover{box-shadow:0 6px 16px -8px rgba(10,36,71,.45);transform:translateY(-1px)}
+.kaart.sleep{opacity:.4}
+.mini-med{width:24px;height:24px;border-radius:6px;flex:none;background-size:cover;background-position:center;position:relative}
+.mini-med.film::after{content:"";position:absolute;left:52%;top:50%;transform:translate(-50%,-50%);
+  border-left:6px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent}
+.kaart .tx{min-width:0;flex:1}
+.kaart .tijd{font-size:10px;font-weight:600;color:var(--ink-3);display:block}
+.kaart .tit{font-size:11.5px;font-weight:600;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;
+  -webkit-box-orient:vertical;overflow:hidden}
+.kaart.s-concept{border-left:3px solid var(--line);border-style:dashed;background:#FAFBFD}
+.kaart.s-review{border-left:3px solid var(--purple);background:#FBF9FF}
+.kaart.s-afgekeurd{border-left:3px solid #C4453A;background:#FDF5F4}
+.kaart.s-gepland{border-left:3px solid var(--marine)}
+.kaart.s-live{border-left:3px solid #1B8A5A;background:#F4FBF7}
+
+/* ---------------- weekweergave ---------------- */
+.week{display:grid;gap:12px;min-width:820px}
+.wkol{background:#fff;border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;overflow:hidden}
+.wkol-kop{padding:11px 13px;border-bottom:1px solid var(--line-soft);background:#FBFCFE;display:flex;align-items:baseline;gap:7px}
+.wkol-kop b{font-size:13.5px}
+.wkol-kop i{font-style:normal;font-size:12px;color:var(--ink-3)}
+.wkol-kop em{font-style:normal;margin-left:auto;font-size:11px;color:var(--ink-3);font-weight:600}
+.wkol.nu .wkol-kop{background:var(--purple-soft)}
+.wkol-body{padding:10px;display:flex;flex-direction:column;gap:8px;min-height:300px;flex:1;transition:background .12s ease}
+.wkol-body.over{background:var(--purple-soft);box-shadow:inset 0 0 0 2px var(--purple)}
+.wkaart{border:1px solid var(--line-soft);border-radius:11px;background:#fff;cursor:grab;overflow:hidden;
+  transition:box-shadow .14s ease,transform .14s ease}
+.wkaart:hover{box-shadow:0 8px 20px -10px rgba(10,36,71,.45);transform:translateY(-1px)}
+.wkaart.sleep{opacity:.4}
+.wmedia{width:100%;height:96px;background-size:cover;background-position:center;background-color:var(--bg-2);position:relative}
+.wmedia.film::after{content:"";position:absolute;left:52%;top:50%;transform:translate(-50%,-50%);
+  border-left:13px solid rgba(255,255,255,.92);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.wbody{padding:11px 12px}
+.wk-top{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.wk-top .kl{width:18px;height:18px;border-radius:5px;flex:none}
+.wk-top .tijd{font-size:11.5px;font-weight:600;color:var(--ink-3)}
+.wkaart b{display:block;font-size:14px;font-weight:600;line-height:1.3;margin-bottom:4px}
+.wkaart p{font-size:12.5px;color:var(--ink-2);line-height:1.45;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.wkol-leeg{border:1.5px dashed var(--line);border-radius:10px;padding:14px 12px;text-align:center;
+  font-size:12.5px;color:var(--ink-3);cursor:pointer}
+.wkol-leeg:hover{border-color:var(--purple);color:var(--purple)}
+
+/* ---------------- lijst ---------------- */
+.lijst{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:700px}
+.lr{display:grid;grid-template-columns:42px 1.7fr .8fr 1fr 1fr 92px;gap:14px;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--line-soft);font-size:14px}
+.lr:last-child{border-bottom:none}
+.lr.kop{background:#FBFCFE;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3);font-weight:600}
+.lr .mini-med{width:30px;height:30px;border-radius:8px}
+.badge{font-size:11px;font-weight:600;padding:4px 10px;border-radius:999px;display:inline-block}
+.b-concept{background:var(--bg-2);color:var(--ink-3)}
+.b-review{background:var(--purple-soft);color:#4A2BA8}
+.b-afgekeurd{background:#FBE9E7;color:#9C332A}
+.b-gepland{background:#E7EDF8;color:var(--marine)}
+.b-live{background:#E3F3EA;color:#12694A}
+.mini{border:1px solid var(--line);background:#fff;border-radius:7px;padding:5px 10px;font-family:inherit;
+  font-size:12.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.mini:hover{border-color:var(--ink-3)}
+.leeg{padding:60px 20px;text-align:center;color:var(--ink-3)}
+
+/* ---------------- paneel ---------------- */
+.paneel{position:fixed;top:0;right:0;bottom:0;width:470px;max-width:100%;background:#fff;border-left:1px solid var(--line);
+  box-shadow:-24px 0 60px -30px rgba(10,36,71,.5);transform:translateX(100%);
+  transition:transform .22s cubic-bezier(.3,.8,.4,1);z-index:120;display:flex;flex-direction:column}
+.paneel.open{transform:none}
+.p-kop{display:flex;align-items:center;gap:12px;padding:17px 22px;border-bottom:1px solid var(--line)}
+.p-kop h3{font-size:17px;font-weight:700}
+.p-sluit{margin-left:auto;border:none;background:var(--bg);width:32px;height:32px;border-radius:9px;
+  font-size:17px;color:var(--ink-2);cursor:pointer;line-height:1}
+.p-body{flex:1;overflow-y:auto;padding:20px 22px;display:flex;flex-direction:column;gap:17px}
+
+.statusbalk{display:flex;flex-direction:column;gap:3px;padding:12px 14px;border-radius:11px;background:var(--bg);font-size:13.5px}
+.statusbalk.review{background:var(--purple-soft);color:#4A2BA8}
+.statusbalk.afgekeurd{background:#FBE9E7;color:#9C332A}
+.statusbalk.gepland{background:#E7EDF8;color:var(--marine)}
+.statusbalk.live{background:#E3F3EA;color:#12694A}
+.statusbalk b{font-weight:600}
+
+.veld{display:flex;flex-direction:column;gap:7px}
+.veld label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.veld input,.veld select,.veld textarea{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;
+  border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;width:100%}
+.veld textarea{min-height:120px;resize:vertical;line-height:1.5}
+.veld input:focus,.veld select:focus,.veld textarea:focus{outline:none;border-color:var(--purple)}
+.veld input:disabled,.veld textarea:disabled{background:var(--bg);color:var(--ink-3);cursor:not-allowed}
+.veld .hint{font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.keuze{display:flex;gap:7px;flex-wrap:wrap}
+.keuze button{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:9px 13px;font-family:inherit;
+  font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:7px}
+.keuze button.on{border-color:var(--purple);background:var(--purple-soft);color:#4A2BA8}
+.keuze button:disabled{opacity:.45;cursor:not-allowed}
+.keuze i{width:10px;height:10px;border-radius:3px;display:block}
+.telop{font-size:12.5px;color:var(--ink-3);text-align:right}
+.telop.veel{color:#B0342A;font-weight:600}
+
+.mediavak{border:1.5px dashed var(--line);border-radius:12px;padding:22px 16px;text-align:center;cursor:pointer;
+  transition:border-color .15s ease,background .15s ease}
+.mediavak:hover,.mediavak.over{border-color:var(--purple);background:var(--purple-soft)}
+.mediavak b{display:block;font-size:14px;font-weight:600;margin-bottom:4px}
+.mediavak span{font-size:12.5px;color:var(--ink-3)}
+.mediavoor{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--bg-2)}
+.mediavoor img,.mediavoor video{width:100%;display:block;max-height:260px;object-fit:cover}
+.mediavoor .weg{position:absolute;top:8px;right:8px;border:none;background:rgba(10,14,24,.72);color:#fff;
+  width:28px;height:28px;border-radius:8px;font-size:15px;cursor:pointer;line-height:1}
+.medianaam{font-size:12px;color:var(--ink-3);margin-top:7px;word-break:break-all}
+
+.tijden{display:flex;gap:6px;flex-wrap:wrap;margin-top:-6px}
+.tijden button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 11px;font-family:inherit;
+  font-size:12.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.tijden button:hover{border-color:var(--purple);color:var(--purple)}
+
+.log{display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line-soft);padding-top:16px}
+.log h4{font-size:12.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.log-rij{display:flex;gap:10px;font-size:13px;color:var(--ink-2);line-height:1.45}
+.log-rij i{font-style:normal;width:7px;height:7px;border-radius:50%;background:var(--line);flex:none;margin-top:6px}
+.log-rij em{font-style:normal;color:var(--ink-3);font-size:12px;display:block}
+
+.p-voet{border-top:1px solid var(--line);padding:14px 22px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.p-voet .btn{padding:11px 18px;font-size:14.5px}
+.btn-groen{background:#1B8A5A;color:#fff}
+.btn-groen:hover{background:#157048}
+.btn-rood{background:#fff;color:#B0342A;border:1.5px solid #E8C6C2}
+.btn-rood:hover{border-color:#B0342A}
+.verwijder{margin-right:auto;border:none;background:none;font-family:inherit;font-size:13.5px;font-weight:600;
+  color:#B0342A;cursor:pointer;padding:8px 0}
+.dek{position:fixed;inset:0;background:rgba(10,14,24,.32);opacity:0;visibility:hidden;
+  transition:opacity .2s ease,visibility .2s;z-index:110}
+.dek.open{opacity:1;visibility:visible}
+
+.koppel-dek{position:fixed;inset:0;background:rgba(10,14,24,.42);opacity:0;visibility:hidden;
+  transition:opacity .2s ease,visibility .2s;z-index:150;backdrop-filter:blur(2px)}
+.koppel-dek.open{opacity:1;visibility:visible}
+.koppel{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.97);background:#fff;border-radius:22px;
+  padding:34px 34px 26px;width:min(660px,94vw);max-height:88vh;overflow-y:auto;z-index:160;opacity:0;visibility:hidden;
+  transition:all .24s cubic-bezier(.3,.8,.4,1);box-shadow:0 40px 90px -40px rgba(10,36,71,.6)}
+.koppel.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.koppel h3{font-size:23px;font-weight:700;letter-spacing:-.03em;margin-bottom:9px;padding-right:34px}
+.koppel > p{font-size:15.5px;color:var(--ink-2);line-height:1.55;margin-bottom:24px}
+.koppel-sluit{position:absolute;top:22px;right:22px;border:none;background:var(--bg);width:32px;height:32px;
+  border-radius:9px;font-size:18px;color:var(--ink-2);cursor:pointer;line-height:1}
+.koppel-raster{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:12px}
+.kp{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:20px 16px;cursor:pointer;
+  font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:9px;transition:all .15s ease;position:relative}
+.kp:hover{border-color:var(--purple);transform:translateY(-2px)}
+.kp.on{border-color:var(--purple);background:var(--purple-soft)}
+.kp svg{width:26px;height:26px}
+.kp b{font-size:15px;font-weight:600}
+.kp span{font-size:12px;color:var(--ink-3);text-align:center;line-height:1.35}
+.kp .aan{position:absolute;top:10px;right:10px;width:19px;height:19px;border-radius:50%;background:var(--purple);
+  display:none;place-items:center}
+.kp.on .aan{display:grid}
+.kp .aan svg{width:9px;height:9px}
+.koppel-voet{display:flex;align-items:center;gap:14px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line-soft)}
+.koppel-voet span{font-size:14px;color:var(--ink-3)}
+.koppel-voet .btn{margin-left:auto}
+
+.leegstaat{padding:70px 24px;text-align:center;background:#fff;border:1.5px dashed var(--line);border-radius:16px}
+.leegstaat b{display:block;font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-size:21px;font-weight:700;
+  letter-spacing:-.03em;margin-bottom:9px}
+.leegstaat p{font-size:15.5px;color:var(--ink-2);max-width:38em;margin:0 auto 22px;line-height:1.55}
+
+.melding{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(14px);background:var(--ink);color:#fff;
+  font-size:14.5px;font-weight:500;padding:13px 22px;border-radius:999px;opacity:0;transition:all .22s ease;
+  z-index:200;pointer-events:none;box-shadow:0 14px 34px -16px rgba(0,0,0,.6);max-width:90vw;text-align:center}
+.melding.zie{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:980px){
+  .app{grid-template-columns:1fr}
+  .zij{display:none}
+  .werkvlak{padding:14px}
+  .maandnav h1{min-width:0;font-size:17px}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="zij">
+    <a href="app-home.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 27 27" fill="none" aria-hidden="true">
+        <rect width="27" height="27" rx="7.5" fill="#6B44DE"/>
+        <path d="M6 17c2.7 0 2.7-7.4 5.4-7.4S14.1 17 16.8 17s2.7-4.2 3.7-4.2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      FixedFlows
+    </a>
+
+    <div class="rolkies">
+      <h5 style="margin:0">Ingelogd als</h5>
+      <div class="rij" role="group" aria-label="Rol">
+        <button type="button" data-rol="eigenaar" class="on">Eigenaar</button>
+        <button type="button" data-rol="creator">Contentcreator</button>
+      </div>
+      <p id="roltekst"></p>
+      <p class="wieben" id="wieben"></p>
+    </div>
+
+    <button type="button" class="wachtrij" id="wachtrij" hidden>
+      <b id="wachtrij-n">0 wachten op jou</b>
+      <span>Bekijk wat er klaarstaat &rarr;</span>
+    </button>
+
+    <div>
+      <h5>Werkruimte</h5>
+      <nav class="zij-nav">
+        <a class="on">Contentkalender</a>
+        <a>Gesprekken</a>
+        <a>E-mailflows</a>
+        <a>Segmenten</a>
+        <a>Rapportage</a>
+      </nav>
+    </div>
+
+    <div>
+      <h5>Kanalen</h5>
+      <div class="filt" id="filt-kanaal"></div>
+    </div>
+
+    <div>
+      <h5>Status</h5>
+      <div class="filt" id="filt-status"></div>
+    </div>
+
+    <div class="zij-onder">
+      <button type="button" class="zij-knop" id="knop-koppel">Kanalen koppelen</button>
+      <button type="button" class="zij-knop" id="knop-uit">Uitloggen</button>
+      <button type="button" class="zij-knop" id="knop-ai">Vul lege dagen met AI</button>
+      <button type="button" class="zij-knop" id="knop-leeg">Voorbeelddata laden</button>
+    </div>
+  </aside>
+
+  <main class="hoofd">
+    <header class="balk">
+      <div class="maandnav">
+        <button type="button" id="m-vorig" aria-label="Vorige">&lsaquo;</button>
+        <h1 id="m-titel">&mdash;</h1>
+        <button type="button" id="m-volgend" aria-label="Volgende">&rsaquo;</button>
+      </div>
+      <button type="button" class="vandaagknop" id="m-vandaag">Vandaag</button>
+      <span class="tel" id="teller"></span>
+
+      <div class="balk-rechts">
+        <label class="schakel"><input type="checkbox" id="weekend"> Weekend</label>
+        <div class="seg2" role="group" aria-label="Weergave">
+          <button type="button" class="on" data-weergave="maand">Maand</button>
+          <button type="button" data-weergave="week">Week</button>
+          <button type="button" data-weergave="lijst">Lijst</button>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="knop-nieuw">+ Nieuwe post</button>
+      </div>
+    </header>
+
+    <div class="werkvlak" id="werkvlak"></div>
+  </main>
+</div>
+
+<div class="dek" id="dek"></div>
+
+<aside class="paneel" id="paneel" aria-hidden="true">
+  <div class="p-kop">
+    <h3 id="p-titel">Post bewerken</h3>
+    <button type="button" class="p-sluit" id="p-sluit" aria-label="Sluiten">&times;</button>
+  </div>
+
+  <div class="p-body">
+    <div class="statusbalk" id="p-status"></div>
+
+    <div class="veld">
+      <label for="f-titel">Titel</label>
+      <input id="f-titel" type="text" placeholder="Waar gaat de post over?">
+    </div>
+
+    <div class="veld">
+      <label>Foto of video</label>
+      <div id="media-leeg" class="mediavak">
+        <b>Sleep een bestand hierheen</b>
+        <span>of klik om te kiezen &middot; jpg, png of mp4</span>
+      </div>
+      <div id="media-voor" class="mediavoor" hidden></div>
+      <p class="medianaam" id="media-naam" hidden></p>
+      <input type="file" id="f-bestand" accept="image/*,video/*" hidden>
+    </div>
+
+    <div class="veld">
+      <label>Kanaal</label>
+      <div class="keuze" id="f-kanaal"></div>
+    </div>
+
+    <div class="duo">
+      <div class="veld">
+        <label for="f-datum">Datum</label>
+        <input id="f-datum" type="date">
+      </div>
+      <div class="veld">
+        <label for="f-tijd">Tijdstip</label>
+        <input id="f-tijd" type="time" value="09:00">
+      </div>
+    </div>
+    <div class="tijden" id="f-snel"></div>
+
+    <div class="veld">
+      <label for="f-tekst">Bericht</label>
+      <textarea id="f-tekst" placeholder="Schrijf je bericht."></textarea>
+      <span class="telop" id="f-telop">0 tekens</span>
+    </div>
+
+    <div class="veld">
+      <label for="f-trefwoord">Trefwoord voor automatisch gesprek</label>
+      <input id="f-trefwoord" type="text" placeholder="Bijv. ZON" maxlength="20">
+      <span class="hint">Reageert iemand met dit woord onder de post, dan start de flow. Gebruik per post een ander woord.</span>
+    </div>
+
+    <div class="veld" id="vak-reden" hidden>
+      <label for="f-reden">Reden van afkeuring</label>
+      <textarea id="f-reden" style="min-height:80px" placeholder="Wat moet er anders?"></textarea>
+    </div>
+
+    <div class="log" id="p-log"></div>
+  </div>
+
+  <div class="p-voet" id="p-voet"></div>
+</aside>
+
+<div class="koppel-dek" id="koppel-dek"></div>
+<div class="koppel" id="koppel" role="dialog" aria-modal="true" aria-labelledby="koppel-titel">
+  <button type="button" class="koppel-sluit" id="koppel-sluit" aria-label="Sluiten">&times;</button>
+  <h3 id="koppel-titel">Koppel eerst een social media profiel</h3>
+  <p>Je hebt minimaal &eacute;&eacute;n profiel nodig voordat je kunt plannen. Je logt in bij het platform zelf en keurt daar goed welke rechten FixedFlows krijgt.</p>
+  <div class="koppel-raster" id="koppel-raster"></div>
+  <div class="koppel-voet">
+    <span id="koppel-tel">Nog geen profielen gekoppeld</span>
+    <button type="button" class="btn btn-primary" id="koppel-klaar" disabled>Doorgaan</button>
+  </div>
+</div>
+
+<div class="melding" id="melding" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var KANALEN = [
+    { id: 'facebook',  naam: 'Facebook',  soort: 'Bedrijfspagina',     kleur: '#0F3568', limiet: 5000 },
+    { id: 'instagram', naam: 'Instagram', soort: 'Zakelijk of creator', kleur: '#6B44DE', limiet: 2200 },
+    { id: 'tiktok',    naam: 'TikTok',    soort: 'Zakelijk of creator', kleur: '#111111', limiet: 2200 },
+    { id: 'linkedin',  naam: 'LinkedIn',  soort: 'Pagina of profiel',   kleur: '#3B82C4', limiet: 3000 },
+    { id: 'x',         naam: 'X',         soort: 'Profiel',             kleur: '#111111', limiet: 280  },
+    { id: 'pinterest', naam: 'Pinterest', soort: 'Zakelijk account',    kleur: '#C4453A', limiet: 500  },
+    { id: 'threads',   naam: 'Threads',   soort: 'Via Instagram',       kleur: '#111111', limiet: 500  },
+    { id: 'youtube',   naam: 'YouTube',   soort: 'Kanaal',              kleur: '#C4453A', limiet: 5000 }
+  ];
+
+  var STATUS = {
+    concept:   { naam: 'Concept',              uitleg: 'Nog niet ingediend.' },
+    review:    { naam: 'Wacht op goedkeuring', uitleg: 'Ingediend bij de eigenaar.' },
+    afgekeurd: { naam: 'Afgekeurd',            uitleg: 'Pas aan en dien opnieuw in.' },
+    gepland:   { naam: 'Goedgekeurd',          uitleg: 'Gaat automatisch live op het gekozen moment.' },
+    live:      { naam: 'Gepubliceerd',         uitleg: 'Staat online.' }
+  };
+
+  var DAGNAAM = ['maandag','dinsdag','woensdag','donderdag','vrijdag','zaterdag','zondag'];
+  var DAGKORT = ['ma','di','wo','do','vr','za','zo'];
+  var MAANDNAAM = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+  var SNELTIJDEN = ['08:30','09:00','12:00','17:00','19:30'];
+
+  var ZAAD = [
+    { d:  1, tijd: '09:00', kanaal: 'instagram', status: 'gepland', titel: '18 panelen in Zeist', tekst: 'Deze week 18 panelen op een jaren-30 woning. Van schouw tot oplevering in \u00e9\u00e9n dag.', trefwoord: '' },
+    { d:  3, tijd: '08:30', kanaal: 'linkedin',  status: 'gepland', titel: 'Salderen verandert', tekst: 'Wat de nieuwe regeling betekent voor je terugverdientijd, in gewone taal.', trefwoord: 'GIDS' },
+    { d:  5, tijd: '17:00', kanaal: 'facebook',  status: 'gepland', titel: 'Anja\u2019s eerste jaar', tekst: 'Anja uit Bilthoven over haar eerste jaar met panelen: van 280 naar 40 euro per maand.', trefwoord: '' },
+    { d:  8, tijd: '08:30', kanaal: 'linkedin',  status: 'gepland', titel: 'Monteurs aan het werk', tekst: 'Even voorstellen: het team dat jouw installatie verzorgt.', trefwoord: '' },
+    { d:  9, tijd: '12:00', kanaal: 'instagram', status: 'review',  titel: 'Voor & na: 14 panelen', tekst: 'Zelfde dak, andere energierekening. Swipe voor het resultaat.', trefwoord: 'ACCU' },
+    { d: 11, tijd: '11:00', kanaal: 'instagram', status: 'gepland', titel: 'Panelen schoonmaken', tekst: 'Vuile panelen leveren tot 15 procent minder op. Twee keer per jaar is genoeg.', trefwoord: '' },
+    { d: 12, tijd: '09:00', kanaal: 'linkedin',  status: 'review',  titel: 'Vacature installateur', tekst: 'We zoeken versterking. Ervaring met omvormers is een pre.', trefwoord: '' },
+    { d: 15, tijd: '09:00', kanaal: 'facebook',  status: 'review',  titel: 'Thuisbatterij-actie', tekst: 'Deze maand geen installatiekosten bij een thuisbatterij.', trefwoord: 'BATTERIJ' },
+    { d: 17, tijd: '08:30', kanaal: 'linkedin',  status: 'gepland', titel: 'Zo verloopt een schouw', tekst: 'Wat we op je dak bekijken voordat we een offerte maken.', trefwoord: '' },
+    { d: 18, tijd: '10:00', kanaal: 'instagram', status: 'concept', titel: 'Reageer met ZON', tekst: 'Gratis gids: de vijf meest gemaakte fouten bij zonnepanelen. Reageer met ZON.', trefwoord: 'ZON' },
+    { d: 19, tijd: '16:00', kanaal: 'instagram', status: 'gepland', titel: 'Gratis opbrengstcheck', tekst: 'Twijfel je of je panelen nog genoeg opleveren? We meten het gratis na.', trefwoord: 'CHECK' },
+    { d: 22, tijd: '10:00', kanaal: 'instagram', status: 'gepland', titel: 'Opbrengst per seizoen', tekst: 'Waarom je panelen in mei meer opleveren dan in juli. Met cijfers.', trefwoord: '' },
+    { d: 24, tijd: '08:30', kanaal: 'linkedin',  status: 'gepland', titel: 'Case: 24 panelen', tekst: 'Van offerte tot oplevering bij een bedrijfspand in Bilthoven.', trefwoord: '' },
+    { d: 26, tijd: '15:00', kanaal: 'facebook',  status: 'concept', titel: 'Laadpaal-actie', tekst: '', trefwoord: '' }
+  ];
+
+  var IDEEEN = [
+    { titel: 'Veelgestelde vraag', tekst: 'Hoeveel panelen passen er op een gemiddeld dak? Meestal tussen de 10 en 20.' },
+    { titel: 'Omvormer uitgelicht', tekst: 'Waarom we voor een hybride omvormer kiezen als je later een batterij wilt.' },
+    { titel: 'Terugverdientijd', tekst: 'Hoe je zelf uitrekent wanneer je panelen zichzelf hebben terugbetaald.' },
+    { titel: 'Kostenuitleg', tekst: 'Waar de prijs van een installatie vandaan komt, post voor post.' }
+  ];
+
+  var LOGOS = {
+    facebook: '<path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/>',
+    instagram: '<path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.39C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.39 2.12.66.67 1.33 1.09 2.12 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.39.67-.66 1.09-1.33 1.39-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.39-2.12C21.32 1.35 20.65.93 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0z"/><path d="M12 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zm0 10.16a4 4 0 110-8 4 4 0 010 8z"/><circle cx="18.41" cy="5.59" r="1.44"/>',
+    tiktok: '<path d="M16.6 5.82A4.28 4.28 0 0115.54 3h-3.09v12.4a2.59 2.59 0 01-2.59 2.5 2.59 2.59 0 01-2.59-2.59 2.59 2.59 0 013.16-2.53v-3.1a5.66 5.66 0 00-.57-.03A5.68 5.68 0 004.2 15.4a5.68 5.68 0 005.66 5.66 5.68 5.68 0 005.66-5.66V9.4a7.35 7.35 0 004.28 1.37V7.7a4.28 4.28 0 01-3.2-1.88z"/>',
+    linkedin: '<path d="M4.98 3.5a2.5 2.5 0 11-.02 5.01A2.5 2.5 0 014.98 3.5zM2.4 21.5h5.16V9.75H2.4V21.5zM9.9 9.75h4.95v1.6h.07c.69-1.24 2.37-2.55 4.88-2.55 5.22 0 6.18 3.3 6.18 7.6v5.1h-5.15v-4.52c0-1.08-.02-2.47-1.55-2.47-1.55 0-1.79 1.17-1.79 2.39v4.6H9.9V9.75z"/>',
+    x: '<path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.65l-5.22-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.82l4.71 6.23 5.46-6.23zm-1.16 17.52h1.83L7.08 4.13H5.11l11.97 15.64z"/>',
+    pinterest: '<path d="M12 0C5.37 0 0 5.37 0 12c0 5.08 3.16 9.42 7.62 11.17-.1-.95-.2-2.4.04-3.44.22-.94 1.4-5.96 1.4-5.96s-.36-.72-.36-1.78c0-1.67.97-2.92 2.17-2.92 1.02 0 1.52.77 1.52 1.69 0 1.03-.66 2.57-1 4-.28 1.19.6 2.16 1.77 2.16 2.13 0 3.76-2.24 3.76-5.48 0-2.86-2.06-4.87-5-4.87-3.41 0-5.41 2.55-5.41 5.19 0 1.03.4 2.13.89 2.73.1.12.11.22.08.34-.09.38-.29 1.19-.33 1.35-.05.22-.17.27-.4.16-1.5-.7-2.43-2.89-2.43-4.65 0-3.78 2.75-7.26 7.92-7.26 4.16 0 7.39 2.96 7.39 6.92 0 4.13-2.6 7.46-6.22 7.46-1.21 0-2.35-.63-2.74-1.38l-.75 2.85c-.27 1.04-1 2.35-1.49 3.15 1.12.35 2.31.53 3.55.53 6.63 0 12-5.37 12-12S18.63 0 12 0z"/>',
+    threads: '<path d="M17.2 11.13c-.1-.05-.2-.1-.3-.14-.18-3.26-1.96-5.13-4.95-5.15h-.04c-1.79 0-3.28.76-4.2 2.16l1.65 1.13c.68-1.04 1.76-1.26 2.55-1.26h.03c.98 0 1.72.29 2.2.85.35.41.58.98.7 1.7a12.6 12.6 0 00-2.83-.14c-2.85.17-4.68 1.83-4.56 4.15.06 1.17.65 2.18 1.65 2.84.85.55 1.94.82 3.07.76 1.5-.08 2.67-.65 3.49-1.69.62-.79.02-1.66.83-3.06.72.44 1.25 1.01 1.55 1.7.5 1.17.53 3.1-1.04 4.67-1.38 1.38-3.03 1.97-5.53 1.99-2.77-.02-4.87-.91-6.24-2.64C4.94 17.4 4.28 15.14 4.25 12c.03-3.14.69-5.4 1.98-6.99C7.6 3.28 9.7 2.39 12.47 2.37c2.79.02 4.93.91 6.35 2.65.7.85 1.23 1.93 1.58 3.19l1.94-.52c-.42-1.55-1.09-2.89-2-4-1.82-2.22-4.48-3.36-7.87-3.38h-.01C9.06.32 6.44 1.46 4.66 3.69 3.07 5.67 2.26 8.43 2.23 11.99v.02c.03 3.56.84 6.32 2.43 8.3 1.78 2.23 4.4 3.37 7.79 3.39h.01c3.02-.02 5.14-.81 6.9-2.56 2.29-2.29 2.22-5.16 1.47-6.92-.55-1.28-1.6-2.32-3.03-3.09zm-5.1 5.28c-1.25.07-2.55-.49-2.61-1.66-.05-.87.61-1.83 2.68-1.95.24-.01.47-.02.7-.02.75 0 1.46.07 2.1.21-.24 2.98-1.64 3.36-2.87 3.42z"/>',
+    youtube: '<path d="M23.5 6.2a3.02 3.02 0 00-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 00.5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 002.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 002.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/>'
+  };
+
+  /* ---------- hulpjes ---------- */
+  var $ = function (s) { return document.querySelector(s); };
+  var veilig = function (t) {
+    return String(t == null ? '' : t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  };
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var sleutel = function (d) { return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); };
+  var uitSleutel = function (s) { var p = String(s).split('-'); return new Date(+p[0], +p[1]-1, +p[2]); };
+  var maDag = function (d) { return (d.getDay() + 6) % 7; };
+  var kanaal = function (id) {
+    for (var i = 0; i < KANALEN.length; i++) if (KANALEN[i].id === id) return KANALEN[i];
+    return KANALEN[0];
+  };
+  var nuTijd = function () {
+    var d = new Date();
+    return pad(d.getDate()) + '-' + pad(d.getMonth()+1) + ' om ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
+  };
+  var mooieDatum = function (sl) {
+    var d = uitSleutel(sl);
+    return DAGNAAM[maDag(d)] + ' ' + d.getDate() + ' ' + MAANDNAAM[d.getMonth()];
+  };
+
+  /* ---------- opslag ---------- */
+  // Alle data hangt aan het account uit de sessie. Dat is de
+  // browserversie van `where account_id = …` in de database.
+  var S = window.Sessie;
+  var sessie = S.vereist();
+  if (!sessie) return;
+
+  var opslag = {
+    lees: function () { return S.leesData('kalender'); },
+    schrijf: function (d) { return S.schrijfData('kalender', d); },
+    wis: function () { S.schrijfData('kalender', null); },
+    permanent: S.permanent
+  };
+
+  /* ---------- toestand ---------- */
+  var posts = [], volgendId = 1;
+  var koppelingen = [];   // welke kanalen zijn verbonden
+  var rol = sessie.rol === 'creator' ? 'creator' : 'eigenaar';
+  var weergave = 'maand';
+  var toonWeekend = false;
+  var kijkDatum = new Date();
+  var weekAnker = new Date();
+  var bewerkt = null, concept = null;
+  var verbergKanaal = {}, verbergStatus = {}, alleenReview = false;
+  var gekozenKanaal = 'instagram';
+  var werkvlak = $('#werkvlak');
+
+  var RECHTEN = {
+    eigenaar: { goedkeuren: true,  verwijderen: true },
+    creator:  { goedkeuren: false, verwijderen: true }
+  };
+  function mag(w) { return RECHTEN[rol][w]; }
+  function rolNaam() { return rol === 'eigenaar' ? 'Eigenaar' : 'Contentcreator'; }
+
+  function maakZaad() {
+    var nu = new Date(), jaar = nu.getFullYear(), maand = nu.getMonth();
+    var laatsteDag = new Date(jaar, maand + 1, 0).getDate();
+    return ZAAD.map(function (z, i) {
+      var d = new Date(jaar, maand, Math.min(z.d, laatsteDag));
+      if (maDag(d) > 4) d.setDate(d.getDate() - (maDag(d) - 4));
+      return {
+        id: i + 1, datum: sleutel(d), tijd: z.tijd, kanaal: z.kanaal, status: z.status,
+        titel: z.titel, tekst: z.tekst, trefwoord: z.trefwoord, reden: '',
+        media: null, medianaam: '', mediasoort: '',
+        log: [{ wie: 'Contentcreator', wat: 'Post aangemaakt', wanneer: 'eerder' }]
+      };
+    });
+  }
+
+  function laad() {
+    var d = opslag.lees();
+    var welkom = /[?&]welkom=1/.test(location.search);
+
+    if (welkom || !d) {
+      // nieuw account: lege kalender, nog geen kanalen gekoppeld
+      posts = [];
+      koppelingen = [];
+    } else {
+      posts = d.posts || [];
+      rol = d.rol || rol;
+      toonWeekend = !!d.weekend;
+      koppelingen = d.koppelingen || [];
+    }
+    volgendId = posts.reduce(function (m, p) { return Math.max(m, p.id); }, 0) + 1;
+  }
+
+  function bewaar() {
+    if (!opslag.schrijf({ posts: posts, rol: rol, weekend: toonWeekend, koppelingen: koppelingen })) {
+      melden('Bewaard voor deze sessie. De media zijn te groot voor blijvende opslag.');
+    }
+  }
+
+  function melden(t) {
+    var m = $('#melding');
+    m.textContent = t;
+    m.classList.add('zie');
+    clearTimeout(melden._t);
+    melden._t = setTimeout(function () { m.classList.remove('zie'); }, 3200);
+  }
+
+  function logbij(p, wat) {
+    p.log = p.log || [];
+    p.log.unshift({ wie: rolNaam(), wat: wat, wanneer: nuTijd() });
+    if (p.log.length > 12) p.log.length = 12;
+  }
+
+  /* ---------- rol ---------- */
+  function zetRol(nieuw) {
+    rol = nieuw;
+    document.querySelectorAll('[data-rol]').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.rol === rol);
+    });
+    $('#wieben').innerHTML = '<b>' + veilig(sessie.naam || sessie.email) + '</b>' + veilig(sessie.bedrijf);
+    $('#roltekst').textContent = rol === 'eigenaar'
+      ? 'Je keurt posts goed en bepaalt wat er live gaat.'
+      : 'Je schrijft en dient in. De eigenaar geeft akkoord.';
+    if (rol !== 'eigenaar') alleenReview = false;
+    bewaar();
+    teken();
+    if (paneel.classList.contains('open')) vulPaneel();
+  }
+
+  /* ---------- filters ---------- */
+  function zichtbaar() {
+    return posts.filter(function (p) {
+      if (alleenReview && p.status !== 'review') return false;
+      return !verbergKanaal[p.kanaal] && !verbergStatus[p.status];
+    });
+  }
+
+  function verbonden() {
+    return KANALEN.filter(function (k) { return koppelingen.indexOf(k.id) !== -1; });
+  }
+
+  function bouwFilters() {
+    $('#filt-kanaal').innerHTML = verbonden().map(function (k) {
+      return '<label><input type="checkbox" data-soort="kanaal" value="' + k.id + '" checked>' +
+             '<i style="background:' + k.kleur + '"></i>' + k.naam + '</label>';
+    }).join('');
+    $('#filt-status').innerHTML = Object.keys(STATUS).map(function (s) {
+      return '<label><input type="checkbox" data-soort="status" value="' + s + '" checked>' + STATUS[s].naam + '</label>';
+    }).join('');
+    document.querySelectorAll('.filt input').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        (inp.dataset.soort === 'kanaal' ? verbergKanaal : verbergStatus)[inp.value] = !inp.checked;
+        alleenReview = false;
+        teken();
+      });
+    });
+  }
+
+  /* ---------- raster ---------- */
+  function maandRijen(peil) {
+    var jaar = peil.getFullYear(), maand = peil.getMonth();
+    var eerste = new Date(jaar, maand, 1);
+    var laatste = new Date(jaar, maand + 1, 0);
+    var loop = new Date(eerste);
+    loop.setDate(loop.getDate() - maDag(eerste));
+
+    var kolommen = toonWeekend ? 7 : 5;
+    var rijen = [];
+    while (rijen.length < 7) {
+      var rij = [];
+      for (var i = 0; i < 7; i++) {
+        if (i < kolommen) rij.push(new Date(loop));
+        loop.setDate(loop.getDate() + 1);
+      }
+      rijen.push(rij);
+      if (loop > laatste) break;
+    }
+    return rijen;
+  }
+
+  function weekDagen(anker) {
+    var start = new Date(anker);
+    start.setDate(start.getDate() - maDag(start));
+    var uit = [];
+    for (var i = 0; i < (toonWeekend ? 7 : 5); i++) {
+      var d = new Date(start);
+      d.setDate(start.getDate() + i);
+      uit.push(d);
+    }
+    return uit;
+  }
+
+  /* ---------- tekenen ---------- */
+  function medialaagje(p, klas) {
+    var k = kanaal(p.kanaal);
+    if (p.media && p.mediasoort === 'beeld') {
+      return '<span class="' + klas + '" style="background-image:url(' + p.media + ')"></span>';
+    }
+    if (p.media && p.mediasoort === 'film') {
+      return '<span class="' + klas + ' film" style="background:' + k.kleur + '"></span>';
+    }
+    return '<span class="' + klas + '" style="background:' + k.kleur + '"></span>';
+  }
+
+  function kaartHtml(p) {
+    return '<div class="kaart s-' + p.status + '" draggable="true" data-id="' + p.id + '">' +
+      medialaagje(p, 'mini-med') +
+      '<span class="tx"><span class="tijd">' + veilig(p.status === 'concept' ? 'Concept' : p.tijd) + '</span>' +
+      '<span class="tit">' + veilig(p.titel || 'Zonder titel') + '</span></span></div>';
+  }
+
+  function tekenMaand() {
+    var lijst = zichtbaar();
+    var rijen = maandRijen(kijkDatum);
+    var kolommen = toonWeekend ? 7 : 5;
+    var stijl = 'grid-template-columns:repeat(' + kolommen + ',minmax(0,1fr))';
+    var vandaag = sleutel(new Date());
+    var maand = kijkDatum.getMonth();
+
+    var h = '<div class="raster"><div class="r-kop" style="' + stijl + '">' +
+      DAGNAAM.slice(0, kolommen).map(function (d) { return '<span>' + d + '</span>'; }).join('') + '</div>';
+
+    rijen.forEach(function (rij) {
+      h += '<div class="r-wk" style="' + stijl + '">';
+      rij.forEach(function (d) {
+        var sl = sleutel(d);
+        var inDag = lijst.filter(function (p) { return p.datum === sl; })
+          .sort(function (a, b) { return a.tijd.localeCompare(b.tijd); });
+        var klas = 'dag' + (d.getMonth() !== maand ? ' buiten' : '') +
+                   (maDag(d) > 4 ? ' weekend' : '') + (sl === vandaag ? ' nu' : '');
+        h += '<div class="' + klas + '" data-datum="' + sl + '">' +
+             '<span class="dnr">' + d.getDate() + '</span>' +
+             '<button type="button" class="plus" data-nieuw="' + sl + '" aria-label="Post toevoegen">+</button>' +
+             inDag.map(kaartHtml).join('') + '</div>';
+      });
+      h += '</div>';
+    });
+    return h + '</div>';
+  }
+
+  function tekenWeek() {
+    var dagen = weekDagen(weekAnker);
+    var lijst = zichtbaar();
+    var vandaag = sleutel(new Date());
+    var h = '<div class="week" style="grid-template-columns:repeat(' + dagen.length + ',minmax(0,1fr))">';
+
+    dagen.forEach(function (d) {
+      var sl = sleutel(d);
+      var inDag = lijst.filter(function (p) { return p.datum === sl; })
+        .sort(function (a, b) { return a.tijd.localeCompare(b.tijd); });
+
+      h += '<div class="wkol' + (sl === vandaag ? ' nu' : '') + '">' +
+           '<div class="wkol-kop"><b>' + DAGNAAM[maDag(d)] + '</b><i>' + d.getDate() + ' ' + MAANDNAAM[d.getMonth()].slice(0,3) + '</i>' +
+           '<em>' + (inDag.length || '') + '</em></div>' +
+           '<div class="wkol-body" data-datum="' + sl + '">';
+
+      h += inDag.map(function (p) {
+        var k = kanaal(p.kanaal);
+        var med = '';
+        if (p.media && p.mediasoort === 'beeld') med = '<div class="wmedia" style="background-image:url(' + p.media + ')"></div>';
+        else if (p.media && p.mediasoort === 'film') med = '<div class="wmedia film" style="background:' + k.kleur + '33"></div>';
+        return '<div class="wkaart" draggable="true" data-id="' + p.id + '">' + med +
+          '<div class="wbody"><div class="wk-top"><span class="kl" style="background:' + k.kleur + '"></span>' +
+          '<span class="tijd">' + veilig(p.status === 'concept' ? 'Concept' : p.tijd) + '</span>' +
+          '<span class="badge b-' + p.status + '" style="margin-left:auto">' + STATUS[p.status].naam + '</span></div>' +
+          '<b>' + veilig(p.titel || 'Zonder titel') + '</b>' +
+          (p.tekst ? '<p>' + veilig(p.tekst) + '</p>' : '') + '</div></div>';
+      }).join('');
+
+      h += '<div class="wkol-leeg" data-nieuw="' + sl + '">+ Post toevoegen</div></div></div>';
+    });
+    return h + '</div>';
+  }
+
+  function tekenLijst() {
+    var lijst = zichtbaar().sort(function (a, b) {
+      return a.datum.localeCompare(b.datum) || a.tijd.localeCompare(b.tijd);
+    });
+    if (!lijst.length) return '<div class="leeg">Geen posts die aan je filters voldoen.</div>';
+
+    return '<div class="lijst"><div class="lr kop"><span></span><span>Titel</span><span>Kanaal</span>' +
+      '<span>Wanneer</span><span>Status</span><span></span></div>' +
+      lijst.map(function (p) {
+        var k = kanaal(p.kanaal), d = uitSleutel(p.datum);
+        return '<div class="lr">' + medialaagje(p, 'mini-med') +
+          '<b>' + veilig(p.titel || 'Zonder titel') + '</b>' +
+          '<span>' + k.naam + '</span>' +
+          '<span>' + DAGKORT[maDag(d)] + ' ' + d.getDate() + ' ' + MAANDNAAM[d.getMonth()].slice(0,3) + ' &middot; ' + veilig(p.tijd) + '</span>' +
+          '<span><span class="badge b-' + p.status + '">' + STATUS[p.status].naam + '</span></span>' +
+          '<span><button type="button" class="mini" data-open="' + p.id + '">Openen</button></span></div>';
+      }).join('') + '</div>';
+  }
+
+  function teken() {
+    if (weergave === 'week') {
+      var dg = weekDagen(weekAnker);
+      var a = dg[0], b = dg[dg.length - 1];
+      $('#m-titel').textContent = a.getDate() + ' \u2013 ' + b.getDate() + ' ' + MAANDNAAM[b.getMonth()];
+    } else {
+      $('#m-titel').textContent = MAANDNAAM[kijkDatum.getMonth()] + ' ' + kijkDatum.getFullYear();
+    }
+
+    if (!koppelingen.length) {
+      werkvlak.innerHTML = '<div class="leegstaat"><b>Koppel eerst een social media profiel</b>' +
+        '<p>Zodra je een profiel hebt gekoppeld, kun je posts schrijven, inplannen en laten goedkeuren. ' +
+        'Je logt in bij het platform zelf; FixedFlows krijgt alleen de rechten die je daar goedkeurt.</p>' +
+        '<button type="button" class="btn btn-primary" data-koppelen>Profiel koppelen</button></div>';
+      $('#teller').textContent = 'Nog geen kanalen gekoppeld';
+      $('#wachtrij').hidden = true;
+      return;
+    }
+
+    werkvlak.innerHTML = weergave === 'maand' ? tekenMaand()
+                       : weergave === 'week'  ? tekenWeek()
+                       : tekenLijst();
+
+    var wacht = posts.filter(function (p) { return p.status === 'review'; }).length;
+    $('#teller').textContent = posts.length + ' posts' + (wacht ? ' \u00b7 ' + wacht + ' wacht op goedkeuring' : '');
+    $('#wachtrij').hidden = !(rol === 'eigenaar' && wacht > 0);
+    $('#wachtrij-n').textContent = wacht + (wacht === 1 ? ' wacht op jou' : ' wachten op jou');
+
+    koppelSlepen();
+  }
+
+  /* ---------- slepen ---------- */
+  function koppelSlepen() {
+    document.querySelectorAll('.kaart, .wkaart').forEach(function (el) {
+      el.addEventListener('dragstart', function (e) {
+        e.dataTransfer.setData('text/plain', el.dataset.id);
+        e.dataTransfer.effectAllowed = 'move';
+        el.classList.add('sleep');
+      });
+      el.addEventListener('dragend', function () { el.classList.remove('sleep'); });
+      el.addEventListener('click', function () { openPaneel(Number(el.dataset.id)); });
+    });
+
+    document.querySelectorAll('.dag, .wkol-body').forEach(function (cel) {
+      cel.addEventListener('dragover', function (e) { e.preventDefault(); cel.classList.add('over'); });
+      cel.addEventListener('dragleave', function () { cel.classList.remove('over'); });
+      cel.addEventListener('drop', function (e) {
+        e.preventDefault();
+        cel.classList.remove('over');
+        var id = Number(e.dataTransfer.getData('text/plain'));
+        var p = posts.filter(function (x) { return x.id === id; })[0];
+        if (!p) return;
+        if (p.status === 'live') { melden('Een gepubliceerde post kun je niet verplaatsen.'); return; }
+        if (p.status === 'gepland' && !mag('goedkeuren')) {
+          melden('Een goedgekeurde post verplaatsen mag alleen de eigenaar.'); return;
+        }
+        if (p.datum === cel.dataset.datum) return;
+
+        p.datum = cel.dataset.datum;
+        logbij(p, 'Verplaatst naar ' + mooieDatum(p.datum));
+        bewaar(); teken();
+        melden('Verplaatst naar ' + mooieDatum(p.datum) + '.');
+      });
+    });
+  }
+
+  /* ---------- paneel ---------- */
+  var paneel = $('#paneel'), dek = $('#dek');
+
+  function openPaneel(id, voorzet) {
+    if (!id && !heeftKanalen()) return;   // eerst een profiel koppelen
+    bewerkt = id ? posts.filter(function (p) { return p.id === id; })[0] : null;
+    concept = bewerkt
+      ? JSON.parse(JSON.stringify(bewerkt))
+      : Object.assign({
+          id: null, datum: sleutel(new Date()), tijd: '09:00', kanaal: 'instagram',
+          status: 'concept', titel: '', tekst: '', trefwoord: '', reden: '',
+          media: null, medianaam: '', mediasoort: '', log: []
+        }, voorzet || {});
+
+    vulPaneel();
+    paneel.classList.add('open');
+    paneel.setAttribute('aria-hidden', 'false');
+    dek.classList.add('open');
+    setTimeout(function () { if (!$('#f-titel').disabled) $('#f-titel').focus(); }, 220);
+  }
+
+  function sluitPaneel() {
+    paneel.classList.remove('open');
+    paneel.setAttribute('aria-hidden', 'true');
+    dek.classList.remove('open');
+    bewerkt = null; concept = null;
+  }
+
+  function vulPaneel() {
+    var p = concept;
+    var vast = p.status === 'live' || (p.status === 'gepland' && !mag('goedkeuren'));
+
+    $('#p-titel').textContent = bewerkt ? 'Post bewerken' : 'Nieuwe post';
+
+    var sb = $('#p-status');
+    sb.className = 'statusbalk ' + p.status;
+    sb.innerHTML = '<b>' + STATUS[p.status].naam + '</b><span>' +
+      (p.status === 'afgekeurd' && p.reden ? veilig(p.reden) : STATUS[p.status].uitleg) + '</span>';
+
+    $('#f-titel').value = p.titel;
+    $('#f-datum').value = p.datum;
+    $('#f-tijd').value = p.tijd;
+    $('#f-tekst').value = p.tekst;
+    $('#f-trefwoord').value = p.trefwoord;
+    kiesKanaal(p.kanaal);
+    toonMedia();
+    telOp();
+
+    ['#f-titel','#f-datum','#f-tijd','#f-tekst','#f-trefwoord'].forEach(function (s) { $(s).disabled = vast; });
+    document.querySelectorAll('#f-kanaal button').forEach(function (b) { b.disabled = vast; });
+    $('#media-leeg').style.pointerEvents = vast ? 'none' : '';
+    $('#media-leeg').style.opacity = vast ? '.5' : '';
+    $('#vak-reden').hidden = true;
+    $('#f-reden').value = '';
+
+    var log = p.log || [];
+    $('#p-log').innerHTML = log.length
+      ? '<h4>Wat er gebeurd is</h4>' + log.map(function (l) {
+          return '<div class="log-rij"><i></i><span>' + veilig(l.wat) +
+                 '<em>' + veilig(l.wie) + ' \u00b7 ' + veilig(l.wanneer) + '</em></span></div>';
+        }).join('')
+      : '';
+
+    bouwVoet(vast);
+  }
+
+  function bouwVoet(vast) {
+    var p = concept, h = '';
+
+    // een creator mag niets weggooien wat al is goedgekeurd of live staat
+    var magWeg = bewerkt && p.status !== 'live' &&
+                 (mag('goedkeuren') || p.status !== 'gepland');
+    if (magWeg) {
+      h += '<button type="button" class="verwijder" data-actie="verwijder">Verwijderen</button>';
+    } else {
+      h += '<span style="margin-right:auto"></span>';
+    }
+
+    if (vast) {
+      h += '<button type="button" class="btn btn-ghost" data-actie="sluit">Sluiten</button>';
+    } else if (rol === 'eigenaar') {
+      if (p.status === 'review') {
+        h += '<button type="button" class="btn btn-rood" data-actie="afkeuren">Afkeuren</button>' +
+             '<button type="button" class="btn btn-groen" data-actie="goedkeuren">Goedkeuren</button>';
+      } else if (p.status === 'gepland') {
+        h += '<button type="button" class="btn btn-ghost" data-actie="terug">Terug naar concept</button>' +
+             '<button type="button" class="btn btn-primary" data-actie="opslaan">Opslaan</button>';
+      } else {
+        h += '<button type="button" class="btn btn-ghost" data-actie="opslaan">Opslaan</button>' +
+             '<button type="button" class="btn btn-primary" data-actie="goedkeuren">Opslaan en inplannen</button>';
+      }
+    } else {
+      if (p.status === 'review') {
+        h += '<button type="button" class="btn btn-ghost" data-actie="intrekken">Intrekken</button>' +
+             '<button type="button" class="btn btn-primary" data-actie="opslaan">Opslaan</button>';
+      } else {
+        h += '<button type="button" class="btn btn-ghost" data-actie="opslaan">Opslaan als concept</button>' +
+             '<button type="button" class="btn btn-primary" data-actie="indienen">Ter goedkeuring</button>';
+      }
+    }
+    $('#p-voet').innerHTML = h;
+  }
+
+  /* ---------- kanaal en teller ---------- */
+  function bouwKanaalKeuze() {
+    $('#f-kanaal').innerHTML = verbonden().map(function (k) {
+      return '<button type="button" data-kanaal="' + k.id + '"><i style="background:' + k.kleur + '"></i>' + k.naam + '</button>';
+    }).join('') || '<span class="hint">Nog geen kanalen gekoppeld.</span>';
+    document.querySelectorAll('#f-kanaal button').forEach(function (b) {
+      b.addEventListener('click', function () { if (!b.disabled) kiesKanaal(b.dataset.kanaal); });
+    });
+  }
+  function kiesKanaal(id) {
+    gekozenKanaal = id;
+    document.querySelectorAll('#f-kanaal button').forEach(function (b) {
+      b.classList.toggle('on', b.dataset.kanaal === id);
+    });
+    telOp();
+  }
+  function telOp() {
+    var n = $('#f-tekst').value.length, max = kanaal(gekozenKanaal).limiet, el = $('#f-telop');
+    el.textContent = n + ' van ' + max + ' tekens';
+    el.classList.toggle('veel', n > max);
+  }
+
+  /* ---------- media ---------- */
+  function toonMedia() {
+    var p = concept, leeg = $('#media-leeg'), voor = $('#media-voor'), naam = $('#media-naam');
+    if (p.media) {
+      leeg.hidden = true;
+      voor.hidden = false;
+      voor.innerHTML = (p.mediasoort === 'film'
+        ? '<video src="' + p.media + '" controls muted playsinline></video>'
+        : '<img src="' + p.media + '" alt="">') +
+        '<button type="button" class="weg" data-actie="media-weg" aria-label="Media verwijderen">&times;</button>';
+      naam.hidden = false;
+      naam.textContent = p.medianaam + (p.mediasoort === 'film' ? ' \u00b7 video' : '');
+    } else {
+      leeg.hidden = false;
+      voor.hidden = true;
+      voor.innerHTML = '';
+      naam.hidden = true;
+    }
+  }
+
+  function verwerkBestand(bestand) {
+    if (!bestand || !concept) return;
+    var isFilm = bestand.type.indexOf('video') === 0;
+    var isBeeld = bestand.type.indexOf('image') === 0;
+    if (!isFilm && !isBeeld) { melden('Kies een afbeelding of een video.'); return; }
+    if (bestand.size > 40 * 1024 * 1024) { melden('Dit bestand is groter dan 40 MB.'); return; }
+
+    concept.medianaam = bestand.name;
+    concept.mediasoort = isFilm ? 'film' : 'beeld';
+
+    if (isFilm) {
+      concept.media = URL.createObjectURL(bestand);
+      toonMedia();
+      melden('Video toegevoegd. Video\u2019s blijven niet bewaard na herladen.');
+      return;
+    }
+
+    var lezer = new FileReader();
+    lezer.onload = function (e) {
+      var img = new Image();
+      img.onload = function () {
+        var max = 900;
+        var schaal = Math.min(1, max / Math.max(img.width, img.height));
+        var c = document.createElement('canvas');
+        c.width = Math.round(img.width * schaal);
+        c.height = Math.round(img.height * schaal);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        concept.media = c.toDataURL('image/jpeg', 0.75);
+        toonMedia();
+      };
+      img.onerror = function () { melden('Deze afbeelding kon niet worden gelezen.'); };
+      img.src = e.target.result;
+    };
+    lezer.readAsDataURL(bestand);
+  }
+
+  /* ---------- opslaan ---------- */
+  function uitFormulier() {
+    concept.titel = $('#f-titel').value.trim();
+    concept.datum = $('#f-datum').value || sleutel(new Date());
+    concept.tijd = $('#f-tijd').value || '09:00';
+    concept.tekst = $('#f-tekst').value;
+    concept.trefwoord = $('#f-trefwoord').value.trim().toUpperCase();
+    concept.kanaal = gekozenKanaal;
+  }
+
+  function statusLog(s) {
+    return {
+      concept: 'Teruggezet naar concept',
+      review: 'Ingediend ter goedkeuring',
+      afgekeurd: 'Afgekeurd',
+      gepland: 'Goedgekeurd en ingepland',
+      live: 'Gepubliceerd'
+    }[s] || 'Bijgewerkt';
+  }
+
+  function wegschrijven(nieuweStatus, melding) {
+    uitFormulier();
+    if (!concept.titel) { $('#f-titel').focus(); melden('Geef de post eerst een titel.'); return; }
+
+    if (concept.trefwoord) {
+      var dubbel = posts.filter(function (p) {
+        return p.trefwoord === concept.trefwoord && p.id !== concept.id;
+      })[0];
+      if (dubbel) {
+        melden('Trefwoord ' + concept.trefwoord + ' is al in gebruik bij \u201c' + dubbel.titel + '\u201d.');
+        return;
+      }
+    }
+
+    var oud = concept.status;
+    if (nieuweStatus) concept.status = nieuweStatus;
+
+    if (bewerkt) {
+      var log = bewerkt.log || [];
+      Object.keys(concept).forEach(function (k) { if (k !== 'log') bewerkt[k] = concept[k]; });
+      bewerkt.log = log;
+      logbij(bewerkt, (nieuweStatus && nieuweStatus !== oud) ? statusLog(nieuweStatus) : 'Bijgewerkt');
+    } else {
+      concept.id = volgendId++;
+      concept.log = [];
+      posts.push(concept);
+      logbij(concept, nieuweStatus ? statusLog(nieuweStatus) : 'Post aangemaakt');
+    }
+
+    kijkDatum = uitSleutel(concept.datum);
+    weekAnker = uitSleutel(concept.datum);
+    bewaar();
+    teken();
+    sluitPaneel();
+    melden(melding || 'Opgeslagen.');
+  }
+
+  $('#p-voet').addEventListener('click', function (e) {
+    var knop = e.target.closest('[data-actie]');
+    if (!knop || !concept) return;
+    var a = knop.dataset.actie;
+
+    if (a === 'sluit')      return sluitPaneel();
+    if (a === 'opslaan')    return wegschrijven(null, 'Opgeslagen.');
+    if (a === 'indienen')   return wegschrijven('review', 'Ingediend. De eigenaar krijgt er bericht van.');
+    if (a === 'intrekken')  return wegschrijven('concept', 'Ingetrokken. Je kunt hem weer aanpassen.');
+    if (a === 'terug')      return wegschrijven('concept', 'Teruggezet naar concept.');
+    if (a === 'goedkeuren') return wegschrijven('gepland', 'Goedgekeurd. Gaat automatisch live op het gekozen moment.');
+
+    if (a === 'afkeuren') {
+      var vak = $('#vak-reden');
+      if (vak.hidden) {
+        vak.hidden = false;
+        $('#f-reden').focus();
+        melden('Vertel kort wat er anders moet.');
+        return;
+      }
+      var reden = $('#f-reden').value.trim();
+      if (!reden) { $('#f-reden').focus(); melden('Geef een reden, anders weet de maker niet wat te doen.'); return; }
+      concept.reden = reden;
+      return wegschrijven('afgekeurd', 'Afgekeurd met toelichting.');
+    }
+
+    if (a === 'verwijder' && bewerkt) {
+      var id = bewerkt.id;
+      posts = posts.filter(function (p) { return p.id !== id; });
+      bewaar(); teken(); sluitPaneel();
+      melden('Post verwijderd.');
+    }
+  });
+
+  $('#media-voor').addEventListener('click', function (e) {
+    if (e.target.closest('[data-actie="media-weg"]') && concept) {
+      concept.media = null; concept.medianaam = ''; concept.mediasoort = '';
+      toonMedia();
+    }
+  });
+
+  /* ---------- lege dagen vullen ---------- */
+  function vulLegeDagen() {
+    var maand = kijkDatum.getMonth();
+    var vrij = [];
+    maandRijen(kijkDatum).forEach(function (rij) {
+      rij.forEach(function (d) {
+        if (d.getMonth() !== maand || maDag(d) > 4) return;
+        var sl = sleutel(d);
+        if (!posts.some(function (p) { return p.datum === sl; })) vrij.push(sl);
+      });
+    });
+    if (!vrij.length) { melden('Elke werkdag in deze maand heeft al een post.'); return; }
+
+    var aantal = Math.min(vrij.length, 4);
+    for (var i = 0; i < aantal; i++) {
+      var idee = IDEEEN[i % IDEEEN.length];
+      var p = {
+        id: volgendId++, datum: vrij[i], tijd: '09:00', kanaal: verbonden()[i % verbonden().length].id, status: 'concept',
+        titel: idee.titel, tekst: idee.tekst, trefwoord: '', reden: '',
+        media: null, medianaam: '', mediasoort: '', log: []
+      };
+      logbij(p, 'Concept gemaakt door AI');
+      posts.push(p);
+    }
+    bewaar(); teken();
+    melden(aantal + ' concepten toegevoegd. Loop ze na en dien ze in.');
+  }
+
+
+  /* ============================================================
+     Kanalen koppelen
+     ============================================================ */
+  var koppelDek = $('#koppel-dek'), koppelPop = $('#koppel'), tijdelijk = [];
+
+  function bouwKoppel() {
+    $('#koppel-raster').innerHTML = KANALEN.map(function (k) {
+      var aan = tijdelijk.indexOf(k.id) !== -1;
+      return '<button type="button" class="kp' + (aan ? ' on' : '') + '" data-kp="' + k.id + '">' +
+        '<span class="aan"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5.2l2 2L8 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>' +
+        '<svg viewBox="0 0 24 24" fill="' + k.kleur + '" aria-hidden="true">' + LOGOS[k.id] + '</svg>' +
+        '<b>' + k.naam + '</b><span>' + k.soort + '</span></button>';
+    }).join('');
+    var n = tijdelijk.length;
+    $('#koppel-tel').textContent = n
+      ? n + (n === 1 ? ' profiel geselecteerd' : ' profielen geselecteerd')
+      : 'Nog geen profielen gekoppeld';
+    $('#koppel-klaar').disabled = n === 0;
+  }
+
+  function openKoppel() {
+    tijdelijk = koppelingen.slice();
+    bouwKoppel();
+    koppelDek.classList.add('open');
+    koppelPop.classList.add('open');
+  }
+  function sluitKoppel() {
+    koppelDek.classList.remove('open');
+    koppelPop.classList.remove('open');
+  }
+
+  $('#koppel-raster').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-kp]');
+    if (!b) return;
+    var id = b.dataset.kp, i = tijdelijk.indexOf(id);
+    if (i === -1) tijdelijk.push(id); else tijdelijk.splice(i, 1);
+    bouwKoppel();
+  });
+
+  $('#koppel-klaar').addEventListener('click', function () {
+    koppelingen = tijdelijk.slice();
+    verbergKanaal = {};
+    bouwFilters();
+    bouwKanaalKeuze();
+    if (verbonden().length) gekozenKanaal = verbonden()[0].id;
+    bewaar();
+    sluitKoppel();
+    teken();
+    melden(koppelingen.length + ' profielen gekoppeld. Je kunt nu posts inplannen.');
+  });
+
+  $('#koppel-sluit').addEventListener('click', sluitKoppel);
+  koppelDek.addEventListener('click', sluitKoppel);
+
+  function heeftKanalen() {
+    if (koppelingen.length) return true;
+    openKoppel();
+    return false;
+  }
+
+  /* ---------- koppelen ---------- */
+  laad();
+  bouwFilters();
+  bouwKanaalKeuze();
+  zetRol(rol);
+  $('#weekend').checked = toonWeekend;
+
+  $('#f-snel').innerHTML = SNELTIJDEN.map(function (t) {
+    return '<button type="button" data-tijd="' + t + '">' + t + '</button>';
+  }).join('');
+  $('#f-snel').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-tijd]');
+    if (b && !$('#f-tijd').disabled) $('#f-tijd').value = b.dataset.tijd;
+  });
+
+  document.querySelectorAll('[data-rol]').forEach(function (b) {
+    b.addEventListener('click', function () { zetRol(b.dataset.rol); });
+  });
+
+  document.querySelectorAll('[data-weergave]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      weergave = b.dataset.weergave;
+      document.querySelectorAll('[data-weergave]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      teken();
+    });
+  });
+
+  $('#m-vorig').addEventListener('click', function () {
+    if (weergave === 'week') { weekAnker.setDate(weekAnker.getDate() - 7); kijkDatum = new Date(weekAnker); }
+    else kijkDatum = new Date(kijkDatum.getFullYear(), kijkDatum.getMonth() - 1, 1);
+    teken();
+  });
+  $('#m-volgend').addEventListener('click', function () {
+    if (weergave === 'week') { weekAnker.setDate(weekAnker.getDate() + 7); kijkDatum = new Date(weekAnker); }
+    else kijkDatum = new Date(kijkDatum.getFullYear(), kijkDatum.getMonth() + 1, 1);
+    teken();
+  });
+  $('#m-vandaag').addEventListener('click', function () {
+    kijkDatum = new Date(); weekAnker = new Date(); teken();
+  });
+
+  $('#weekend').addEventListener('change', function () {
+    toonWeekend = this.checked; bewaar(); teken();
+  });
+
+  werkvlak.addEventListener('click', function (e) {
+    if (e.target.closest('[data-koppelen]')) { openKoppel(); return; }
+    var nieuw = e.target.closest('[data-nieuw]');
+    if (nieuw) { openPaneel(null, { datum: nieuw.dataset.nieuw }); return; }
+    var open = e.target.closest('[data-open]');
+    if (open) openPaneel(Number(open.dataset.open));
+  });
+
+  $('#knop-nieuw').addEventListener('click', function () {
+    openPaneel(null, { datum: sleutel(weergave === 'week' ? weekAnker : kijkDatum) });
+  });
+
+  $('#wachtrij').addEventListener('click', function () {
+    alleenReview = true;
+    weergave = 'lijst';
+    document.querySelectorAll('[data-weergave]').forEach(function (x) {
+      x.classList.toggle('on', x.dataset.weergave === 'lijst');
+    });
+    teken();
+    melden('Je ziet nu alleen wat op goedkeuring wacht.');
+  });
+
+  $('#knop-koppel').addEventListener('click', openKoppel);
+  $('#knop-uit').addEventListener('click', function () { S.uitloggen(); });
+  $('#knop-ai').addEventListener('click', function () {
+    if (heeftKanalen()) vulLegeDagen();
+  });
+  $('#knop-leeg').addEventListener('click', function () {
+    posts = maakZaad();
+    koppelingen = ['instagram', 'linkedin', 'facebook'];
+    volgendId = posts.length + 1;
+    alleenReview = false;
+    verbergKanaal = {};
+    bouwFilters(); bouwKanaalKeuze();
+    bewaar(); teken();
+    melden('Voorbeelddata geladen in deze werkruimte.');
+  });
+
+  $('#p-sluit').addEventListener('click', sluitPaneel);
+  dek.addEventListener('click', sluitPaneel);
+  $('#f-tekst').addEventListener('input', telOp);
+  $('#f-bestand').addEventListener('change', function () { verwerkBestand(this.files[0]); this.value = ''; });
+  $('#media-leeg').addEventListener('click', function () { $('#f-bestand').click(); });
+
+  ['dragenter','dragover'].forEach(function (ev) {
+    $('#media-leeg').addEventListener(ev, function (e) { e.preventDefault(); this.classList.add('over'); });
+  });
+  ['dragleave','drop'].forEach(function (ev) {
+    $('#media-leeg').addEventListener(ev, function (e) { e.preventDefault(); this.classList.remove('over'); });
+  });
+  $('#media-leeg').addEventListener('drop', function (e) {
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) verwerkBestand(e.dataTransfer.files[0]);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    var open = paneel.classList.contains('open');
+    if (e.key === 'Escape' && koppelPop.classList.contains('open')) sluitKoppel();
+    if (e.key === 'Escape' && open) sluitPaneel();
+    if (!open && e.key === 'ArrowLeft') $('#m-vorig').click();
+    if (!open && e.key === 'ArrowRight') $('#m-volgend').click();
+  });
+
+  teken();
+
+  if (!opslag.permanent) {
+    setTimeout(function () { melden('Let op: wijzigingen blijven alleen tijdens deze sessie bewaard.'); }, 900);
+  }
+})();
+</script>
+
+<script src="app-menu.js" data-actief="kalender"></script>
+</body>
+</html>

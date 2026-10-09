@@ -1,0 +1,90 @@
+{
+  "volgorde": 5,
+  "slug": "pinterest",
+  "naam": "Pinterest",
+  "kleur": "#E60023",
+  "ratio": "150%",
+  "handle": "devrieszonnepanelen",
+  "title": "Pinterest pins plannen en inplannen | FixedFlows",
+  "description": "Plan je pins vooruit per bord, speel in op seizoenen en laat je content maandenlang verkeer opleveren.",
+  "h1": "Pins plannen op Pinterest",
+  "sub": "Het enige kanaal waar je post van vandaag over een jaar nog verkeer oplevert.",
+  "lede": "Pinterest gedraagt zich meer als een zoekmachine dan als een sociaal netwerk: een goede pin blijft maandenlang gevonden worden. Dat maakt vooruit plannen en op seizoenen inspelen hier belangrijker dan waar dan ook.",
+  "checks": [
+    "Pins per bord inplannen met de juiste beschrijving en link",
+    "Seizoensgebonden content maanden vooruit klaarzetten",
+    "Zien welke pins verkeer naar je website blijven sturen"
+  ],
+  "voordelen": [
+    {
+      "t": "Vroeg beginnen loont",
+      "d": "Pinterest-gebruikers oriënteren zich ruim van tevoren. Zet zomerse content in het voorjaar klaar en plan het automatisch uit."
+    },
+    {
+      "t": "Per bord georganiseerd",
+      "d": "Kies per pin het bord en houd je borden thematisch schoon, wat bepaalt hoe goed je gevonden wordt."
+    },
+    {
+      "t": "Beschrijvingen die vindbaar zijn",
+      "d": "De tekst bij je pin werkt als zoekmachinetekst. FixedFlows helpt met beschrijvingen waarin je zoekwoorden natuurlijk terugkomen."
+    },
+    {
+      "t": "Verkeer dat blijft komen",
+      "d": "Zie welke pins maanden later nog steeds klikken opleveren, en maak daar meer van."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Plannen",
+      "t": "Seizoenen die je ruim voor bent",
+      "d": "Wie in juni pas begint over de zomer, is te laat. In FixedFlows zet je een reeks pins klaar met een startdatum weken vooruit, zodat je precies in het oriëntatiemoment van je doelgroep zit."
+    },
+    {
+      "k": "Schrijven",
+      "t": "Beschrijvingen die gevonden worden",
+      "d": "Een pin wordt gevonden op wat eronder staat. Je legt per bord je zoekwoorden vast en FixedFlows stelt beschrijvingen voor waarin die terugkomen zonder dat het geforceerd leest."
+    },
+    {
+      "k": "Meten",
+      "t": "Wat blijft presteren, niet wat piekte",
+      "d": "Omdat pins een lange staart hebben, kijk je hier naar verkeer over maanden in plaats van dagen. FixedFlows laat per pin zien hoeveel bezoekers die in totaal opleverde."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Kan ik naar meerdere borden tegelijk pinnen?",
+      "a": "Je plant per pin één bord in. Wil je dezelfde afbeelding op meerdere borden, dan maak je losse pins met een eigen beschrijving — dat werkt ook beter voor je vindbaarheid."
+    },
+    {
+      "v": "Werken video-pins?",
+      "a": "Ja, video-pins kun je net als gewone pins inplannen, binnen de formaten die Pinterest hanteert."
+    },
+    {
+      "v": "Wat voor account heb ik nodig?",
+      "a": "Een zakelijk Pinterest-account. Dat is gratis om te te maken en geeft ook toegang tot statistieken."
+    },
+    {
+      "v": "Hoe ver vooruit kan ik plannen?",
+      "a": "Zo ver als je wilt. Juist bij Pinterest is maanden vooruit plannen aan te raden, omdat het oriëntatiemoment van gebruikers ruim voor de aankoop ligt."
+    },
+    {
+      "v": "Is Pinterest zinvol voor dienstverleners?",
+      "a": "Voor visuele diensten zeker — bouw, interieur, verbouwing, catering, evenementen. Voor abstracte dienstverlening is het bereik beperkter en zijn LinkedIn of Instagram meestal een betere eerste keuze."
+    }
+  ],
+  "post": {
+    "naam": "De Vries Zonnepanelen",
+    "meta": "Bewaard op: Installaties 2026",
+    "beeld": "dak",
+    "tekst": "Zonnepanelen op een jaren-30 woning\n\n18 panelen in oost-westopstelling, zwart ingekaderd zodat ze wegvallen tegen de pannen. Inclusief indicatie van de terugverdientijd.",
+    "stats": [
+      [
+        "📌",
+        "1.842 keer bewaard"
+      ]
+    ],
+    "acties": [
+      "Bewaren"
+    ]
+  }
+}

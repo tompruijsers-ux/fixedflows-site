@@ -1,0 +1,97 @@
+{
+  "volgorde": 2,
+  "slug": "linkedin",
+  "naam": "LinkedIn",
+  "kleur": "#0A66C2",
+  "ratio": "62%",
+  "handle": "Sanne Kuipers · De Vries Zonnepanelen",
+  "title": "LinkedIn posts plannen voor profiel en bedrijfspagina | FixedFlows",
+  "description": "Plan je LinkedIn posts en documentcarrousels vooruit voor je persoonlijke profiel en je bedrijfspagina. Laat AI meeschrijven in jouw toon.",
+  "h1": "LinkedIn posts plannen",
+  "sub": "Consistent aanwezig op je profiel én je bedrijfspagina, zonder elke ochtend te bedenken wat je post.",
+  "lede": "Op LinkedIn doen persoonlijke profielen het structureel beter dan bedrijfspagina's, maar je hebt ze allebei nodig. FixedFlows plant beide vanuit één kalender, zodat je consistent bent zonder er dagelijks tijd in te steken.",
+  "checks": [
+    "Persoonlijk profiel en bedrijfspagina naast elkaar in dezelfde kalender",
+    "Documentcarrousels en losse posts vooruit inplannen",
+    "AI schrijft mee in jouw toon, jij houdt de eindredactie"
+  ],
+  "voordelen": [
+    {
+      "t": "Profiel en pagina samen",
+      "d": "Plan vanuit één overzicht voor je persoonlijke profiel en je bedrijfspagina, zodat ze elkaar versterken in plaats van herhalen."
+    },
+    {
+      "t": "Carrousels vooruit",
+      "d": "Zet documentcarrousels klaar met voorbeeldweergave, zodat je ziet hoe de eerste pagina in de tijdlijn overkomt."
+    },
+    {
+      "t": "Meeschrijven, niet overnemen",
+      "d": "De AI levert een eerste versie in jouw toon op basis van je thema's. Wat er live gaat, bepaal jij."
+    },
+    {
+      "t": "Ritme dat vol te houden is",
+      "d": "Twee sterke posts per week werken beter dan vijf haastige. FixedFlows helpt je een ritme kiezen dat je ook in een drukke maand haalt."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Plannen",
+      "t": "Één kalender voor beide accounts",
+      "d": "Je persoonlijke profiel en je bedrijfspagina staan in hetzelfde overzicht, met een eigen kleur. Zo zie je in één oogopslag of je te veel vanuit het bedrijf en te weinig vanuit jezelf publiceert — de fout die de meeste bedrijven op LinkedIn maken."
+    },
+    {
+      "k": "Schrijven",
+      "t": "Een eerste versie, geen eindproduct",
+      "d": "Je legt je toon, je vakgebied en je thema's vast. Op basis daarvan levert FixedFlows concepten met een hook en een uitwerking. Die pas je aan, want de posts die het op LinkedIn goed doen bevatten iets wat alleen jij kunt vertellen."
+    },
+    {
+      "k": "Samenwerken",
+      "t": "Laat meelezen voordat het live gaat",
+      "d": "Werk je voor een klant of met een collega, dan gaat de post eerst ter goedkeuring. De ander leest mee en keurt goed vanaf de telefoon, zonder account aan te maken."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Kan ik naar mijn persoonlijke profiel publiceren?",
+      "a": "Ja, mits je het profiel zelf koppelt via het inlogscherm van LinkedIn. Je kunt niet publiceren namens iemand anders zonder dat die persoon zelf koppelt."
+    },
+    {
+      "v": "Werken documentcarrousels?",
+      "a": "Ja, je uploadt een pdf en FixedFlows plaatst die als carrousel. In het voorbeeld zie je hoe de eerste pagina in de tijdlijn wordt getoond, want dat bepaalt of mensen doorklikken."
+    },
+    {
+      "v": "Kan ik dezelfde tekst naar meerdere kanalen sturen?",
+      "a": "Dat kan, maar op LinkedIn werkt een andere opbouw dan op Instagram. FixedFlows neemt de tekst over en laat je die per kanaal aanpassen, zodat je niet overal hetzelfde plakt."
+    },
+    {
+      "v": "Hoe zit het met de beste posttijden?",
+      "a": "FixedFlows kijkt naar wanneer jouw eigen posts het beste presteren en stelt op basis daarvan tijdstippen voor. Algemene lijstjes met beste tijden zeggen weinig over jouw specifieke volgers."
+    },
+    {
+      "v": "Kan ik reacties beantwoorden vanuit FixedFlows?",
+      "a": "Reageren op LinkedIn doe je voorlopig op LinkedIn zelf. De automatische gesprekken werken op Instagram en Facebook Messenger, waar de API dat toestaat."
+    }
+  ],
+  "post": {
+    "naam": "Sanne Kuipers",
+    "meta": "Eigenaar bij De Vries Zonnepanelen · 2 u",
+    "beeld": "grafiek",
+    "tekst": "De salderingsregeling verandert, en aan de telefoon merk ik dat bijna niemand precies weet wat dat betekent.\n\nKort gezegd: je krijgt straks minder terug voor de stroom die je aan het net levert. Dat klinkt vervelend, maar het verandert vooral wát verstandig is. Zelf verbruiken wordt belangrijker dan terugleveren.\n\nDrie dingen die daardoor zwaarder wegen bij een nieuwe installatie:\n\n1. Kies een omvormer die geschikt is voor een thuisbatterij, ook als je die nu nog niet neemt. Achteraf vervangen kost je een dag arbeid.\n\n2. Kijk naar je verbruiksmoment, niet alleen naar je jaarverbruik. Wie overdag thuis is, verdient panelen sneller terug.\n\n3. Reken met de nieuwe regeling, niet met de oude. Wij hebben onze rekenmodellen daar in maart al op aangepast.",
+    "stats": [
+      [
+        "👍💡",
+        "184"
+      ],
+      [
+        "26 opmerkingen",
+        ""
+      ]
+    ],
+    "acties": [
+      "Waarderen",
+      "Reageren",
+      "Delen",
+      "Versturen"
+    ]
+  }
+}

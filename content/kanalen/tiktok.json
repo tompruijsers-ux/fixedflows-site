@@ -1,0 +1,96 @@
+{
+  "volgorde": 3,
+  "slug": "tiktok",
+  "naam": "TikTok",
+  "kleur": "#111111",
+  "ratio": "160%",
+  "handle": "devrieszonnepanelen",
+  "title": "TikTok video's plannen en inplannen | FixedFlows",
+  "description": "Plan je TikTok-video's vooruit, bewaar je ideeën op één plek en houd een ritme aan dat vol te houden is.",
+  "h1": "TikTok video's plannen",
+  "sub": "Ideeën vastleggen wanneer je ze hebt, publiceren wanneer het uitkomt.",
+  "lede": "TikTok beloont frequentie, en frequentie sneuvelt zodra het handmatig moet. FixedFlows laat je opnames in batches klaarzetten, met de tekst en de hook erbij, zodat je in een drukke week niet stilvalt.",
+  "checks": [
+    "Video's in batches klaarzetten en over de maand verdelen",
+    "Ideeën vastleggen zodra je ze hebt, ook zonder datum",
+    "Hooks en beschrijvingen vooraf uitschrijven in plaats van in de app"
+  ],
+  "voordelen": [
+    {
+      "t": "Batchen werkt",
+      "d": "Neem vijf video's op in één middag en verdeel ze over twee weken, in plaats van elke dag opnieuw beginnen."
+    },
+    {
+      "t": "Ideeën kwijt kunnen",
+      "d": "Een idee zonder datum blijft bewaard in je ideeënlijst tot je er iets mee doet."
+    },
+    {
+      "t": "De hook eerst",
+      "d": "Schrijf je eerste drie seconden uit voordat je opneemt. Dat is waar de video wordt gewonnen of verloren."
+    },
+    {
+      "t": "Overzicht per thema",
+      "d": "Zie in één blik of je te veel van hetzelfde maakt, verdeeld over je vaste onderwerpen."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Voorbereiden",
+      "t": "Schrijven voordat je de camera aanzet",
+      "d": "Elke geplande video krijgt een hook, een korte uitwerking en een beschrijving. Zo neem je vijf video's achter elkaar op zonder tussendoor te bedenken wat je gaat zeggen — dat scheelt meer tijd dan het monteren."
+    },
+    {
+      "k": "Inplannen",
+      "t": "Een ritme dat je volhoudt",
+      "d": "Verdeel je opnames over de weken en zie meteen waar de gaten vallen. Beter drie video's per week het hele jaar dan tien in januari en niets in februari."
+    },
+    {
+      "k": "Publiceren",
+      "t": "Op het moment dat jouw kijkers online zijn",
+      "d": "FixedFlows publiceert op het ingestelde tijdstip via de officiële koppeling van TikTok. Je krijgt bericht als er iets mis gaat met de verbinding, ruim voordat de video gemist wordt."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Publiceert FixedFlows mijn video's automatisch?",
+      "a": "Voor accounts waarvoor de koppeling is goedgekeurd, ja. TikTok hanteert een eigen goedkeuringstraject voor apps die publiceren; tot dat rond is, krijg je een melding op het geplande moment waarna je met één tik plaatst."
+    },
+    {
+      "v": "Kan ik geluid kiezen vanuit FixedFlows?",
+      "a": "Nee. Muziek en geluiden kies je in de TikTok-app zelf, omdat de rechten daarop binnen het platform geregeld zijn."
+    },
+    {
+      "v": "Wat voor account heb ik nodig?",
+      "a": "Een zakelijk TikTok-account. Persoonlijke accounts kunnen niet koppelen aan externe planningstools."
+    },
+    {
+      "v": "Kan ik dezelfde video ook als Reel plaatsen?",
+      "a": "Ja, je kunt dezelfde video aan meerdere kanalen koppelen en per kanaal een andere beschrijving schrijven."
+    },
+    {
+      "v": "Hoeveel video's per week is verstandig?",
+      "a": "Dat hangt af van wat je volhoudt. Drie per week, elke week, doet meer voor je bereik dan een piek gevolgd door stilte. FixedFlows laat zien of je ritme klopt."
+    }
+  ],
+  "post": {
+    "naam": "devrieszonnepanelen",
+    "meta": "originele audio",
+    "beeld": "monteur",
+    "tekst": "3 fouten bij zonnepanelen die je pas na een jaar merkt ⚡\n\n#zonnepanelen #installateur #klusvandedag",
+    "stats": [
+      [
+        "♥",
+        "24,1K"
+      ],
+      [
+        "💬",
+        "318"
+      ],
+      [
+        "↗",
+        "1.204"
+      ]
+    ],
+    "acties": []
+  }
+}

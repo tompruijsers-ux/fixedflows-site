@@ -1,0 +1,60 @@
+{
+  "slug": "status",
+  "soort": "status",
+  "volgorde": 4,
+  "titel": "Werkt alles naar behoren?",
+  "sub": "Hier zie je of FixedFlows het doet en of er iets aan de hand is met een van de gekoppelde platforms. Bij een storing melden we het hier eerst.",
+  "title": "Status — FixedFlows",
+  "description": "Actuele status van FixedFlows en de gekoppelde platforms, met beschikbaarheidscijfers en eerdere meldingen.",
+  "bijgewerkt": "21 augustus 2026, 09:15",
+  "uptime30": "99,96%",
+  "uptime90": "99,91%",
+  "reactie": "18 min",
+  "onderdelen": [
+    { "naam": "Website en inloggen", "uitleg": "Aanmelden, inloggen en je werkruimte openen", "staat": "goed" },
+    { "naam": "Contentkalender", "uitleg": "Posts schrijven, inplannen en goedkeuren", "staat": "goed" },
+    { "naam": "Publiceren", "uitleg": "Posts op het ingestelde moment live zetten", "staat": "goed" },
+    { "naam": "AI-assistent", "uitleg": "Teksten genereren en schrijfstijl bepalen", "staat": "goed" },
+    { "naam": "Media-upload", "uitleg": "Foto's en video's toevoegen aan posts", "staat": "goed" },
+    { "naam": "E-mailbezorging", "uitleg": "Bevestigingen, leveringen en flows", "staat": "goed" },
+    { "naam": "Koppeling Meta", "uitleg": "Facebook, Instagram en Messenger", "staat": "goed" },
+    { "naam": "Koppeling LinkedIn", "uitleg": "Profielen en bedrijfspagina's", "staat": "goed" },
+    { "naam": "Koppeling TikTok", "uitleg": "Zakelijke accounts", "staat": "goed" }
+  ],
+  "historie": [
+    {
+      "titel": "Vertraging bij het publiceren naar Instagram",
+      "datum": "12 augustus 2026",
+      "staat": "traag",
+      "duur": "1 uur 40 minuten",
+      "tekst": "Meta had een storing aan hun publicatie-API, waardoor posts tot ruim een uur later live gingen dan ingepland. Er zijn geen posts verloren gegaan; alles is alsnog geplaatst. We hebben onze herhaalpogingen aangepast zodat vertraging bij het platform minder snel tot een mislukte publicatie leidt."
+    },
+    {
+      "titel": "Gepland onderhoud aan de database",
+      "datum": "3 augustus 2026",
+      "staat": "onderhoud",
+      "duur": "25 minuten",
+      "tekst": "Buiten kantooruren uitgevoerd. Tijdens het onderhoud kon je niet inloggen. Ingeplande posts zijn gewoon doorgegaan, omdat de publicatiewachtrij los draait van de webomgeving."
+    },
+    {
+      "titel": "E-mails kwamen vertraagd aan bij Outlook-adressen",
+      "datum": "24 juli 2026",
+      "staat": "traag",
+      "duur": "3 uur",
+      "tekst": "Bevestigingsmails naar adressen bij Microsoft werden tijdelijk in de wachtrij gezet. Oorzaak lag bij een aanpassing in ons verzendbeleid. Alle mails zijn alsnog bezorgd en het verzenddomein is opnieuw opgebouwd."
+    },
+    {
+      "titel": "Storing bij het inloggen",
+      "datum": "9 juli 2026",
+      "staat": "storing",
+      "duur": "35 minuten",
+      "tekst": "Door een fout in een update konden bestaande gebruikers een half uur lang niet inloggen. De update is teruggedraaid. We hebben sindsdien een controle toegevoegd die inloggen test voordat een versie live gaat."
+    }
+  ],
+  "meldenTitel": "Zie je iets wat hier niet staat?",
+  "meldenTekst": "Als er iets niet werkt en je ziet hier geen melding, horen we het graag meteen. Zet STORING in het onderwerp, dan pakken we het ook buiten kantooruren op.",
+  "meldenMail": "support@fixedflows.nl?subject=STORING",
+  "meldenKnop": "Een storing melden",
+  "slotTitel": "Vragen over een storing?",
+  "slotTekst": "Bel of mail ons. Bij een verstoring die je publicaties raakt, laten we altijd weten wat de stand van zaken is."
+}

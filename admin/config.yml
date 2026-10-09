@@ -1,0 +1,459 @@
+# ============================================================
+#  FixedFlows — CMS-configuratie (Decap CMS)
+#
+#  Wat je hier instelt, bepaalt wat je in /admin kunt bewerken.
+#  Het CMS schrijft naar de JSON-bestanden in /content; de
+#  bouwstap zet die om naar de HTML-pagina's.
+#
+#  Aanpassen van 'repo' en 'branch' hieronder is verplicht
+#  voordat dit werkt.
+# ============================================================
+
+backend:
+  name: github
+  repo: JOUW-GEBRUIKERSNAAM/stratella-site   # <-- aanpassen
+  branch: main
+  # Wil je liever niet via GitHub inloggen? Vervang bovenstaande
+  # drie regels door:  name: git-gateway   (dan regelt Netlify de login)
+
+# Lokaal proefdraaien zonder inloggen: `npx decap-server` starten
+# en deze regel op true zetten.
+local_backend: false
+
+media_folder: "media"
+public_folder: "/media"
+
+publish_mode: editorial_workflow   # concept → review → publiceren
+
+locale: "nl"
+
+collections:
+
+  # ---------------------------------------------------------
+  #  BLOG
+  # ---------------------------------------------------------
+  - name: "blog"
+    label: "Blogartikelen"
+    label_singular: "Artikel"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    summary: "{{titel}} — {{datumTekst}}"
+    sortable_fields: ["datum", "titel"]
+    fields:
+      - { name: "titel", label: "Titel", widget: "string" }
+      - { name: "slug", label: "URL-naam", widget: "string", hint: "Alleen kleine letters en streepjes. Wordt blog-<naam>.html" }
+      - { name: "categorie", label: "Categorie", widget: "select", options: ["Automatisering", "Contentkalender", "E-mailmarketing", "Segmentatie", "Strategie"] }
+      - { name: "datum", label: "Datum", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { name: "datumTekst", label: "Datum in tekst", widget: "string", hint: "Zoals het op de pagina komt, bijv. 4 augustus 2026" }
+      - { name: "leestijd", label: "Leestijd", widget: "string", default: "6 min" }
+      - { name: "auteur", label: "Auteur", widget: "string", default: "Team FixedFlows" }
+      - { name: "samenvatting", label: "Samenvatting", widget: "text", hint: "Staat op het kaartje en als intro boven het artikel" }
+      - { name: "description", label: "Meta-omschrijving (Google)", widget: "text", required: false, hint: "Max ongeveer 155 tekens" }
+      - { name: "hero", label: "Hoofdafbeelding", widget: "image", required: false, hint: "Leeg laten = automatische illustratie" }
+
+      - name: "kopjes"
+        label: "Drie kopjes (waar gaat het artikel over)"
+        widget: "list"
+        min: 1
+        max: 4
+        field: { name: "regel", label: "Kopje", widget: "string" }
+
+      - name: "cta"
+        label: "Knop bovenaan"
+        widget: "object"
+        fields:
+          - { name: "tekst", label: "Knoptekst", widget: "string" }
+          - { name: "href", label: "Link", widget: "string", hint: "Bijv. prijzen.html of service-contentcreatie.html" }
+
+      # -- de opbouw van het artikel --
+      - name: "body"
+        label: "Artikelblokken"
+        label_singular: "Blok"
+        widget: "list"
+        hint: "Voeg blokken toe in de volgorde waarin ze op de pagina komen"
+        types:
+
+          - name: "p"
+            label: "Alinea"
+            summary: "Alinea"
+            fields:
+              - { name: "t", widget: "hidden", default: "p" }
+              - { name: "tekst", label: "Tekst", widget: "text", hint: "Mag <b>vet</b> en <a href=\"pagina.html\">links</a> bevatten" }
+
+          - name: "h2"
+            label: "Tussenkop"
+            summary: "Kop: {{fields.tekst}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "h2" }
+              - { name: "tekst", label: "Tekst", widget: "string", hint: "Komt automatisch in de inhoudsopgave" }
+
+          - name: "h3"
+            label: "Subkop"
+            summary: "Subkop: {{fields.tekst}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "h3" }
+              - { name: "tekst", label: "Tekst", widget: "string" }
+
+          - name: "afb"
+            label: "Afbeelding"
+            summary: "Afbeelding"
+            fields:
+              - { name: "t", widget: "hidden", default: "afb" }
+              - { name: "src", label: "Afbeelding", widget: "image", required: false, hint: "Leeg laten = automatische illustratie" }
+              - { name: "bijschrift", label: "Bijschrift", widget: "string", required: false }
+
+          - name: "tip"
+            label: "Tipblok (omcirkeld, paars)"
+            summary: "Tip: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "tip" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+
+          - name: "feit"
+            label: "Feitenblok (omcirkeld, blauw)"
+            summary: "Feit: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "feit" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+
+          - name: "lijst"
+            label: "Opsomming"
+            summary: "Opsomming"
+            fields:
+              - { name: "t", widget: "hidden", default: "lijst" }
+              - name: "items"
+                label: "Punten"
+                widget: "list"
+                field: { name: "punt", label: "Punt", widget: "string" }
+
+          - name: "stap"
+            label: "Genummerde stappen"
+            summary: "Stappen"
+            fields:
+              - { name: "t", widget: "hidden", default: "stap" }
+              - name: "items"
+                label: "Stappen"
+                widget: "list"
+                fields:
+                  - { name: "k", label: "Kop", widget: "string" }
+                  - { name: "v", label: "Uitleg", widget: "text" }
+
+          - name: "quote"
+            label: "Citaat"
+            summary: "Citaat"
+            fields:
+              - { name: "t", widget: "hidden", default: "quote" }
+              - { name: "tekst", label: "Citaat", widget: "text" }
+              - { name: "bron", label: "Bron", widget: "string", required: false }
+
+          - name: "tabel"
+            label: "Tabel"
+            summary: "Tabel"
+            fields:
+              - { name: "t", widget: "hidden", default: "tabel" }
+              - name: "kop"
+                label: "Kolomkoppen"
+                widget: "list"
+                field: { name: "cel", label: "Kop", widget: "string" }
+              - name: "rijen"
+                label: "Rijen"
+                widget: "list"
+                field:
+                  name: "cellen"
+                  label: "Cellen (op volgorde)"
+                  widget: "list"
+                  field: { name: "cel", label: "Cel", widget: "string" }
+
+          - name: "link"
+            label: "Verwijskaart naar andere pagina"
+            summary: "Link: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "link" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Toelichting", widget: "text" }
+              - { name: "href", label: "Link", widget: "string" }
+
+          - name: "cta"
+            label: "Oproepblok (donker)"
+            summary: "Oproep: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "cta" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+              - { name: "knop", label: "Knoptekst", widget: "string" }
+              - { name: "href", label: "Link", widget: "string" }
+
+  # ---------------------------------------------------------
+  #  SERVICES
+  # ---------------------------------------------------------
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    folder: "content/services"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    summary: "{{naam}}"
+    fields:
+      - { name: "naam", label: "Naam", widget: "string" }
+      - { name: "slug", label: "URL-naam", widget: "string" }
+      - { name: "volgorde", label: "Volgorde in het menu", widget: "number", value_type: "int", default: 0 }
+      - { name: "icoon", label: "Pictogram", widget: "select", options: ["pen", "kalender", "magneet", "mail", "segment", "groei"] }
+      - { name: "kort", label: "Korte regel in het menu", widget: "string" }
+      - { name: "stap", label: "Stap in de klantreis", widget: "number", value_type: "int", default: 1 }
+      - { name: "title", label: "Paginatitel (Google)", widget: "string" }
+      - { name: "description", label: "Meta-omschrijving", widget: "text" }
+      - { name: "h1", label: "Kop op de pagina", widget: "string" }
+      - { name: "sub", label: "Ondertitel", widget: "string" }
+      - { name: "lede", label: "Inleiding", widget: "text" }
+      - name: "checks"
+        label: "Drie vinkjes"
+        widget: "list"
+        field: { name: "regel", label: "Regel", widget: "string" }
+      - name: "voordelen"
+        label: "Voordelen"
+        widget: "list"
+        fields:
+          - { name: "t", label: "Kop", widget: "string" }
+          - { name: "d", label: "Tekst", widget: "text" }
+      - name: "secties"
+        label: "Verdiepende blokken"
+        widget: "list"
+        fields:
+          - { name: "k", label: "Label boven de kop", widget: "string" }
+          - { name: "t", label: "Kop", widget: "string" }
+          - { name: "d", label: "Tekst", widget: "text" }
+      - name: "faq"
+        label: "Veelgestelde vragen"
+        widget: "list"
+        fields:
+          - { name: "v", label: "Vraag", widget: "string" }
+          - { name: "a", label: "Antwoord", widget: "text" }
+
+  # ---------------------------------------------------------
+  #  KANALEN
+  # ---------------------------------------------------------
+  - name: "kanalen"
+    label: "Kanalen"
+    label_singular: "Kanaal"
+    folder: "content/kanalen"
+    create: true
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    summary: "{{naam}}"
+    fields:
+      - { name: "naam", label: "Naam", widget: "string" }
+      - { name: "slug", label: "URL-naam", widget: "string", hint: "Bepaalt ook welk logo wordt getoond" }
+      - { name: "volgorde", label: "Volgorde in het menu", widget: "number", value_type: "int", default: 0 }
+      - { name: "kleur", label: "Merkkleur", widget: "color" }
+      - { name: "ratio", label: "Beeldverhouding", widget: "string", default: "100%", hint: "Bijv. 100% voor vierkant, 56% voor breed, 160% voor staand" }
+      - { name: "handle", label: "Voorbeeldnaam in de mockup", widget: "string" }
+      - { name: "title", label: "Paginatitel (Google)", widget: "string" }
+      - { name: "description", label: "Meta-omschrijving", widget: "text" }
+      - { name: "h1", label: "Kop op de pagina", widget: "string" }
+      - { name: "sub", label: "Ondertitel", widget: "string" }
+      - { name: "lede", label: "Inleiding", widget: "text" }
+      - name: "checks"
+        label: "Drie vinkjes"
+        widget: "list"
+        field: { name: "regel", label: "Regel", widget: "string" }
+      - name: "voordelen"
+        label: "Voordelen"
+        widget: "list"
+        fields:
+          - { name: "t", label: "Kop", widget: "string" }
+          - { name: "d", label: "Tekst", widget: "text" }
+      - name: "secties"
+        label: "Verdiepende blokken"
+        widget: "list"
+        fields:
+          - { name: "k", label: "Label boven de kop", widget: "string" }
+          - { name: "t", label: "Kop", widget: "string" }
+          - { name: "d", label: "Tekst", widget: "text" }
+      - name: "faq"
+        label: "Veelgestelde vragen"
+        widget: "list"
+        fields:
+          - { name: "v", label: "Vraag", widget: "string" }
+          - { name: "a", label: "Antwoord", widget: "text" }
+
+  # ---------------------------------------------------------
+  #  LOSSE PAGINA'S EN INSTELLINGEN
+  # ---------------------------------------------------------
+  - name: "instellingen"
+    label: "Site en homepage"
+    files:
+
+      - name: "algemeen"
+        label: "Algemene instellingen"
+        file: "content/instellingen.json"
+        fields:
+          - { name: "merknaam", label: "Merknaam", widget: "string" }
+          - { name: "domein", label: "Domein", widget: "string" }
+          - { name: "kvk", label: "KvK-nummer", widget: "string" }
+          - { name: "knopPrimair", label: "Knop in de menubalk", widget: "string" }
+          - { name: "knopProef", label: "Knop proefperiode", widget: "string" }
+          - { name: "knopDemo", label: "Knop demo", widget: "string" }
+          - { name: "footerTekst", label: "Tekst in de footer", widget: "text" }
+          - { name: "footerOnder", label: "Onderste regel footer", widget: "string" }
+          - { name: "socialLinkedin", label: "LinkedIn-link", widget: "string" }
+          - { name: "socialInstagram", label: "Instagram-link", widget: "string" }
+          - { name: "socialYoutube", label: "YouTube-link", widget: "string" }
+          - { name: "slotTitel", label: "Kop slotblok", widget: "string" }
+          - { name: "slotTekst", label: "Tekst slotblok", widget: "text" }
+
+      - name: "home"
+        label: "Homepage"
+        file: "content/home.json"
+        fields:
+          - { name: "titel", label: "Paginatitel (Google)", widget: "string" }
+          - { name: "description", label: "Meta-omschrijving", widget: "text" }
+          - { name: "heroEyebrow", label: "Labeltje boven de kop", widget: "string" }
+          - { name: "heroRegel1", label: "Kop regel 1", widget: "string" }
+          - { name: "heroRegel2", label: "Kop regel 2", widget: "string" }
+          - { name: "heroRegel3", label: "Kop regel 3 (paars)", widget: "string" }
+          - { name: "heroLede", label: "Inleiding", widget: "text" }
+          - name: "heroChecks"
+            label: "Vinkjes"
+            widget: "list"
+            field: { name: "regel", label: "Regel", widget: "string" }
+          - { name: "heroKnop2", label: "Tweede knop", widget: "string" }
+          - { name: "heroFineprint", label: "Kleine regel onder de knoppen", widget: "string" }
+          - { name: "stripLabel", label: "Label boven de plaatsen", widget: "string" }
+          - name: "stripPlaatsen"
+            label: "Plaatsen"
+            widget: "list"
+            field: { name: "plaats", label: "Plaats", widget: "string" }
+          - { name: "reisEyebrow", label: "Klantreis — labeltje", widget: "string" }
+          - { name: "reisTitel", label: "Klantreis — kop", widget: "string" }
+          - { name: "reisLede", label: "Klantreis — inleiding", widget: "text" }
+          - name: "reisStappen"
+            label: "Klantreis — stappen"
+            widget: "list"
+            fields:
+              - { name: "label", label: "Labeltje", widget: "select", options: ["AI", "Automatisch", "Jij"] }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+              - { name: "linkTekst", label: "Linktekst", widget: "string" }
+              - { name: "href", label: "Link", widget: "string" }
+          - { name: "aiEyebrow", label: "AI-blok — labeltje", widget: "string" }
+          - { name: "aiTitel", label: "AI-blok — kop", widget: "string" }
+          - { name: "aiLede", label: "AI-blok — inleiding", widget: "text" }
+          - name: "aiPunten"
+            label: "AI-blok — punten"
+            widget: "list"
+            fields:
+              - { name: "vet", label: "Vet begin", widget: "string" }
+              - { name: "tekst", label: "Rest van de zin", widget: "string" }
+          - { name: "aiKnop", label: "AI-blok — knoptekst", widget: "string" }
+          - { name: "aiKnopHref", label: "AI-blok — knoplink", widget: "string" }
+          - { name: "servicesEyebrow", label: "Services — labeltje", widget: "string" }
+          - { name: "servicesTitel", label: "Services — kop", widget: "string" }
+          - { name: "servicesLede", label: "Services — inleiding", widget: "text" }
+          - { name: "kanalenEyebrow", label: "Kanalen — labeltje", widget: "string" }
+          - { name: "kanalenTitel", label: "Kanalen — kop", widget: "string" }
+          - { name: "kanalenLede", label: "Kanalen — inleiding", widget: "text" }
+
+  # ---------------------------------------------------------
+  #  LOSSE PAGINA'S (contact, over ons, help, status, juridisch)
+  # ---------------------------------------------------------
+  - name: "paginas"
+    label: "Pagina's"
+    label_singular: "Pagina"
+    folder: "content/paginas"
+    create: false
+    extension: "json"
+    format: "json"
+    slug: "{{slug}}"
+    summary: "{{titel}}"
+    fields:
+      - { name: "titel", label: "Kop op de pagina", widget: "string" }
+      - { name: "slug", label: "URL-naam", widget: "string" }
+      - { name: "soort", label: "Opmaak", widget: "select", options: ["juridisch", "contact", "verhaal", "help", "status"] }
+      - { name: "sub", label: "Ondertitel", widget: "text" }
+      - { name: "title", label: "Paginatitel (Google)", widget: "string", required: false }
+      - { name: "description", label: "Meta-omschrijving", widget: "text", required: false }
+      - { name: "intro", label: "Inleiding", widget: "text", required: false }
+      - { name: "versie", label: "Versie (juridisch)", widget: "string", required: false }
+      - { name: "bijgewerkt", label: "Laatst bijgewerkt", widget: "string", required: false }
+      - { name: "slotTitel", label: "Kop slotblok", widget: "string", required: false }
+      - { name: "slotTekst", label: "Tekst slotblok", widget: "text", required: false }
+      - name: "body"
+        label: "Tekstblokken"
+        widget: "list"
+        required: false
+        types:
+          - name: "p"
+            label: "Alinea"
+            fields:
+              - { name: "t", widget: "hidden", default: "p" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+          - name: "h2"
+            label: "Tussenkop"
+            summary: "Kop: {{fields.tekst}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "h2" }
+              - { name: "tekst", label: "Tekst", widget: "string" }
+          - name: "lijst"
+            label: "Opsomming"
+            fields:
+              - { name: "t", widget: "hidden", default: "lijst" }
+              - name: "items"
+                label: "Punten"
+                widget: "list"
+                field: { name: "punt", label: "Punt", widget: "string" }
+          - name: "tabel"
+            label: "Tabel"
+            fields:
+              - { name: "t", widget: "hidden", default: "tabel" }
+              - name: "kop"
+                label: "Kolomkoppen"
+                widget: "list"
+                field: { name: "cel", label: "Kop", widget: "string" }
+              - name: "rijen"
+                label: "Rijen"
+                widget: "list"
+                field:
+                  name: "cellen"
+                  label: "Cellen"
+                  widget: "list"
+                  field: { name: "cel", label: "Cel", widget: "string" }
+          - name: "tip"
+            label: "Tipblok"
+            summary: "Tip: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "tip" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+          - name: "feit"
+            label: "Feitenblok"
+            summary: "Feit: {{fields.titel}}"
+            fields:
+              - { name: "t", widget: "hidden", default: "feit" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+          - name: "stap"
+            label: "Genummerde stappen"
+            fields:
+              - { name: "t", widget: "hidden", default: "stap" }
+              - name: "items"
+                label: "Stappen"
+                widget: "list"
+                fields:
+                  - { name: "k", label: "Kop", widget: "string" }
+                  - { name: "v", label: "Uitleg", widget: "text" }
+          - name: "cta"
+            label: "Oproepblok"
+            fields:
+              - { name: "t", widget: "hidden", default: "cta" }
+              - { name: "titel", label: "Kop", widget: "string" }
+              - { name: "tekst", label: "Tekst", widget: "text" }
+              - { name: "knop", label: "Knoptekst", widget: "string" }
+              - { name: "href", label: "Link", widget: "string" }

@@ -1,0 +1,83 @@
+{
+  "volgorde": 5,
+  "slug": "digitale-marketing",
+  "naam": "Digitale marketing",
+  "icoon": "groei",
+  "kort": "Wij voeren het voor je uit",
+  "stap": 6,
+  "title": "Digitale marketing uitbesteden: SEO, Google Ads en funnels | FixedFlows",
+  "description": "Geen tijd om het zelf te doen? Wij verzorgen je SEO, Google Ads, funnel-inrichting, A/B-testing en influencer marketing.",
+  "h1": "Digitale marketing",
+  "sub": "Voor als het systeem er staat, maar de tijd om het te bemannen ontbreekt.",
+  "lede": "FixedFlows is gebouwd om zelf te gebruiken. Maar bij de meeste bedrijven is niet de software het knelpunt — het is dat er niemand is die er wekelijks mee aan de slag gaat. Voor die situatie voeren wij het uit, binnen hetzelfde systeem waar jij bij kunt.",
+  "checks": [
+    "Wij werken in jouw omgeving, dus je ziet altijd wat er gebeurt",
+    "Vaste maandelijkse inzet, geen open eind",
+    "Stoppen kan zonder dat je je opzet kwijtraakt"
+  ],
+  "voordelen": [
+    {
+      "t": "SEO",
+      "d": "Zoekwoordonderzoek, teksten voor je belangrijkste pagina's en technische verbeteringen die je vindbaarheid daadwerkelijk raken."
+    },
+    {
+      "t": "Google Ads",
+      "d": "Campagnes opzetten en wekelijks bijsturen, met conversiemeting die doorloopt tot in je flows."
+    },
+    {
+      "t": "Funnels inrichten",
+      "d": "Van eerste post tot laatste mail: wij bouwen de hele reeks, testen hem en zetten hem live."
+    },
+    {
+      "t": "A/B-testing",
+      "d": "Structureel testen op onderwerpregels, advertenties en landingspagina's, met een conclusie per maand."
+    },
+    {
+      "t": "Influencer marketing",
+      "d": "Wij zoeken makers die daadwerkelijk bij je doelgroep passen, benaderen ze en begeleiden de samenwerking."
+    },
+    {
+      "t": "Rapportage",
+      "d": "Eén maandrapport dat vertelt wat er gebeurde, wat het opleverde en wat we volgende maand anders doen."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Hoe het werkt",
+      "t": "Wij werken in jouw omgeving, niet ernaast",
+      "d": "Alles wat we doen, doen we in jouw FixedFlows-omgeving. Je ziet elke post, elke flow en elk segment terwijl we eraan werken. Dat betekent ook dat je er op elk moment mee verder kunt zonder dat er iets overgezet hoeft te worden."
+    },
+    {
+      "k": "Waar we beginnen",
+      "t": "Eerst het lek, dan de kraan",
+      "d": "Voordat we advertentiebudget aanraken, kijken we of wat er binnenkomt goed wordt opgevolgd. Verkeer naar een funnel die niet converteert, is duur betaald leergeld. In de eerste maand richten we daarom eerst de opvolging in."
+    },
+    {
+      "k": "Wat je terugkrijgt",
+      "t": "Eén rapport, geen dashboardhonger",
+      "d": "Elke maand één rapport met wat er gebeurde, wat het kostte, wat het opleverde en wat het voorstel voor volgende maand is. Wil je meer zien, dan staat het dashboard altijd open — maar je hoeft er niet in te wonen om te weten hoe het gaat."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Wat kost dit?",
+      "a": "De inrichting is eenmalig €750. Maandelijks beheer begint bij €450 per maand; bij advertentiebeheer erbovenop hangt het af van je budget. Na een kennismaking krijg je een vaste prijs, geen uurtje-factuurtje."
+    },
+    {
+      "v": "Zit ik ergens aan vast?",
+      "a": "Maandelijks opzegbaar na de eerste drie maanden. Die drie maanden zijn er omdat resultaat in de eerste maand niet eerlijk te beoordelen is."
+    },
+    {
+      "v": "Wat als ik het later zelf wil doen?",
+      "a": "Dan stop je het beheer en houd je alles: je kalender, je flows, je segmenten en je contacten. Alles staat in jouw omgeving, niet in de onze."
+    },
+    {
+      "v": "Doen jullie ook alleen SEO of alleen Ads?",
+      "a": "Ja, losse onderdelen kan. In de praktijk levert de combinatie meer op, omdat betaald verkeer en opvolging elkaar versterken."
+    },
+    {
+      "v": "Hoe werkt de influencer marketing?",
+      "a": "Wij zoeken makers die bij je doelgroep passen — op basis van wie hun publiek is, niet alleen op volgersaantal — benaderen ze, onderhandelen en begeleiden de samenwerking. De afspraken lopen via jou."
+    }
+  ]
+}

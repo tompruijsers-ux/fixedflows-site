@@ -1,0 +1,70 @@
+{
+  "volgorde": 0,
+  "slug": "social-media-management",
+  "naam": "Social media management",
+  "icoon": "instagram",
+  "kort": "Wij runnen je kanalen",
+  "title": "Social media management door FixedFlows | Diensten",
+  "description": "Wij verzorgen je social media volledig: contentplanning, posts, community management en rapportage. Geen software om zelf te bedienen — gewoon een team dat het overneemt.",
+  "h1": "Social media management",
+  "sub": "Je kanalen lopen, jij hoeft er niet meer naar om te kijken.",
+  "lede": "Je weet dat je actief moet zijn op social media, maar de tijd ontbreekt of het blijft steken bij losse, ongeplande posts. Wij nemen het beheer van je kanalen over: van contentplanning tot het schrijven, plaatsen en opvolgen van reacties.",
+  "checks": [
+    "Vaste contentplanning, afgestemd op jouw doelgroep en sector",
+    "Posts, stories en reacties door een vast aanspreekpunt",
+    "Maandelijkse rapportage met wat wél en niet werkte"
+  ],
+  "voordelen": [
+    {
+      "t": "Eén aanspreekpunt, geen wisselende freelancers",
+      "d": "Je werkt met dezelfde persoon die jouw merk, toon en klanten leert kennen — niet elke maand een nieuw gezicht dat weer bij nul begint."
+    },
+    {
+      "t": "Content die past bij je sector",
+      "d": "Een makelaar heeft andere content nodig dan een fysiotherapeut. We bouwen de planning op basis van wat in jouw branche daadwerkelijk leads oplevert."
+    },
+    {
+      "t": "Reageren hoort erbij",
+      "d": "Een kanaal dat nooit reageert op comments of berichten voelt onbeheerd. Wij monitoren en reageren binnen de afgesproken tijden, in jouw naam."
+    },
+    {
+      "t": "Cijfers in plaats van gevoel",
+      "d": "Elke maand een helder overzicht van bereik, interactie en welke posts converteerden naar een lead — geen vage tevredenheidsscore."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Plannen",
+      "t": "Een contentkalender die vooruitloopt op je agenda",
+      "d": "We stellen per maand een planning op met thema's, aankondigingen en terugkerende rubrieken, afgestemd met jou voordat er iets live gaat."
+    },
+    {
+      "k": "Produceren",
+      "t": "Van tekst tot beeld, klaar om te plaatsen",
+      "d": "Wij schrijven de teksten en verzorgen het beeldmateriaal — met input van jouw eigen foto's en video's waar die er zijn, aangevuld waar nodig."
+    },
+    {
+      "k": "Beheren",
+      "t": "Community management hoort erbij",
+      "d": "Vragen in de comments of DM's laten we niet liggen. Duidelijke, terugkerende vragen beantwoorden we direct; de rest leggen we aan jou voor."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Op welke kanalen werken jullie?",
+      "a": "Instagram, Facebook, LinkedIn en TikTok. We adviseren vooraf welke kanalen voor jouw branche het meeste opleveren, in plaats van overal tegelijk actief te zijn."
+    },
+    {
+      "v": "Moet ik zelf nog iets aanleveren?",
+      "a": "Een keer per maand een kort moment voor foto's, video of updates uit je bedrijf werkt het beste. De rest verzorgen wij."
+    },
+    {
+      "v": "Kan dit gecombineerd worden met de FixedFlows-software?",
+      "a": "Ja. Zodra we voor je posten, kun je in FixedFlows zelf zien hoe posts leads opleveren via leadmagnets en de customer journey."
+    },
+    {
+      "v": "Wat is de looptijd van deze dienst?",
+      "a": "Maandelijks opzegbaar met een minimale looptijd van drie maanden, omdat contentopbouw op social media tijd nodig heeft om effect te laten zien."
+    }
+  ]
+}

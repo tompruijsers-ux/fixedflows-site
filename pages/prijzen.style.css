@@ -1,0 +1,83 @@
+/* ---------- kop ---------- */
+.p-hero{padding:62px 0 44px;text-align:center}
+.p-hero h1{font-weight:700;font-size:clamp(2.4rem,4.4vw,3.7rem);margin-top:22px;max-width:16em;margin-inline:auto}
+.p-hero .lede{margin:20px auto 0;font-size:18.5px;color:var(--ink-2);max-width:44em}
+.trust{display:flex;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:26px;font-size:14.5px;color:var(--ink-2)}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust svg{width:15px;height:15px;flex:none}
+
+/* ---------- schakelaar ---------- */
+.toggle{display:flex;justify-content:center;margin-top:34px}
+.toggle-in{display:flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.toggle-in button{border:none;background:transparent;font-family:inherit;font-size:15px;font-weight:600;color:var(--ink-3);
+  padding:10px 22px;border-radius:999px;cursor:pointer;transition:background .16s ease,color .16s ease}
+.toggle-in button[aria-pressed="true"]{background:var(--marine);color:#fff}
+.save{background:var(--purple-soft);color:#4A2BA8;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;margin-left:6px}
+
+/* ---------- pakketten ---------- */
+.plans{padding:44px 0 90px}
+.plan-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:start}
+.plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 24px 30px;display:flex;flex-direction:column;height:100%}
+.plan.featured{border:2px solid var(--marine);box-shadow:0 22px 50px -30px rgba(10,36,71,.55);position:relative}
+.badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--purple);color:#fff;
+  font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:5px 14px;border-radius:999px;white-space:nowrap}
+.plan h2{font-size:21px;font-weight:700;letter-spacing:-.03em}
+.plan .who{font-size:14.5px;color:var(--ink-3);margin-top:8px;min-height:44px;line-height:1.4}
+.price{display:flex;align-items:baseline;gap:4px;margin-top:20px}
+.price .amt{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:42px;font-weight:700;letter-spacing:-.036em;line-height:1}
+.price .per{font-size:14.5px;color:var(--ink-3);font-weight:500}
+.billed{font-size:13px;color:var(--ink-3);margin-top:8px;min-height:20px}
+.plan .btn{margin-top:20px}
+.limits{margin-top:22px;padding-top:20px;border-top:1px solid var(--line-soft);display:flex;flex-direction:column;gap:7px}
+.limits b{font-size:14.5px;font-weight:600}
+.plan .incl{font-size:13px;font-weight:600;color:var(--ink-3);margin-top:20px;margin-bottom:11px;letter-spacing:.02em}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.plan li{display:flex;gap:9px;font-size:14.5px;line-height:1.4;color:var(--ink-2)}
+.plan li svg{width:15px;height:15px;flex:none;margin-top:3px}
+
+/* ---------- vergelijking ---------- */
+.compare{padding:0 0 92px}
+.compare .sec-head{max-width:640px;margin-bottom:36px}
+.compare h2{font-size:clamp(1.9rem,3.2vw,2.7rem)}
+.compare .sec-head p{margin-top:14px;font-size:17.5px;color:var(--ink-2)}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+table{border-collapse:collapse;width:100%;min-width:760px}
+thead th{position:sticky;top:0;background:#fff;text-align:left;padding:18px 16px;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  font-size:15.5px;font-weight:700;letter-spacing:-.02em;border-bottom:1px solid var(--line);z-index:2}
+thead th:first-child{width:36%}
+thead th span{display:block;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:12.5px;font-weight:500;color:var(--ink-3);margin-top:3px}
+tbody th{text-align:left;font-weight:500;font-size:14.5px;padding:12px 16px;color:var(--ink-2);border-bottom:1px solid var(--line-soft)}
+tbody td{text-align:center;padding:12px 16px;border-bottom:1px solid var(--line-soft);font-size:14px;color:var(--ink-2)}
+tr.group th{background:var(--bg-2);font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-weight:700;font-size:14px;
+  letter-spacing:.02em;color:var(--ink);padding:11px 16px}
+tr.group td{background:var(--bg-2);border-bottom:1px solid var(--line-soft)}
+.yes{color:var(--marine);font-weight:700}
+.no{color:#B4BCD0}
+
+/* ---------- add-ons ---------- */
+.addons{padding:0 0 92px}
+.addon-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:18px;margin-top:36px}
+.addon{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+.addon .kicker{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--purple)}
+.addon h3{font-size:19px;font-weight:700;margin:10px 0 8px}
+.addon p{font-size:14.5px;color:var(--ink-2);line-height:1.5}
+.addon .cost{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:26px;font-weight:700;letter-spacing:-.03em;margin-top:16px}
+.addon .cost small{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:13.5px;font-weight:500;color:var(--ink-3);letter-spacing:0}
+
+/* ---------- faq ---------- */
+.faq{padding:0 0 92px}
+.faq-list{margin-top:32px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:20px 44px 20px 0;font-size:17px;font-weight:600;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:8px;top:17px;font-size:22px;font-weight:400;color:var(--purple);line-height:1}
+details[open] summary::after{content:"−"}
+details p{padding:0 40px 22px 0;color:var(--ink-2);font-size:16px;max-width:62em}
+details p + p{padding-top:0;margin-top:-8px}
+
+@media(max-width:1080px){ .plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:660px){
+  .plan-grid{grid-template-columns:1fr}
+  .p-hero{padding:44px 0 32px}
+  .plan .who{min-height:0}
+}

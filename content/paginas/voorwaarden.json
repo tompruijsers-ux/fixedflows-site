@@ -1,0 +1,159 @@
+{
+  "slug": "voorwaarden",
+  "soort": "juridisch",
+  "volgorde": 11,
+  "label": "Juridisch",
+  "titel": "Algemene voorwaarden",
+  "versie": "1.0",
+  "bijgewerkt": "21 augustus 2026",
+  "title": "Algemene voorwaarden — FixedFlows",
+  "description": "De afspraken tussen FixedFlows en jou als klant: abonnement, proefperiode, opzeggen, aansprakelijkheid en beschikbaarheid.",
+  "sub": "De afspraken tussen ons, zo kort als het kan.",
+  "intro": "Deze voorwaarden gelden voor het gebruik van FixedFlows. Door een account aan te maken ga je ermee akkoord. We hebben geprobeerd ze leesbaar te houden.",
+  "body": [
+    {
+      "t": "h2",
+      "tekst": "1. Wie is wie"
+    },
+    {
+      "t": "p",
+      "tekst": "<b>FixedFlows</b> is de aanbieder van de dienst, ingeschreven bij de Kamer van Koophandel onder nummer 00000000. <b>Jij</b> bent de rechtspersoon of ondernemer die een account aanmaakt. Deze voorwaarden gelden voor zakelijk gebruik; FixedFlows is niet bedoeld voor consumenten."
+    },
+    {
+      "t": "h2",
+      "tekst": "2. Wat de dienst inhoudt"
+    },
+    {
+      "t": "p",
+      "tekst": "FixedFlows is software waarmee je social media content plant, laat goedkeuren en publiceert, en waarmee je opvolging kunt automatiseren. Je krijgt een gebruiksrecht voor de duur van je abonnement. De software blijft van ons; jouw content blijft van jou."
+    },
+    {
+      "t": "p",
+      "tekst": "We ontwikkelen het product door. Functies kunnen erbij komen of veranderen. Verdwijnt er een functie waar je op rekende, dan laten we dat minimaal dertig dagen vooraf weten."
+    },
+    {
+      "t": "h2",
+      "tekst": "3. Proefperiode"
+    },
+    {
+      "t": "p",
+      "tekst": "Je kunt FixedFlows veertien dagen kosteloos proberen, zonder betaalgegevens. Kies je aan het eind geen pakket, dan stopt het publiceren automatisch en blijft je data dertig dagen bewaard. Er wordt niets afgeschreven en er ontstaat geen abonnement zolang je daar niet zelf voor kiest."
+    },
+    {
+      "t": "h2",
+      "tekst": "4. Abonnement en betaling"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Prijzen zijn exclusief btw. Bedrijven binnen de EU met een geldig btw-nummer betalen geen Nederlandse btw.",
+        "Je betaalt vooraf, per maand of per jaar. Bij jaarbetaling geldt de korting die op de prijzenpagina staat.",
+        "Facturen worden per e-mail verstuurd en zijn terug te vinden in je account.",
+        "Bij een mislukte betaling proberen we het nog drie keer. Lukt het daarna niet, dan pauzeren we het publiceren; je data blijft staan.",
+        "Prijswijzigingen kondigen we minimaal dertig dagen van tevoren aan en gaan pas in bij je volgende verlenging."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "5. Opzeggen"
+    },
+    {
+      "t": "p",
+      "tekst": "Je kunt maandelijks opzeggen, met opzegtermijn tot het einde van de lopende betaalperiode. Er is geen minimumduur en geen boete. Bij een jaarabonnement loopt de periode af op de verlengingsdatum; tussentijds opzeggen kan, maar geeft geen recht op terugbetaling van de resterende maanden."
+    },
+    {
+      "t": "p",
+      "tekst": "Na opzegging blijft je data dertig dagen beschikbaar om te exporteren. Daarna verwijderen we hem."
+    },
+    {
+      "t": "tip",
+      "titel": "Voor bureaus",
+      "tekst": "Beheer je meerdere merken voor klanten, dan blijft de content van elk merk gescheiden en exporteerbaar. Stopt een klant bij jou, dan kun je die werkruimte los exporteren of overdragen zonder je hele account op te zeggen."
+    },
+    {
+      "t": "h2",
+      "tekst": "6. Jouw verantwoordelijkheden"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Je zorgt dat je gerechtigd bent om de gekoppelde social media accounts te gebruiken en namens de eigenaar te publiceren.",
+        "Je houdt je aan de voorwaarden van de platforms waar je op publiceert. Wij kunnen die niet voor je afdwingen.",
+        "Je bent verantwoordelijk voor de inhoud die je publiceert, inclusief teksten die met de AI-assistent zijn gemaakt.",
+        "Je zorgt dat je toestemming hebt voor de contactgegevens die je in FixedFlows zet, en dat je die kunt aantonen.",
+        "Je deelt je inloggegevens niet en meldt het ons als je vermoedt dat iemand anders toegang heeft."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "7. Wat niet mag"
+    },
+    {
+      "t": "p",
+      "tekst": "FixedFlows mag niet worden gebruikt voor ongevraagde berichten aan mensen die daar geen toestemming voor gaven, voor het omzeilen van limieten van platforms, voor het verspreiden van onrechtmatige inhoud, of voor het geautomatiseerd benaderen van mensen buiten de regels van het betreffende kanaal. Bij misbruik kunnen we een account per direct opschorten."
+    },
+    {
+      "t": "h2",
+      "tekst": "8. Beschikbaarheid"
+    },
+    {
+      "t": "p",
+      "tekst": "We doen ons best de dienst continu beschikbaar te houden en publiceren onze status op <a href=\"status.html\">status.fixedflows.nl</a>. We kunnen geen ononderbroken beschikbaarheid garanderen: we zijn deels afhankelijk van de platforms waarop we publiceren, en die kunnen zelf storingen hebben of hun voorwaarden wijzigen."
+    },
+    {
+      "t": "p",
+      "tekst": "Gepland onderhoud voeren we zoveel mogelijk buiten kantooruren uit en kondigen we vooraf aan."
+    },
+    {
+      "t": "feit",
+      "titel": "Waarom we geen publicatiegarantie geven",
+      "tekst": "Sommige berichttypen mogen volgens de regels van het platform niet automatisch geplaatst worden, bijvoorbeeld Instagram-stories en Facebook-groepen. Daarvoor krijg je een melding op het geplande moment. Dat is een beperking van het platform, niet van FixedFlows, en we kunnen die niet opheffen."
+    },
+    {
+      "t": "h2",
+      "tekst": "9. Aansprakelijkheid"
+    },
+    {
+      "t": "p",
+      "tekst": "Onze aansprakelijkheid is beperkt tot het bedrag dat je in de twaalf maanden voorafgaand aan de schade aan ons hebt betaald. We zijn niet aansprakelijk voor indirecte schade zoals gemiste omzet, gemiste leads, reputatieschade of gevolgen van een schorsing van je account door een social media platform."
+    },
+    {
+      "t": "p",
+      "tekst": "Deze beperkingen gelden niet bij opzet of bewuste roekeloosheid van onze kant, en niet voor zover de wet ze niet toestaat."
+    },
+    {
+      "t": "h2",
+      "tekst": "10. Intellectueel eigendom"
+    },
+    {
+      "t": "p",
+      "tekst": "De software, het ontwerp en de merknaam FixedFlows zijn van ons. Jouw content, contacten en instellingen zijn van jou. Wij gebruiken jouw content niet voor andere doeleinden dan het leveren van de dienst, en niet om AI-modellen te trainen."
+    },
+    {
+      "t": "h2",
+      "tekst": "11. Persoonsgegevens"
+    },
+    {
+      "t": "p",
+      "tekst": "Hoe we met persoonsgegevens omgaan staat in onze <a href=\"privacy.html\">privacyverklaring</a>. Verwerk je met FixedFlows persoonsgegevens van jouw eigen klanten, dan geldt daarnaast de <a href=\"verwerkersovereenkomst.html\">verwerkersovereenkomst</a>, die onderdeel is van deze voorwaarden."
+    },
+    {
+      "t": "h2",
+      "tekst": "12. Wijzigingen in deze voorwaarden"
+    },
+    {
+      "t": "p",
+      "tekst": "We kunnen deze voorwaarden aanpassen. Wijzigingen in je nadeel melden we minimaal dertig dagen van tevoren per e-mail. Ben je het er niet mee eens, dan kun je opzeggen voordat ze ingaan."
+    },
+    {
+      "t": "h2",
+      "tekst": "13. Toepasselijk recht"
+    },
+    {
+      "t": "p",
+      "tekst": "Op deze overeenkomst is Nederlands recht van toepassing. Geschillen leggen we voor aan de bevoegde rechter in Nederland. Voordat het zover komt, nemen we graag eerst de telefoon."
+    }
+  ],
+  "slotTitel": "Iets onduidelijk?",
+  "slotTekst": "Als een bepaling vragen oproept, leggen we hem graag uit voordat je akkoord gaat."
+}

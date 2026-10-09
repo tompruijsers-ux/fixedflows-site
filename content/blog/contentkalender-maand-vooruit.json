@@ -1,0 +1,124 @@
+{
+  "slug": "contentkalender-maand-vooruit",
+  "titel": "Een maand content plannen in één middag",
+  "categorie": "Contentkalender",
+  "datum": "2026-07-21",
+  "datumTekst": "21 juli 2026",
+  "leestijd": "6 min",
+  "auteur": "Team FixedFlows",
+  "samenvatting": "Niet meer elke ochtend bedenken wat je post. Zo zet je in één middag een maand klaar die je ook echt volhoudt.",
+  "description": "Praktische aanpak om een maand aan social content in één middag te plannen: thema's, verdeling, batchen en goedkeuring.",
+  "kopjes": [
+    "Waarom losse posts altijd stilvallen",
+    "Vier thema's met een vaste verdeling",
+    "Batchen: schrijven, beeld, inplannen"
+  ],
+  "cta": {
+    "tekst": "Bekijk de contentkalender",
+    "href": "service-contentkalender.html"
+  },
+  "body": [
+    {
+      "t": "p",
+      "tekst": "De meeste bedrijven posten in golven: drie weken enthousiast, dan zes weken stilte. Niet uit luiheid, maar omdat elke post opnieuw een beslissing vraagt. Wie vooruit plant, hoeft die beslissing maar één keer per maand te nemen."
+    },
+    {
+      "t": "h2",
+      "tekst": "Waarom losse posts altijd stilvallen"
+    },
+    {
+      "t": "p",
+      "tekst": "Een post bedenken kost weinig tijd. Bedenken <b>wát</b> je post kost veel tijd. Zolang die vraag elke dag terugkomt, verliest hij het van elke klus die urgenter voelt — en dat is bijna alles."
+    },
+    {
+      "t": "feit",
+      "titel": "Consistentie verslaat volume",
+      "tekst": "Drie posts per week, elke week, doen meer voor je bereik dan tien posts in januari gevolgd door stilte. Algoritmes belonen regelmaat; je publiek ook."
+    },
+    {
+      "t": "h2",
+      "tekst": "Vier thema's met een vaste verdeling"
+    },
+    {
+      "t": "p",
+      "tekst": "Kies vier onderwerpen die je bedrijf dekken en geef ze een verdeling. Voor de meeste dienstverleners werkt deze:"
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Thema",
+        "Aandeel",
+        "Voorbeeld"
+      ],
+      "rijen": [
+        [
+          "Uitleg",
+          "40%",
+          "Werkt jouw omvormer nog in de omvormer"
+        ],
+        [
+          "Klantverhalen",
+          "20%",
+          "Voor en na bij een laadpaal in Bilthoven"
+        ],
+        [
+          "Aanbod",
+          "20%",
+          "Gratis opbrengstcheck deze maand"
+        ],
+        [
+          "Achter de schermen",
+          "20%",
+          "Nieuwe collega, of een klus die tegenviel"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "De verdeling is belangrijker dan de exacte thema's. Zonder verdeling wordt je maand vanzelf één lange reclame, en dat is precies waar mensen op wegklikken."
+    },
+    {
+      "t": "afb",
+      "bijschrift": "Een maandweergave laat direct zien of je verdeling klopt — en waar de gaten vallen."
+    },
+    {
+      "t": "h2",
+      "tekst": "Batchen: schrijven, beeld, inplannen"
+    },
+    {
+      "t": "stap",
+      "items": [
+        {
+          "k": "Blok één: alleen schrijven",
+          "v": "Twaalf posts achter elkaar, zonder beeld en zonder inplannen. Schakelen tussen taken kost je meer tijd dan het schrijven zelf."
+        },
+        {
+          "k": "Blok twee: alleen beeld",
+          "v": "Foto's kiezen of laten genereren voor alles wat je net schreef."
+        },
+        {
+          "k": "Blok drie: inplannen en indienen",
+          "v": "Datums en tijden toekennen en in één keer ter goedkeuring sturen."
+        }
+      ]
+    },
+    {
+      "t": "tip",
+      "titel": "Laat één week bewust leeg",
+      "tekst": "Plan drie van de vier weken vol en houd de laatste week open voor actualiteit — een afgeronde klus, een nieuwtje, een seizoensactie. Zo blijft je kalender kloppen zonder dat je hem hoeft om te gooien."
+    },
+    {
+      "t": "link",
+      "titel": "Verder lezen: contentcreatie met AI",
+      "tekst": "Hoe je je toon één keer vastlegt zodat elke gegenereerde tekst zich als de jouwe herkent.",
+      "href": "service-contentcreatie.html"
+    },
+    {
+      "t": "cta",
+      "titel": "Vul je eerste maand vanmiddag",
+      "tekst": "Koppel je kanalen, kies je thema's en laat FixedFlows de concepten aanleveren. Jij scherpt aan en keurt goed.",
+      "knop": "Probeer 14 dagen gratis",
+      "href": "app-account.html"
+    }
+  ]
+}

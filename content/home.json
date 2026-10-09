@@ -1,0 +1,52 @@
+{
+  "titel": "FixedFlows — je hele klantreis automatisch, met AI",
+  "description": "Van post tot klant zonder tussenkomst: AI schrijft je content, de kalender publiceert, reacties worden gesprekken en elke lead krijgt automatisch de juiste opvolging.",
+
+  "heroEyebrow": "Klantreis-automatisering met AI",
+  "heroRegel1": "Van post",
+  "heroRegel2": "tot klant.",
+  "heroRegel3": "Automatisch.",
+  "heroLede": "FixedFlows schrijft je content, plant hem in, publiceert hem, vangt de reacties op, vraagt om een e-mailadres, zet mensen in het juiste segment en mailt ze verder. Jij keurt goed en belt wie klaar is om te kopen.",
+  "heroChecks": [
+    "AI schrijft een maand aan posts in jouw toon — jij scherpt aan.",
+    "Een reactie met een trefwoord wordt binnen seconden een gesprek.",
+    "Elke lead komt gesegmenteerd binnen en krijgt de juiste reeks."
+  ],
+  "heroKnop2": "Open de demo",
+  "heroFineprint": "Geen creditcard nodig · Opzeggen wanneer je wilt · Data op EU-servers",
+
+  "stripLabel": "Gebruikt door bureaus en ondernemers in",
+  "stripPlaatsen": ["Utrecht", "Rotterdam", "Eindhoven", "Amsterdam", "Groningen"],
+
+  "reisEyebrow": "De klantreis",
+  "reisTitel": "Zes stappen. Vijf ervan doet FixedFlows.",
+  "reisLede": "De meeste bedrijven automatiseren één stukje en plakken de rest met de hand aan elkaar. Hier loopt de hele reis door in één systeem — van het idee voor een post tot de opvolging van een klant.",
+  "reisStappen": [
+    { "label": "AI", "titel": "Content wordt geschreven", "tekst": "Jouw toon en thema's in, een maand aan posts met beeld eruit. Jij scherpt aan wat je scherper wilt.", "linkTekst": "Contentcreatie", "href": "service-contentcreatie.html" },
+    { "label": "Automatisch", "titel": "De post gaat live", "tekst": "Ingepland in de kalender, goedgekeurd door je klant, gepubliceerd op het ingestelde moment.", "linkTekst": "Contentkalender", "href": "service-contentkalender.html" },
+    { "label": "Automatisch", "titel": "Een reactie wordt een gesprek", "tekst": "Wie met jouw trefwoord reageert, krijgt binnen seconden een bericht met vervolgvragen.", "linkTekst": "Automatische leads", "href": "service-automatische-leads.html" },
+    { "label": "AI", "titel": "De lead wordt ingedeeld", "tekst": "Het antwoord uit het gesprek plus het gedrag daarna bepalen het segment en de score.", "linkTekst": "Automatische segmentatie", "href": "service-automatische-segmentatie.html" },
+    { "label": "Automatisch", "titel": "De opvolging loopt door", "tekst": "Bevestiging, levering en een reeks die past bij het segment. Blijft het stil, dan volgt een andere invalshoek.", "linkTekst": "E-mailmarketing", "href": "service-e-mailmarketing.html" },
+    { "label": "Jij", "titel": "Jij belt wie klaar is", "tekst": "Boven de scoredrempel krijg je een melding. De enige stap die een mens moet doen — en de enige die ertoe doet.", "linkTekst": "Zo begin je", "href": "prijzen.html" }
+  ],
+
+  "aiEyebrow": "Waar AI het werk doet",
+  "aiTitel": "AI die je bedrijf kent, niet alleen taal.",
+  "aiLede": "Een tekstgenerator die niets van je weet, levert teksten die niets van je hebben. FixedFlows werkt vanuit wat je één keer hebt vastgelegd — je toon, je klanten, je aanbod — en vanuit wat er in je eigen data gebeurt.",
+  "aiPunten": [
+    { "vet": "Onthoudt je toon.", "tekst": "Eén keer instellen, daarna herkent elke tekst zich als de jouwe." },
+    { "vet": "Leert van wat werkte.", "tekst": "Posts die het goed deden, sturen wat er volgende maand wordt voorgesteld." },
+    { "vet": "Kiest het segment.", "tekst": "Wat iemand zegt én wat iemand doet, samen in één indeling." },
+    { "vet": "Schrijft de opvolging.", "tekst": "Per segment een andere reeks, met dezelfde bewezen opbouw." }
+  ],
+  "aiKnop": "Bekijk wat AI overneemt",
+  "aiKnopHref": "service-contentcreatie.html",
+
+  "servicesEyebrow": "Services",
+  "servicesTitel": "Zes onderdelen die op elkaar aansluiten.",
+  "servicesLede": "Je zet aan wat je nodig hebt. Alles deelt dezelfde contacten, dezelfde segmenten en dezelfde motor eronder.",
+
+  "kanalenEyebrow": "Kanalen",
+  "kanalenTitel": "Acht kanalen, één kalender.",
+  "kanalenLede": "Schrijf één keer en publiceer waar je publiek zit. Elk kanaal heeft eigen formaten en eigen regels — FixedFlows houdt die uit elkaar."
+}

@@ -1,0 +1,161 @@
+/* ============================================================
+   FixedFlows — basisstijlen
+   Palet: blauw (hoofdkleur/primair), violet (bijkleur/secundair),
+   hemelsblauw (knopkleur, los van de hoofdkleur), zwart (ink)
+   Lettertype: Plus Jakarta Sans, overal (koppen + lopende tekst)
+   Pas de tokens hieronder aan; de hele site volgt mee.
+   ============================================================ */
+
+:root{
+  --bg:#F3F5FB;
+  --bg-2:#E9EDF7;
+  --card:#FFFFFF;
+
+  --ink:#0A0E18;
+  --ink-2:#39415A;
+  --ink-3:#6C7590;
+
+  --line:#DCE2F0;
+  --line-soft:#E9EDF6;
+
+  /* hoofdkleur */
+  --marine:#2563EB;
+  --marine-mid:#3B82F6;
+  --marine-deep:#1E40AF;
+
+  /* bijkleur */
+  --purple:#7C3AED;
+  --purple-mid:#9361F0;
+  --purple-soft:#F1EAFE;
+
+  /* knopkleur -- bewust los van hoofd-/bijkleur */
+  --knop:#38BDF8;
+
+  --azure:#3B82C4;
+
+  --radius:14px;
+  --max:1240px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2.5px solid var(--purple);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-weight:700;letter-spacing:-.026em;line-height:1.04}
+
+/* Cijfers onder elkaar in tabellen, prijzen en de kalender.
+   Inter levert daar aparte cijfervormen voor. */
+table,.price,.amt,.telop,.mk-kpi,.up b,.cf b,.tijd,.dnr,.nr{font-variant-numeric:tabular-nums}
+
+/* ---------------- navigatie ---------------- */
+.nav{position:sticky;top:0;z-index:60;background:rgba(243,245,251,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.nav-in{display:flex;align-items:center;gap:40px;height:76px}
+.logo{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-weight:700;font-size:22px;letter-spacing:-.03em}
+.logo-mark{width:27px;height:27px;flex:none}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:15.5px;color:var(--ink-2);font-weight:500}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.on{color:var(--marine);font-weight:600}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:22px}
+.nav-burger{display:none;align-items:center;justify-content:center;width:38px;height:38px;flex:none;
+  border-radius:9px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink);margin-left:14px}
+.nav-burger .bl{transform-origin:12px 12px;transition:transform .18s ease,opacity .18s ease}
+.nav.menu-open .nav-burger .b1{transform:translateY(5px) rotate(45deg)}
+.nav.menu-open .nav-burger .b2{opacity:0}
+.nav.menu-open .nav-burger .b3{transform:translateY(-5px) rotate(-45deg)}
+
+/* ---------------- uitklapmenu's ---------------- */
+.has-dd{position:relative}
+.has-dd > a{display:inline-flex;align-items:center;gap:5px}
+.caret{font-size:10px;color:var(--ink-3);transition:transform .16s ease}
+.has-dd:hover .caret,.has-dd:focus-within .caret{transform:rotate(180deg)}
+.dd{position:absolute;top:100%;left:-14px;margin-top:8px;background:#fff;border:1px solid var(--line);
+  border-radius:16px;padding:10px;box-shadow:0 24px 50px -22px rgba(10,36,71,.4);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .16s ease,transform .16s ease,visibility .16s;z-index:70}
+.has-dd:hover .dd,.has-dd:focus-within .dd{opacity:1;visibility:visible;transform:translateY(0)}
+.dd::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.dd a{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;transition:background .13s ease}
+.dd a:hover{background:var(--bg)}
+.dd-ico{width:32px;height:32px;border-radius:9px;background:var(--bg-2);display:grid;place-items:center;flex:none;color:var(--marine)}
+.dd-ico svg{width:17px;height:17px}
+.dd-txt{display:flex;flex-direction:column;line-height:1.3}
+.dd-txt b{font-size:14.5px;font-weight:600;color:var(--ink)}
+.dd-txt em{font-style:normal;font-size:12.5px;color:var(--ink-3)}
+.dd-wide{width:660px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.dd-kanalen{width:440px;display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.dd-all{grid-column:1/-1;margin-top:4px;border-top:1px solid var(--line-soft);
+  font-size:13.5px;font-weight:600;color:var(--purple);justify-content:center}
+.dd-all:hover{background:var(--purple-soft)}
+
+/* ---------------- knoppen ---------------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:none;cursor:pointer;
+  font-family:inherit;font-size:16px;font-weight:600;border-radius:999px;padding:14px 26px;white-space:nowrap;
+  transition:transform .16s ease,background .16s ease,border-color .16s ease}
+.btn-primary{background:var(--knop);color:#fff}
+.btn-primary:hover{background:#1FA8E8;transform:translateY(-1px)}
+.btn-purple{background:var(--purple);color:#fff}
+.btn-purple:hover{background:#6726D8;transform:translateY(-1px)}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink-3)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.32)}
+.btn-outline:hover{border-color:#fff}
+.btn-sm{padding:11px 20px;font-size:15px}
+.btn-block{width:100%}
+.link-quiet{font-size:15.5px;font-weight:500;color:var(--ink-2)}
+.link-quiet:hover{color:var(--ink)}
+
+/* ---------------- kleine bouwstenen ---------------- */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--marine);background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--purple);display:block}
+.tick{flex:none;width:23px;height:23px;border-radius:50%;background:var(--marine);display:grid;place-items:center}
+.tick svg{width:12px;height:12px}
+.tick.p{background:var(--purple)}
+.sec-eyebrow{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:14px}
+
+/* ---------------- footer ---------------- */
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:14.5px;color:var(--ink-3);background:var(--bg)}
+.foot-in{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.foot-in nav{margin-left:auto;display:flex;gap:20px;flex-wrap:wrap}
+.foot-in nav a:hover{color:var(--ink)}
+
+/* ---------------- afsluitblok ---------------- */
+.closing{padding:0 0 100px}
+.closing-in{background:var(--ink);color:#fff;border-radius:24px;padding:64px 56px;display:flex;align-items:center;
+  gap:48px;flex-wrap:wrap;position:relative;overflow:hidden}
+.closing-in::after{content:"";position:absolute;right:-90px;top:-90px;width:320px;height:320px;border-radius:50%;
+  background:var(--purple);opacity:.22}
+.closing-in > *{position:relative;z-index:1}
+.closing h2{color:#fff;max-width:14em;font-size:clamp(1.9rem,3.2vw,2.7rem)}
+.closing p{color:#A7B2CC;margin-top:14px;font-size:17px;max-width:32em}
+.closing-cta{margin-left:auto;display:flex;flex-direction:column;gap:12px}
+
+@media(max-width:1180px){ .dd-wide{width:520px} }
+@media(max-width:1080px){
+  .nav-in{flex-wrap:wrap;height:auto;padding-block:14px}
+  .nav-burger{display:flex}
+  .nav-links{display:none;order:5;width:100%;flex-direction:column;align-items:stretch;gap:2px;padding-top:12px;border-top:1px solid var(--line-soft);margin-top:12px}
+  .nav.menu-open .nav-links{display:flex}
+  .nav-links a{padding:12px 4px;font-size:16px}
+  .nav-links .caret{display:none}
+  .nav-links .dd{display:none!important} /* op mobiel navigeert de link zelf naar het overzicht, geen uitklapmenu nodig */
+}
+@media(max-width:720px){
+  .wrap{padding:0 20px}
+  .closing-in{padding:44px 26px;flex-direction:column;align-items:flex-start}
+  .closing-cta{margin-left:0;width:100%}
+  .closing-cta .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .btn,.dd{transition:none}
+}

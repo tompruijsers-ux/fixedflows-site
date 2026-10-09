@@ -1,0 +1,75 @@
+{
+  "volgorde": 2,
+  "slug": "automatische-leads",
+  "naam": "Automatische leads",
+  "icoon": "magneet",
+  "kort": "Van reactie naar e-mailadres",
+  "stap": 3,
+  "title": "Automatisch leads verzamelen uit social media | FixedFlows",
+  "description": "Laat een reactie met een trefwoord automatisch een gesprek starten dat om een e-mailadres vraagt, segmenteert en levert wat je beloofde.",
+  "h1": "Automatische leads",
+  "sub": "Iemand reageert met een woord. De rest gebeurt zonder jou.",
+  "lede": "De meeste bedrijven halen bereik en laten het daar liggen. Terwijl bereik pas iets waard is als je weet wie er keek. Een reactie met een trefwoord start hier een gesprek dat vraagt wie iemand is, waar hij mee zit, en dat vastlegt.",
+  "checks": [
+    "Trefwoord in een reactie start automatisch een bericht",
+    "Het gesprek vraagt om een e-mailadres en het onderwerp waar iemand mee zit",
+    "Altijd een uitweg naar een mens, zoals de platforms voorschrijven"
+  ],
+  "voordelen": [
+    {
+      "t": "Binnen seconden",
+      "d": "Wie reageert, hoort meteen iets terug. Snelheid van opvolgen is de sterkste voorspeller van conversie die er is."
+    },
+    {
+      "t": "Een uniek woord per post",
+      "d": "Gebruik per post een ander trefwoord, dan weet je precies welke post welke leads opleverde."
+    },
+    {
+      "t": "Vragen die iets opleveren",
+      "d": "Niet alleen een e-mailadres, maar ook waar iemand tegenaan loopt. Dat bepaalt alles wat daarna komt."
+    },
+    {
+      "t": "Netjes binnen de regels",
+      "d": "Alleen gesprekken die de gebruiker zelf start, altijd een optie om een mens te spreken, en alles via de officiële API."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Starten",
+      "t": "Reageer met een woord",
+      "d": "Onder je post zet je dat mensen met een woord kunnen reageren om iets toegestuurd te krijgen — een gids, een prijslijst, een checklist. FixedFlows luistert mee op reacties, herkent het woord en opent het gesprek. Iemand die er niet om vroeg, krijgt niets: dat mag niet en het werkt ook niet."
+    },
+    {
+      "k": "Uitvragen",
+      "t": "Drie keuzes, één e-mailadres",
+      "d": "Het gesprek vraagt waar iemand mee zit en biedt daarbij drie opties. Dat antwoord is meteen het segment. Daarna vraagt het om een e-mailadres, stuurt een bevestigingsmail en levert pas na bevestiging wat je beloofde — zo houd je een lijst over die ook echt bestaat."
+    },
+    {
+      "k": "Overdragen",
+      "t": "Waar de bot stopt, begin jij",
+      "d": "Wil iemand geen geautomatiseerd gesprek, dan komt het bericht in de gedeelde inbox en neem je het over. Dat is geen extraatje: de platforms eisen dat er altijd een weg naar een mens is."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Op welke kanalen werkt dit?",
+      "a": "Instagram en Facebook Messenger. WhatsApp zit in de pakketten Bureau en Op maat. Voor LinkedIn en X staan de platformregels dit soort automatisering niet toe."
+    },
+    {
+      "v": "Mag dit van Instagram en Facebook?",
+      "a": "Ja, mits de gebruiker het gesprek start — een reactie of bericht telt als zo'n start — en er een uitweg naar een mens is. Ongevraagde berichten sturen mag niet en kost je je account."
+    },
+    {
+      "v": "Wat als iemand iets anders antwoordt dan verwacht?",
+      "a": "Dan herhaalt het gesprek de vraag één keer, en daarna komt het bericht bij jou in de inbox. Een bot die blijft doorvragen, jaagt mensen weg."
+    },
+    {
+      "v": "Hoelang mag ik iemand berichten sturen?",
+      "a": "Meta hanteert een venster van 24 uur na het laatste bericht van de gebruiker. Daarna schakelt FixedFlows automatisch over op e-mail, want daar heb je toestemming voor gevraagd."
+    },
+    {
+      "v": "Kan ik zien welke post het meeste opleverde?",
+      "a": "Ja, mits je per post een ander trefwoord gebruikt. Je rapportage laat dan per post zien hoeveel gesprekken en hoeveel e-mailadressen het opleverde."
+    }
+  ]
+}

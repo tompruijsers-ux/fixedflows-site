@@ -1,0 +1,75 @@
+{
+  "volgorde": 3,
+  "slug": "e-mailmarketing",
+  "naam": "E-mailmarketing",
+  "icoon": "mail",
+  "kort": "Flows die vanzelf lopen",
+  "stap": 4,
+  "title": "E-mailmarketing met automatische flows | FixedFlows",
+  "description": "Bevestiging, levering en opvolging in flows die per segment verschillen. Met eigen verzenddomein, double opt-in en suppressie die centraal geregeld is.",
+  "h1": "E-mailmarketing",
+  "sub": "Reeksen die per segment verschillen en die blijven lopen zonder jou.",
+  "lede": "E-mail is nog steeds het enige kanaal waar je publiek van jou is. Alleen werkt het pas als de juiste mensen de juiste reeks krijgen — en dat is precies waar de meeste nieuwsbrieven op stuklopen.",
+  "checks": [
+    "Bevestiging, levering en opvolging als één doorlopende reeks",
+    "Andere inhoud per segment, dezelfde structuur",
+    "Eigen verzenddomein met de juiste instellingen, automatisch gecontroleerd"
+  ],
+  "voordelen": [
+    {
+      "t": "Per segment een eigen reeks",
+      "d": "Wie aangaf zonnepanelen te willen, krijgt een andere reeks dan wie over een thuisbatterij las. Zelfde opbouw, andere inhoud."
+    },
+    {
+      "t": "Aankomen doet ertoe",
+      "d": "Eigen verzenddomein, met de juiste DNS-instellingen. FixedFlows controleert ze en zegt precies wat je bij je hoster moet zetten."
+    },
+    {
+      "t": "Nooit dubbel gestuurd",
+      "d": "Wie in een salesgesprek zit of klant is geworden, valt automatisch uit de wervingsreeksen. Dat regel je één keer, niet per flow."
+    },
+    {
+      "t": "Sturen op kliks",
+      "d": "Openpercentages zeggen sinds de privacymaatregelen van Apple weinig. Je rapportage stuurt op kliks en conversies."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Opbouwen",
+      "t": "Flows met wachttijden en vertakkingen",
+      "d": "Je sleept de stappen: verstuur, wacht, controleer, vertak. Wie na drie dagen niet klikte, krijgt een andere invalshoek dan wie de prijzenpagina bezocht. Dezelfde bouwstenen die de chat-automatisering aanstuurt, want dat is onder water één en hetzelfde systeem."
+    },
+    {
+      "k": "Bezorgen",
+      "t": "De helft van e-mailmarketing is aankomen",
+      "d": "FixedFlows scheidt bevestigings- en leveringsmails van je reclamemails, zodat een tegenvallende campagne je bezorging van bestanden niet meesleurt. Nieuwe domeinen worden rustig opgebouwd voordat het volume omhoog gaat."
+    },
+    {
+      "k": "Opvolgen",
+      "t": "Wat er gebeurt als niemand iets doet",
+      "d": "De meeste leads reageren niet meteen, en dat is normaal. Na zestig dagen stilte start een reeks met een andere insteek. Je hebt voor die lead betaald; het zou zonde zijn om hem één keer te mailen."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Heb ik een eigen domein nodig?",
+      "a": "Voor serieus versturen wel. FixedFlows genereert de sleutels en toont welke records je bij je hoster moet zetten; daarna controleert het automatisch of het klopt."
+    },
+    {
+      "v": "Is double opt-in verplicht?",
+      "a": "Onder de AVG is aantoonbare toestemming verplicht. Double opt-in is de eenvoudigste manier om dat te kunnen aantonen, en FixedFlows legt van elke bevestiging het moment, de bron en de tekst vast."
+    },
+    {
+      "v": "Hoeveel contacten kan ik hebben?",
+      "a": "Vijfduizend bij Groei, vijfentwintigduizend bij Bureau, en uit te breiden per schijf van tienduizend."
+    },
+    {
+      "v": "Kan ik bestaande contacten importeren?",
+      "a": "Ja, mits je toestemming hebt voor die contacten. Bij het importeren vragen we naar de herkomst, omdat je die bij een klacht moet kunnen laten zien."
+    },
+    {
+      "v": "Kan ik onderwerpregels testen?",
+      "a": "Ja, vanaf het pakket Bureau. Je zet twee varianten uit op een deel van je lijst en de winnaar gaat naar de rest."
+    }
+  ]
+}

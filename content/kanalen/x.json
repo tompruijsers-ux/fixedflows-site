@@ -1,0 +1,96 @@
+{
+  "volgorde": 4,
+  "slug": "x",
+  "naam": "X",
+  "kleur": "#111111",
+  "ratio": "56%",
+  "handle": "@devrieszon",
+  "title": "X posts plannen en inplannen | FixedFlows",
+  "description": "Plan je posts en draadjes op X vooruit, houd je ritme vast en zie welke onderwerpen aanslaan.",
+  "h1": "Posts op X plannen",
+  "sub": "Vooruit plannen zonder de hele dag in de tijdlijn te zitten.",
+  "lede": "X vraagt om frequentie en snelheid, en dat is precies wat er sneuvelt als je een bedrijf runt. FixedFlows laat je een voorraad opbouwen en die gedoseerd uitzetten, zodat je aanwezig blijft zonder er te wonen.",
+  "checks": [
+    "Losse posts en draadjes vooraf opbouwen en inplannen",
+    "Een voorraad aanleggen die zichzelf over de week verdeelt",
+    "Zien welke onderwerpen het bij jouw volgers doen"
+  ],
+  "voordelen": [
+    {
+      "t": "Draadjes vooraf bouwen",
+      "d": "Schrijf een draadje in één keer uit, controleer de opbouw en plan het in als geheel."
+    },
+    {
+      "t": "Voorraad in plaats van paniek",
+      "d": "Leg een buffer aan met posts die altijd kunnen, zodat een drukke week je ritme niet breekt."
+    },
+    {
+      "t": "Karakters in beeld",
+      "d": "Je ziet direct of je binnen de limiet blijft en hoe de post in de tijdlijn wordt afgebroken."
+    },
+    {
+      "t": "Naast je andere kanalen",
+      "d": "X staat in dezelfde kalender als de rest, zodat je ziet waar je te veel of te weinig doet."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Schrijven",
+      "t": "Draadjes als geheel, niet als losse berichten",
+      "d": "Bouw een draadje op in één scherm, met per bericht de karakterteller erbij. Je ziet de opbouw voor je publiceert, zodat het eerste bericht ook echt aanzet tot doorlezen."
+    },
+    {
+      "k": "Plannen",
+      "t": "Een voorraad die je week draagt",
+      "d": "Zet posts klaar zonder vaste datum en laat FixedFlows ze verdelen over de momenten die je hebt ingesteld. Zo blijf je zichtbaar in weken waarin je geen tijd hebt om iets te bedenken."
+    },
+    {
+      "k": "Leren",
+      "t": "Welke onderwerpen blijven hangen",
+      "d": "FixedFlows groepeert je posts per thema en laat zien welke onderwerpen bij jouw volgers aanslaan. Dat stuurt wat je volgende maand plant, in plaats van gevoel."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Kan ik draadjes automatisch laten publiceren?",
+      "a": "Ja, je bouwt het draadje in FixedFlows en het wordt op het ingestelde moment als samenhangende reeks geplaatst."
+    },
+    {
+      "v": "Welk type account heb ik nodig?",
+      "a": "Een account met toegang tot de API van X. Afhankelijk van hun voorwaarden kan daar een betaald toegangsniveau bij horen; dat regel je bij X zelf."
+    },
+    {
+      "v": "Kan ik afbeeldingen en video meesturen?",
+      "a": "Ja, tot de limieten die X per bericht hanteert. FixedFlows controleert het formaat voordat je inplant."
+    },
+    {
+      "v": "Kan ik dezelfde tekst naar Threads sturen?",
+      "a": "Ja. De formaten lijken op elkaar, dus je neemt de tekst over en past hem waar nodig aan per kanaal."
+    },
+    {
+      "v": "Hoe vaak zou ik moeten posten?",
+      "a": "Op X ligt de bovengrens hoger dan op andere kanalen, maar consistentie weegt zwaarder dan volume. Kies een aantal dat je met je voorraad kunt volhouden."
+    }
+  ],
+  "post": {
+    "naam": "De Vries Zonnepanelen",
+    "meta": "@devrieszon · 4u",
+    "beeld": "omvormer",
+    "tekst": "Klant belde: \"mijn panelen doen het niet meer.\"\n\nBleek de omvormer sinds maart op storing te staan. Zeven maanden lang niets opgewekt, niemand die het merkte.\n\nCheck je opbrengst één keer per maand. Duurt dertig seconden.",
+    "stats": [
+      [
+        "💬",
+        "34"
+      ],
+      [
+        "🔁",
+        "112"
+      ],
+      [
+        "♥",
+        "806"
+      ]
+    ],
+    "acties": []
+  }
+}

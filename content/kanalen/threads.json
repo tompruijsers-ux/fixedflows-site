@@ -1,0 +1,92 @@
+{
+  "volgorde": 6,
+  "slug": "threads",
+  "naam": "Threads",
+  "kleur": "#111111",
+  "ratio": "58%",
+  "handle": "devrieszonnepanelen",
+  "title": "Threads posts plannen en inplannen | FixedFlows",
+  "description": "Plan je posts op Threads vooruit, hergebruik wat op Instagram werkte en bouw een gesprek op zonder er de hele dag bij te zitten.",
+  "h1": "Posts op Threads plannen",
+  "sub": "Het gesprekskanaal van Meta, gepland vanuit dezelfde kalender als de rest.",
+  "lede": "Threads werkt op tekst en reacties, niet op beeld. Dat maakt het een goed kanaal om te laten zien hoe je denkt — mits je er regelmatig bent. FixedFlows zorgt voor die regelmaat.",
+  "checks": [
+    "Losse posts en reeksen vooraf schrijven en inplannen",
+    "Hergebruik wat op Instagram of X aansloeg, in de toon van Threads",
+    "Eén kalender voor Threads naast je andere kanalen"
+  ],
+  "voordelen": [
+    {
+      "t": "Tekst als hoofdzaak",
+      "d": "Geen beeld nodig om te beginnen. Je gedachte, goed opgeschreven, is hier de post."
+    },
+    {
+      "t": "Hergebruiken wat werkte",
+      "d": "Zet een sterke Instagram-caption of een X-draadje om naar een Threads-post, aangepast aan de toon van het kanaal."
+    },
+    {
+      "t": "Regelmaat zonder aanwezigheid",
+      "d": "Plan je posts vooruit en kies zelf de momenten waarop je meeleest en reageert."
+    },
+    {
+      "t": "Naast Instagram in beeld",
+      "d": "Omdat je publiek overlapt met Instagram, zie je in dezelfde kalender of je jezelf niet herhaalt."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Schrijven",
+      "t": "Kort, maar met iets te zeggen",
+      "d": "Threads beloont een duidelijk standpunt boven een nette samenvatting. FixedFlows helpt met een eerste versie op basis van je thema's, maar de scherpte moet van jou komen — dat is precies waarom het werkt."
+    },
+    {
+      "k": "Hergebruiken",
+      "t": "Eén gedachte, meerdere kanalen",
+      "d": "Wat het goed deed op Instagram of X, kan hier in aangepaste vorm opnieuw. Je neemt de tekst over en past de opbouw aan, want dezelfde tekst overal plakken valt op en werkt niet."
+    },
+    {
+      "k": "Plannen",
+      "t": "Aanwezig zijn zonder er te wonen",
+      "d": "Zet je posts vooruit klaar en reserveer twee vaste momenten per week om te reageren. Dat is genoeg om een gesprek op gang te houden zonder dat het je dag opeet."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Wat heb ik nodig om Threads te koppelen?",
+      "a": "Een Threads-profiel dat aan je Instagram-account hangt. Je koppelt via het inlogscherm van Meta."
+    },
+    {
+      "v": "Publiceert FixedFlows automatisch naar Threads?",
+      "a": "Ja, voor de berichttypen die de API van Threads ondersteunt. Dit is een relatief nieuwe koppeling, dus de mogelijkheden groeien nog; wat op dit moment kan, staat in je instellingen."
+    },
+    {
+      "v": "Kan ik reacties beantwoorden vanuit FixedFlows?",
+      "a": "Reageren doe je in de app van Threads zelf. De automatische gesprekken van FixedFlows werken op Instagram en Messenger."
+    },
+    {
+      "v": "Is Threads de moeite waard naast Instagram?",
+      "a": "Als je iets te vertellen hebt dat niet in beeld past, wel. Voor bedrijven die het puur van foto's moeten hebben, voegt het weinig toe."
+    },
+    {
+      "v": "Kan ik dezelfde tekst naar X sturen?",
+      "a": "Ja, de formaten lijken op elkaar. Neem de tekst over en pas hem aan waar het kanaal daarom vraagt."
+    }
+  ],
+  "post": {
+    "naam": "devrieszonnepanelen",
+    "meta": "3 u",
+    "beeld": "batterij",
+    "tekst": "Onpopulaire mening: een thuisbatterij is voor de meeste huishoudens nu nog niet rendabel.\n\nWel als je een warmtepomp hebt, een auto laadt, of overdag weinig thuis bent. Anders duurt het terugverdienen langer dan de garantie.\n\nWe zeggen dat liever vooraf dan achteraf.",
+    "stats": [
+      [
+        "♥",
+        "212"
+      ],
+      [
+        "💬",
+        "47"
+      ]
+    ],
+    "acties": []
+  }
+}

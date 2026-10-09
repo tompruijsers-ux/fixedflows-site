@@ -1,0 +1,213 @@
+{
+  "slug": "verwerkersovereenkomst",
+  "soort": "juridisch",
+  "volgorde": 12,
+  "label": "Juridisch",
+  "titel": "Verwerkersovereenkomst",
+  "versie": "1.0",
+  "bijgewerkt": "21 augustus 2026",
+  "title": "Verwerkersovereenkomst — FixedFlows",
+  "description": "De verwerkersovereenkomst tussen FixedFlows en klanten die met de dienst persoonsgegevens van derden verwerken.",
+  "sub": "Verwerk je met FixedFlows gegevens van jouw eigen klanten? Dan gelden deze afspraken.",
+  "intro": "Deze verwerkersovereenkomst hoort bij de algemene voorwaarden en geldt automatisch zodra je FixedFlows gebruikt om persoonsgegevens van anderen te verwerken. Je hoeft hem niet apart te ondertekenen, maar dat kan wel — mail privacy@fixedflows.nl en je krijgt een ondertekenbaar exemplaar.",
+  "body": [
+    {
+      "t": "h2",
+      "tekst": "1. Wie is verantwoordelijk en wie verwerkt"
+    },
+    {
+      "t": "p",
+      "tekst": "Jij bent <b>verwerkingsverantwoordelijke</b>: jij bepaalt welke gegevens je in FixedFlows zet en waarvoor. FixedFlows is <b>verwerker</b> en verwerkt die gegevens uitsluitend in jouw opdracht."
+    },
+    {
+      "t": "p",
+      "tekst": "Ben je een bureau dat voor klanten werkt, dan ben jij richting ons de verantwoordelijke. De afspraken met je eigen klant regel je zelf; deze overeenkomst mag je daarin als bijlage opnemen."
+    },
+    {
+      "t": "h2",
+      "tekst": "2. Waar het over gaat"
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Onderwerp",
+        "Invulling"
+      ],
+      "rijen": [
+        [
+          "Doel van de verwerking",
+          "Het leveren van de dienst: content plannen, publiceren, gesprekken voeren en opvolgen"
+        ],
+        [
+          "Soorten gegevens",
+          "Naam, e-mailadres, social media identificatie, interactiegegevens, segment en score, en wat jij verder invoert"
+        ],
+        [
+          "Betrokkenen",
+          "Contacten en volgers van jou of van jouw klanten, en je eigen teamleden"
+        ],
+        [
+          "Duur",
+          "Zolang je abonnement loopt, plus dertig dagen"
+        ]
+      ]
+    },
+    {
+      "t": "tip",
+      "titel": "Bijzondere persoonsgegevens",
+      "tekst": "FixedFlows is niet ingericht op bijzondere persoonsgegevens zoals gegevens over gezondheid, geloof of politieke voorkeur. Vraag je in een gesprek naar iets wat daaronder valt — bijvoorbeeld gezondheidsklachten — dan gelden strengere eisen en moet je dat vooraf met ons afstemmen."
+    },
+    {
+      "t": "h2",
+      "tekst": "3. Wat wij beloven"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "We verwerken gegevens alleen op jouw instructie en niet voor eigen doeleinden.",
+        "We gebruiken jouw gegevens niet om AI-modellen te trainen.",
+        "Onze medewerkers hebben een geheimhoudingsplicht en alleen toegang tot wat ze nodig hebben.",
+        "We nemen passende technische en organisatorische maatregelen, zoals beschreven in artikel 5.",
+        "We helpen je bij verzoeken van betrokkenen en bij een eventuele gegevensbeschermingseffectbeoordeling.",
+        "We melden datalekken zonder onnodige vertraging, uiterlijk binnen 24 uur nadat we ervan weten."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "4. Wat jij regelt"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Je zorgt voor een geldige grondslag voor de gegevens die je invoert, en kunt die aantonen.",
+        "Je informeert de betrokkenen over wat je met hun gegevens doet.",
+        "Je zet geen gegevens in FixedFlows die je niet mag verwerken.",
+        "Je beheert de toegang binnen je eigen werkruimte en haalt vertrokken medewerkers eruit."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "5. Beveiliging"
+    },
+    {
+      "t": "lijst",
+      "items": [
+        "Versleuteling van verkeer via TLS en van gevoelige velden in rust.",
+        "Wachtwoorden gehasht met een sterk, traag algoritme.",
+        "Scheiding van klantgegevens op databaseniveau, afgedwongen door de database zelf.",
+        "Toegangsbeheer op basis van rollen, met vastlegging van wie wat deed.",
+        "Dagelijkse versleutelde reservekopieën binnen de EU, met periodieke hersteltests.",
+        "Beveiligingsupdates worden zo snel mogelijk doorgevoerd."
+      ]
+    },
+    {
+      "t": "h2",
+      "tekst": "6. Subverwerkers"
+    },
+    {
+      "t": "p",
+      "tekst": "We schakelen andere partijen in om de dienst te leveren. Je geeft daarvoor algemene toestemming, op voorwaarde dat wij met elk van hen dezelfde verplichtingen afspreken als in deze overeenkomst staan."
+    },
+    {
+      "t": "tabel",
+      "kop": [
+        "Subverwerker",
+        "Waarvoor",
+        "Locatie"
+      ],
+      "rijen": [
+        [
+          "Hostingpartij",
+          "Applicatie en database",
+          "EU"
+        ],
+        [
+          "Opslagdienst",
+          "Media-bestanden",
+          "EU"
+        ],
+        [
+          "E-maildienst",
+          "Transactionele en marketingmail",
+          "EU"
+        ],
+        [
+          "Betaaldienstverlener",
+          "Betalingen en facturatie",
+          "EU"
+        ],
+        [
+          "AI-aanbieder",
+          "Genereren van teksten op jouw verzoek",
+          "Zie artikel 7"
+        ]
+      ]
+    },
+    {
+      "t": "p",
+      "tekst": "Willen we een subverwerker toevoegen of vervangen, dan melden we dat minimaal dertig dagen vooraf. Heb je een gegrond bezwaar, laat het weten; komen we er niet uit, dan kun je opzeggen zonder kosten voor de resterende periode."
+    },
+    {
+      "t": "h2",
+      "tekst": "7. Doorgifte buiten de EU"
+    },
+    {
+      "t": "p",
+      "tekst": "We verwerken en bewaren gegevens binnen de Europese Economische Ruimte. Vindt er voor een specifiek onderdeel toch verwerking daarbuiten plaats, bijvoorbeeld bij het genereren van teksten, dan gebeurt dat op basis van de standaardcontractbepalingen van de Europese Commissie, aangevuld met aanvullende maatregelen waar nodig."
+    },
+    {
+      "t": "h2",
+      "tekst": "8. Verzoeken van betrokkenen"
+    },
+    {
+      "t": "p",
+      "tekst": "Krijg jij een verzoek om inzage, correctie of verwijdering, dan handel jij dat af; wij ondersteunen je daarbij. In het product zit een exportfunctie en een verwijderfunctie per contact. Komt zo'n verzoek bij ons binnen, dan sturen we het door naar jou en beantwoorden we het niet zelf."
+    },
+    {
+      "t": "h2",
+      "tekst": "9. Datalekken"
+    },
+    {
+      "t": "p",
+      "tekst": "Bij een inbreuk in verband met persoonsgegevens informeren we je binnen 24 uur nadat we ervan op de hoogte zijn. We geven daarbij aan wat er is gebeurd, welke gegevens en hoeveel betrokkenen het raakt, wat de vermoedelijke gevolgen zijn en welke maatregelen we hebben genomen. De melding bij de Autoriteit Persoonsgegevens doe jij, als verantwoordelijke."
+    },
+    {
+      "t": "h2",
+      "tekst": "10. Controle"
+    },
+    {
+      "t": "p",
+      "tekst": "Je mag één keer per jaar controleren of wij ons aan deze overeenkomst houden. In eerste instantie doen we dat door onze documentatie en eventuele rapportages te delen. Is dat aantoonbaar onvoldoende, dan kun je op eigen kosten een onafhankelijke auditor inschakelen, met een aankondiging van minimaal dertig dagen en zonder de dienstverlening te verstoren."
+    },
+    {
+      "t": "h2",
+      "tekst": "11. Einde van de overeenkomst"
+    },
+    {
+      "t": "p",
+      "tekst": "Na afloop van je abonnement kun je dertig dagen lang je gegevens exporteren. Daarna verwijderen we ze uit onze actieve systemen; uit reservekopieën verdwijnen ze binnen negentig dagen. Op verzoek bevestigen we de verwijdering schriftelijk. Gegevens die we wettelijk moeten bewaren, zoals facturen, blijven bewaard tot die termijn verstreken is."
+    },
+    {
+      "t": "h2",
+      "tekst": "12. Aansprakelijkheid"
+    },
+    {
+      "t": "p",
+      "tekst": "De aansprakelijkheidsbeperking uit de algemene voorwaarden geldt ook hier, voor zover de wet dat toestaat. Boetes die voortkomen uit het feit dat jij zonder geldige grondslag gegevens hebt ingevoerd, komen voor jouw rekening."
+    },
+    {
+      "t": "feit",
+      "titel": "Laat dit nakijken",
+      "tekst": "Deze overeenkomst is opgesteld als werkbaar uitgangspunt en dekt de onderdelen die artikel 28 van de AVG voorschrijft. Hij is geen vervanging van juridisch advies. Laat hem nakijken door een jurist voordat je hem aan klanten voorlegt — zeker als je met grotere organisaties gaat werken, want die leggen er hun eigen model naast."
+    },
+    {
+      "t": "cta",
+      "titel": "Een ondertekend exemplaar nodig?",
+      "tekst": "Veel bureaus moeten dit kunnen overleggen aan hun klant. Mail privacy@fixedflows.nl en je krijgt een ondertekenbare versie op naam.",
+      "knop": "Vraag het aan",
+      "href": "contact.html"
+    }
+  ],
+  "slotTitel": "Werk je voor klanten?",
+  "slotTekst": "Dan heb je deze overeenkomst nodig richting ons, en een eigen versie richting je klant. We denken graag mee."
+}

@@ -1,0 +1,75 @@
+{
+  "volgorde": 0,
+  "slug": "contentcreatie",
+  "naam": "Contentcreatie",
+  "icoon": "pen",
+  "kort": "AI schrijft in jouw toon",
+  "stap": 1,
+  "title": "Contentcreatie met AI in jouw eigen toon | FixedFlows",
+  "description": "Laat AI je posts, captions en beelden maken op basis van jouw tone of voice en contentthema's. Jij houdt de eindredactie.",
+  "h1": "Contentcreatie",
+  "sub": "Een maand aan posts, geschreven in jouw toon, klaar om aan te scherpen.",
+  "lede": "Het probleem is zelden dat je niets te vertellen hebt. Het is dat je op maandagochtend geen zin hebt om te bedenken wát. FixedFlows legt je toon, je vakgebied en je thema's vast en levert daar concepten bij aan — die je aanpast tot ze van jou zijn.",
+  "checks": [
+    "Eén keer je toon vastleggen, daarna herkent elke tekst zich als de jouwe",
+    "Beelden erbij gegenereerd, of je eigen foto's gebruiken",
+    "Alles blijft bewerkbaar tot het moment van publiceren"
+  ],
+  "voordelen": [
+    {
+      "t": "Jouw toon, vastgelegd",
+      "d": "Je vult één keer in hoe je schrijft, wat je nooit zegt en voor wie je het doet. Elke tekst vertrekt daarvandaan."
+    },
+    {
+      "t": "Thema's met verdeling",
+      "d": "Bepaal dat veertig procent uitleg is en twintig procent aanbod. De verdeling wordt aangehouden, zodat je maand niet één verkooppraatje wordt."
+    },
+    {
+      "t": "Beeld erbij",
+      "d": "Bij elke post een gegenereerd beeld op basis van de tekst, of je eigen foto uit de bibliotheek."
+    },
+    {
+      "t": "Jij hebt het laatste woord",
+      "d": "Niets gaat live zonder dat jij het hebt gezien. Wat je afkeurt, leert het systeem voor de volgende ronde."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Vastleggen",
+      "t": "Eén keer instellen, daarna klopt het",
+      "d": "Je beschrijft je bedrijf, je klanten en je manier van praten. Je uploadt een paar teksten die goed voelden. Daaruit haalt FixedFlows je toon, je vaste woorden en de dingen die je juist niet zegt. Dat is de basis onder alles wat daarna wordt geschreven."
+    },
+    {
+      "k": "Genereren",
+      "t": "Een maand in één keer, geen post per keer",
+      "d": "Je vraagt niet per post om een tekst — je vraagt om je maand. FixedFlows kijkt naar je thema's, je verdeling en wat vorige maand goed presteerde, en levert de concepten in één keer aan. Dat scheelt niet alleen tijd, het maakt je maand ook samenhangend."
+    },
+    {
+      "k": "Aanscherpen",
+      "t": "Het verschil zit in wat jij toevoegt",
+      "d": "Een gegenereerde tekst is een goede eerste versie, geen eindproduct. De posts die het écht doen bevatten een detail dat alleen jij kunt leveren: een klant, een blunder, een cijfer. FixedFlows levert de structuur, jij levert de inhoud die het jouwe maakt."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Merken mensen dat het door AI is geschreven?",
+      "a": "Als je niets aanpast wel. Daarom is de tekst een concept en geen eindversie. Wie zijn eigen voorbeelden en cijfers toevoegt, levert content die niet te onderscheiden is van handgeschreven — en die presteert beter."
+    },
+    {
+      "v": "Kan ik alles zelf schrijven?",
+      "a": "Ja. De kalender werkt net zo goed zonder de AI aan te zetten. Veel gebruikers schrijven de belangrijke posts zelf en laten de vullende posts genereren."
+    },
+    {
+      "v": "Hoe leert het systeem mijn toon?",
+      "a": "Uit wat je invult en uit wat je aanpast. Elke keer dat je een concept herschrijft, verschuift het beeld dat het systeem van je toon heeft."
+    },
+    {
+      "v": "Worden de beelden gegenereerd of gezocht?",
+      "a": "Gegenereerd op basis van je post, of je kiest uit je eigen bibliotheek. Voor bedrijven met echte foto's van eigen werk is dat laatste bijna altijd sterker."
+    },
+    {
+      "v": "In welke talen werkt het?",
+      "a": "Nederlands en Engels zijn volledig ondersteund. Andere talen werken, maar de toon is daar minder scherp af te stellen."
+    }
+  ]
+}

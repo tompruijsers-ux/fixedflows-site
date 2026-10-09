@@ -1,0 +1,11 @@
+{
+  "name": "stroom-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketingsite van Stroom. Inhoud staat in /content en wordt beheerd via /admin.",
+  "scripts": {
+    "build": "node build.js dist-prepare && node build-bundle.js dist",
+    "dev": "node bouw.js && npx --yes serve dist",
+    "cms": "npx --yes decap-server"
+  }
+}

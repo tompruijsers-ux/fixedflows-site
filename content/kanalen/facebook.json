@@ -1,0 +1,100 @@
+{
+  "volgorde": 0,
+  "slug": "facebook",
+  "naam": "Facebook",
+  "kleur": "#1877F2",
+  "ratio": "68%",
+  "handle": "devrieszonnepanelen",
+  "title": "Facebook posts plannen en automatisch publiceren | FixedFlows",
+  "description": "Plan je Facebook posts, reels en stories vooruit, laat AI meeschrijven en publiceer automatisch. Reacties met een trefwoord starten meteen een gesprek.",
+  "h1": "Facebook posts plannen",
+  "sub": "Vooruit plannen, automatisch publiceren, en van elke reactie een gesprek maken.",
+  "lede": "Facebook is voor de meeste Nederlandse mkb-bedrijven nog steeds het kanaal met het breedste bereik onder klanten boven de 35. FixedFlows zorgt dat je er consistent aanwezig bent zonder dat je er elke dag aan hoeft te denken.",
+  "checks": [
+    "Plan posts, reels en stories voor je pagina vanuit één kalender",
+    "Reageert iemand met jouw trefwoord? Dan start automatisch een gesprek in Messenger",
+    "Zie per post hoeveel leads het opleverde, niet alleen hoeveel likes"
+  ],
+  "voordelen": [
+    {
+      "t": "Vooruit plannen",
+      "d": "Zet een maand aan posts klaar, verdeeld over je thema's, en pas ze aan wanneer er iets tussenkomt."
+    },
+    {
+      "t": "Van reactie naar gesprek",
+      "d": "Laat een reactie met een trefwoord automatisch een bericht in Messenger sturen, met vervolgvragen en segmentatie."
+    },
+    {
+      "t": "Meelezen door je klant",
+      "d": "Je klant of collega keurt goed vanaf de telefoon, zonder in te loggen. Afgekeurd betekent altijd mét reden."
+    },
+    {
+      "t": "Meten wat telt",
+      "d": "Bereik en interactie per post, maar ook hoeveel mensen je formulier invulden of je pdf downloadden."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Plannen",
+      "t": "Een maand die er al staat voordat de maand begint",
+      "d": "Je kiest je thema's en de verdeling ertussen — bijvoorbeeld veertig procent uitleg, twintig procent klantverhalen, twintig procent aanbod en twintig procent achter de schermen. FixedFlows vult de kalender volgens die verdeling, jij past aan wat je anders wilt. Zo krijg je nooit een maand met alleen verkoopposts."
+    },
+    {
+      "k": "Publiceren",
+      "t": "Op tijd live, ook als jij op een dak aan het werk bent",
+      "d": "Posts gaan automatisch live op het moment dat je hebt ingesteld, via de officiële API van Meta. Gaat er iets mis met de koppeling, dan krijg je een melding voordat de post gemist wordt — niet erna."
+    },
+    {
+      "k": "Opvolgen",
+      "t": "Het gesprek begint waar de post ophoudt",
+      "d": "Zet onder je post dat mensen met een woord kunnen reageren om iets toegestuurd te krijgen. FixedFlows stuurt automatisch een bericht, stelt je vragen, slaat de antwoorden op als segment en zet de flow door naar e-mail. Wil iemand een mens spreken, dan neem je het gesprek zo over."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Kan ik naar Facebook-groepen publiceren?",
+      "a": "Je kunt posts voor groepen inplannen en klaarzetten. Meta staat automatisch publiceren naar groepen niet toe, dus daarvoor krijg je een melding op je telefoon op het geplande moment, waarna je met één tik plaatst."
+    },
+    {
+      "v": "Publiceren stories automatisch?",
+      "a": "Voor pagina-posts en reels gebeurt dat volledig automatisch. Voor stories geldt hetzelfde als voor groepen: je krijgt een melding op het geplande moment. Dat ligt aan de mogelijkheden van de API, niet aan FixedFlows."
+    },
+    {
+      "v": "Hoe werkt het automatisch reageren op reacties?",
+      "a": "Je koppelt een trefwoord aan een post. Reageert iemand met dat woord, dan stuurt FixedFlows binnen enkele seconden een bericht in Messenger. Meta staat toe dat je binnen 24 uur na dat bericht vrij communiceert; daarna schakelt FixedFlows automatisch over op e-mail."
+    },
+    {
+      "v": "Kan ik dezelfde post ook naar Instagram sturen?",
+      "a": "Ja. Je schrijft één keer en kiest per kanaal of je de tekst overneemt of aanpast. Beeldformaten worden per kanaal apart gecontroleerd, zodat je post er overal goed uitziet."
+    },
+    {
+      "v": "Wat heb ik nodig om te koppelen?",
+      "a": "Een Facebook-pagina waarvan je beheerder bent. Je koppelt via het inlogscherm van Meta zelf; FixedFlows krijgt alleen de rechten die je op dat scherm goedkeurt en je kunt de koppeling op elk moment intrekken."
+    }
+  ],
+  "post": {
+    "naam": "De Vries Zonnepanelen",
+    "meta": "Gisteren om 09:00 · 🌐",
+    "beeld": "dak",
+    "tekst": "18 panelen op een jaren-30 woning in Zeist. Om acht uur begonnen, om vier uur stond alles erop en draaide de omvormer.\n\nDe bewoners besparen naar schatting €1.400 per jaar. Benieuwd wat het bij jou zou opleveren? Reageer met ZON, dan sturen we de gratis opbrengstcheck toe.",
+    "stats": [
+      [
+        "👍❤️",
+        "47"
+      ],
+      [
+        "12 reacties",
+        ""
+      ],
+      [
+        "3 keer gedeeld",
+        ""
+      ]
+    ],
+    "acties": [
+      "Vind ik leuk",
+      "Reageren",
+      "Delen"
+    ]
+  }
+}

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Inloggen — FixedFlows</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script src="app-sessie.js"></script>
+<style>
+body{background:var(--bg);min-height:100vh}
+
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:100vh}
+.links{display:flex;flex-direction:column;justify-content:center;padding:56px 7vw;background:#fff}
+.rechts{background:linear-gradient(160deg,#E9F3EC 0%,#E7EDF8 100%);padding:56px 5vw;display:flex;
+  flex-direction:column;justify-content:center;gap:20px}
+
+.merk{display:flex;align-items:center;gap:9px;font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-weight:700;
+  font-size:22px;letter-spacing:-.03em;margin-bottom:32px}
+.merk svg{width:27px;height:27px}
+
+h1{font-weight:700;font-size:clamp(2rem,3.4vw,2.9rem);letter-spacing:-.032em;line-height:1.02}
+.onder{margin-top:12px;font-size:16.5px;color:var(--ink-2);line-height:1.55;max-width:34em}
+
+.sociaal{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+.sociaal button{display:flex;align-items:center;justify-content:center;gap:11px;border:1.5px solid var(--line);
+  background:#fff;border-radius:11px;padding:13px;font-family:inherit;font-size:15.5px;font-weight:600;
+  color:var(--ink);cursor:pointer;transition:border-color .15s ease,transform .15s ease}
+.sociaal button:hover{border-color:var(--ink-3);transform:translateY(-1px)}
+.sociaal svg{width:19px;height:19px}
+
+.of{display:flex;align-items:center;gap:14px;margin:22px 0;color:var(--ink-3);font-size:13.5px}
+.of::before,.of::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.formvak{display:flex;flex-direction:column;gap:14px}
+.veld{display:flex;flex-direction:column;gap:6px}
+.veld label{font-size:13px;font-weight:600;color:var(--ink-2);display:flex;align-items:baseline}
+.veld label a{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--purple)}
+.veld input{font-family:inherit;font-size:15.5px;color:var(--ink);background:#fff;border:1.5px solid var(--line);
+  border-radius:11px;padding:13px 14px;width:100%;transition:border-color .15s ease}
+.veld input:focus{outline:none;border-color:var(--purple)}
+.veld input.fout{border-color:#C4453A;background:#FDF7F6}
+.melding{font-size:12.5px;color:#B0342A;font-weight:500}
+.melding:empty{display:none}
+
+.wwvak{position:relative}
+.wwvak input{padding-right:46px}
+.oog{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:none;background:none;width:34px;height:34px;
+  cursor:pointer;color:var(--ink-3);display:grid;place-items:center;border-radius:8px}
+.oog:hover{background:var(--bg)}
+.oog svg{width:18px;height:18px}
+
+.hoofdknop{margin-top:6px;width:100%;justify-content:center}
+.hoofdknop:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.tussenknop{width:100%;justify-content:center;margin-top:12px;background:#fff;border:1.5px solid var(--line);
+  color:var(--ink);font-family:inherit;font-size:15.5px;font-weight:600;border-radius:999px;padding:13px;cursor:pointer;
+  display:flex;align-items:center;gap:9px;transition:border-color .15s ease}
+.tussenknop:hover{border-color:var(--purple);color:var(--purple)}
+.tussenknop svg{width:17px;height:17px}
+.klein{margin-top:20px;font-size:14.5px;color:var(--ink-3);text-align:center}
+.klein a{color:var(--purple);font-weight:600}
+.terug{border:none;background:none;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--ink-3);
+  cursor:pointer;padding:10px 0;margin-top:6px;align-self:flex-start}
+.terug:hover{color:var(--ink)}
+
+/* ---------- code invullen ---------- */
+.naar-mail{display:flex;align-items:center;gap:12px;background:var(--purple-soft);border-radius:13px;
+  padding:14px 16px;margin-top:24px;font-size:14.5px;color:#4A2BA8;line-height:1.45}
+.naar-mail svg{width:20px;height:20px;flex:none}
+.naar-mail b{font-weight:600}
+
+.codevak{display:flex;gap:9px;margin-top:26px}
+.codevak input{width:100%;aspect-ratio:1;max-width:64px;text-align:center;font-family:'Satoshi',system-ui,-apple-system,sans-serif;
+  font-size:26px;font-weight:700;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);
+  padding:0;transition:all .14s ease}
+.codevak input:focus{outline:none;border-color:var(--purple);box-shadow:0 0 0 3px var(--purple-soft)}
+.codevak input.gevuld{border-color:var(--marine);background:#F7F9FD}
+.codevak.mis input{border-color:#C4453A;animation:schud .34s}
+@keyframes schud{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+.opnieuw{margin-top:20px;font-size:14px;color:var(--ink-3)}
+.opnieuw button{border:none;background:none;font-family:inherit;font-size:14px;font-weight:600;color:var(--purple);
+  cursor:pointer;padding:0}
+.opnieuw button:disabled{color:var(--ink-3);cursor:default;font-weight:500}
+
+.demovak{margin-top:22px;border:1.5px dashed var(--line);border-radius:12px;padding:14px 16px;
+  font-size:13.5px;color:var(--ink-2);line-height:1.5;background:#FBFCFE}
+.demovak b{font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-size:20px;letter-spacing:.22em;color:var(--marine);
+  display:block;margin-top:6px}
+
+/* ---------- rechterpaneel ---------- */
+.nieuwlabel{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border-radius:999px;
+  padding:8px 16px;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;align-self:flex-start}
+.nieuwlabel svg{width:14px;height:14px}
+.rechts h2{font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-weight:700;font-size:clamp(1.7rem,2.6vw,2.3rem);
+  letter-spacing:-.03em;line-height:1.1}
+.rechts .uitleg{font-size:16px;color:var(--ink-2);line-height:1.6;max-width:32em}
+
+.gesprek{background:#fff;border-radius:16px;box-shadow:0 22px 50px -30px rgba(10,36,71,.5);overflow:hidden;margin-top:6px}
+.g-kop{display:flex;align-items:center;gap:9px;padding:14px 16px;border-bottom:1px solid var(--line-soft)}
+.g-kop b{font-size:14.5px;font-weight:600}
+.g-tabs{display:flex;gap:16px;padding:0 16px;border-bottom:1px solid var(--line-soft);font-size:13.5px}
+.g-tabs span{padding:11px 0;color:var(--ink-3);font-weight:500;border-bottom:2px solid transparent}
+.g-tabs span.on{color:var(--purple);font-weight:600;border-bottom-color:var(--purple)}
+.g-tabs .rechtsuit{margin-left:auto;color:var(--ink-3)}
+.g-lijf{padding:16px;display:flex;flex-direction:column;gap:14px}
+.bericht{display:flex;gap:10px}
+.bericht .av{width:32px;height:32px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;
+  font-size:12px;font-weight:700}
+.bericht .in{min-width:0}
+.bericht .wie{font-size:12px;color:var(--ink-3);margin-bottom:4px}
+.bericht .wie b{color:var(--ink);font-weight:600;font-size:13px}
+.bel{background:var(--bg-2);border-radius:12px;border-top-left-radius:4px;padding:9px 13px;font-size:13.5px;line-height:1.45}
+.bel.mij{background:var(--purple);color:#fff;border-top-left-radius:12px;border-top-right-radius:4px}
+.bericht.rechtsuit{flex-direction:row-reverse}
+.bericht.rechtsuit .wie{text-align:right}
+.wachtlabel{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:#4A2BA8;
+  background:var(--purple-soft);padding:4px 9px;border-radius:999px;margin-top:6px}
+.reacties{display:flex;gap:6px;margin-top:7px}
+.reacties span{font-size:11.5px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+
+@media(max-width:900px){
+  .split{grid-template-columns:1fr}
+  .rechts{display:none}
+  .links{padding:44px 24px}
+}
+</style>
+</head>
+<body>
+
+<div class="split">
+  <div class="links">
+    <div class="merk">
+      <svg viewBox="0 0 27 27" fill="none" aria-hidden="true">
+        <rect width="27" height="27" rx="7.5" fill="#0F3568"/>
+        <path d="M6 17c2.7 0 2.7-7.4 5.4-7.4S14.1 17 16.8 17s2.7-4.2 3.7-4.2" stroke="#8A6BE8" stroke-width="2.2" stroke-linecap="round"/>
+      </svg>
+      FixedFlows
+    </div>
+
+    <!-- ============ 1. inloggen met wachtwoord ============ -->
+    <section class="scherm" data-scherm="1">
+      <h1 id="groet">Welkom terug</h1>
+      <p class="onder">Log in op je FixedFlows-account.</p>
+
+      <div class="sociaal">
+        <button type="button" data-sociaal="Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.5 12.2c0-.8-.1-1.5-.2-2.2H12v4.2h5.9a5 5 0 01-2.2 3.3v2.7h3.5c2-1.9 3.3-4.7 3.3-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.5-2.7c-1 .6-2.2 1-3.8 1-2.9 0-5.4-2-6.3-4.6H2.1v2.8A11 11 0 0012 23z"/><path fill="#FBBC05" d="M5.7 14a6.6 6.6 0 010-4.2V7H2.1a11 11 0 000 9.9L5.7 14z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3.1.6 4.2 1.7l3.1-3.1A11 11 0 002.1 7l3.6 2.8C6.6 7.3 9.1 5.4 12 5.4z"/></svg>
+          Doorgaan met Google
+        </button>
+        <button type="button" data-sociaal="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg>
+          Doorgaan met Facebook
+        </button>
+        <button type="button" data-sociaal="Apple">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#111" d="M17.05 12.7c-.03-2.62 2.14-3.88 2.24-3.94-1.22-1.79-3.12-2.03-3.8-2.06-1.62-.16-3.16.95-3.98.95-.82 0-2.09-.93-3.43-.9-1.77.02-3.4 1.03-4.3 2.6-1.83 3.18-.47 7.9 1.31 10.48.87 1.26 1.91 2.68 3.27 2.63 1.31-.05 1.81-.85 3.4-.85s2.03.85 3.42.82c1.41-.02 2.31-1.29 3.17-2.56 1-1.47 1.41-2.89 1.44-2.96-.03-.02-2.76-1.06-2.79-4.2zM14.6 4.4c.72-.88 1.21-2.1 1.08-3.31-1.04.04-2.3.69-3.05 1.56-.67.77-1.25 2-1.1 3.19 1.16.09 2.35-.59 3.07-1.44z"/></svg>
+          Doorgaan met Apple
+        </button>
+      </div>
+
+      <div class="of">of</div>
+
+      <div class="formvak">
+        <div class="veld">
+          <label for="i-email">Zakelijk e-mailadres</label>
+          <input id="i-email" type="email" placeholder="jij@bedrijf.nl" autocomplete="username">
+          <span class="melding" id="m-email"></span>
+        </div>
+
+        <div class="veld">
+          <label for="i-ww">Wachtwoord <a href="#" id="vergeten">Wachtwoord vergeten?</a></label>
+          <div class="wwvak">
+            <input id="i-ww" type="password" autocomplete="current-password">
+            <button type="button" class="oog" id="k-oog" aria-label="Wachtwoord tonen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="melding" id="m-ww"></span>
+        </div>
+
+        <button type="button" class="btn btn-primary hoofdknop" id="k-inloggen">Inloggen</button>
+
+        <button type="button" class="tussenknop" id="k-magisch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l7.1 4.8a1.6 1.6 0 001.8 0L20 8"/></svg>
+          Inloggen met een code per e-mail
+        </button>
+      </div>
+
+      <p class="klein">Nog geen account? <a href="app-account.html">Probeer 14 dagen gratis</a></p>
+    </section>
+
+    <!-- ============ 2. e-mailadres voor de code ============ -->
+    <section class="scherm" data-scherm="2" hidden>
+      <h1>Inloggen met een code</h1>
+      <p class="onder">Vul je e-mailadres in. We sturen je een code van zes cijfers waarmee je direct inlogt. Geen wachtwoord nodig.</p>
+
+      <div class="formvak" style="margin-top:26px">
+        <div class="veld">
+          <label for="i-email2">Zakelijk e-mailadres</label>
+          <input id="i-email2" type="email" placeholder="jij@bedrijf.nl" autocomplete="username">
+          <span class="melding" id="m-email2"></span>
+        </div>
+        <button type="button" class="btn btn-primary hoofdknop" id="k-code-sturen">Stuur mij een code</button>
+      </div>
+
+      <button type="button" class="terug" data-terug="1">Terug naar inloggen met wachtwoord</button>
+    </section>
+
+    <!-- ============ 3. code invullen ============ -->
+    <section class="scherm" data-scherm="3" hidden>
+      <h1>Vul je code in</h1>
+      <div class="naar-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l7.1 4.8a1.6 1.6 0 001.8 0L20 8"/></svg>
+        <span>We hebben een code gestuurd naar <b id="mail-naar">—</b>. De code is 10 minuten geldig.</span>
+      </div>
+
+      <div class="codevak" id="codevak">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 1">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 2">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 3">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 4">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 5">
+        <input type="text" inputmode="numeric" maxlength="1" aria-label="Cijfer 6">
+      </div>
+      <span class="melding" id="m-code" style="margin-top:12px;display:block"></span>
+
+      <div class="demovak">
+        Dit is een demo zonder mailserver, dus hier is je code:
+        <b id="demo-code">000000</b>
+      </div>
+
+      <p class="opnieuw">Geen mail ontvangen? <button type="button" id="k-opnieuw">Stuur opnieuw</button><span id="teller"></span></p>
+
+      <button type="button" class="terug" data-terug="2">Ander e-mailadres gebruiken</button>
+    </section>
+
+  </div>
+
+  <!-- ============ rechterpaneel ============ -->
+  <aside class="rechts">
+    <span class="nieuwlabel">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2 5.5L19.5 9 14 11l-2 5.5L10 11 4.5 9 10 7.5 12 2z"/></svg>
+      Nieuw
+    </span>
+    <h2>Overleg per post, zonder mailwisseling.</h2>
+    <p class="uitleg">Opmerkingen staan nu bij de post zelf. Je klant reageert vanaf zijn telefoon, jij ziet meteen wat er moet gebeuren, en je hoeft nergens meer te zoeken naar de laatste versie.</p>
+
+    <div class="gesprek">
+      <div class="g-kop">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#6B44DE" stroke-width="1.8" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.5 7.2L3 21l1.8-6.5A8 8 0 1121 12z"/></svg>
+        <b>Voor &amp; na: 14 panelen</b>
+      </div>
+      <div class="g-tabs">
+        <span>Intern</span>
+        <span class="on">Klant</span>
+        <span class="rechtsuit">Versies</span>
+      </div>
+      <div class="g-lijf">
+        <div class="bericht">
+          <span class="av" style="background:#3B82C4">JV</span>
+          <span class="in">
+            <span class="wie"><b>Joris</b> · 14:45</span>
+            <span class="bel">Kun je deze post even nakijken? Alvast bedankt.</span>
+            <span class="wachtlabel">Wacht op goedkeuring</span>
+          </span>
+        </div>
+        <div class="bericht">
+          <span class="av" style="background:#6B44DE">AV</span>
+          <span class="in">
+            <span class="wie"><b>Anja</b> · 14:52</span>
+            <span class="bel">Ziet er goed uit. Kan het cijfer van de besparing erbij?</span>
+            <span class="reacties"><span>👍 2</span><span>❤️ 1</span></span>
+          </span>
+        </div>
+        <div class="bericht rechtsuit">
+          <span class="av" style="background:#0F3568">SK</span>
+          <span class="in">
+            <span class="wie"><b>Sanne</b> · 15:04</span>
+            <span class="bel mij">Toegevoegd en opnieuw ingediend. Staat morgen om 12:00 klaar.</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  var email = '';
+  var code = '';
+  var pogingen = 0;
+  var tellerLoopt = null;
+
+  /* ---------- schermen ---------- */
+  function toon(n) {
+    $$('.scherm').forEach(function (s) { s.hidden = Number(s.dataset.scherm) !== n; });
+    window.scrollTo(0, 0);
+  }
+  $$('[data-terug]').forEach(function (b) {
+    b.addEventListener('click', function () { toon(Number(b.dataset.terug)); });
+  });
+
+  /* ---------- validatie ---------- */
+  function geldigEmail(v) { return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v); }
+  function fout(veld, tekst) {
+    var inp = $(veld), m = $(veld.replace('#i-', '#m-'));
+    if (tekst) { inp.classList.add('fout'); m.textContent = tekst; }
+    else { inp.classList.remove('fout'); m.textContent = ''; }
+    return !tekst;
+  }
+
+  /* ---------- bekende gebruiker begroeten ---------- */
+  var S = window.Sessie;
+
+  // al ingelogd? dan meteen door
+  if (S.huidige()) window.location.replace(terugPagina());
+
+  function terugPagina() {
+    var m = /[?&]terug=([^&]+)/.exec(window.location.search);
+    var doel = m ? decodeURIComponent(m[1]) : 'app-home.html';
+    // alleen eigen pagina's toestaan, geen externe doorverwijzing
+    return /^app-[a-z-]+\.html(\?[^\s]*)?$/.test(doel) ? doel : 'app-home.html';
+  }
+
+  // laatst bekende account voorinvullen
+  var bekend = S.alleAccounts();
+  if (bekend.length) {
+    var laatste = bekend[bekend.length - 1];
+    $('#i-email').value = laatste.email;
+    if (laatste.voornaam) $('#groet').textContent = 'Welkom terug, ' + laatste.voornaam;
+  }
+
+  /* ---------- inloggen met wachtwoord ---------- */
+  $('#k-oog').addEventListener('click', function () {
+    var inp = $('#i-ww');
+    inp.type = inp.type === 'password' ? 'text' : 'password';
+    this.setAttribute('aria-label', inp.type === 'password' ? 'Wachtwoord tonen' : 'Wachtwoord verbergen');
+  });
+
+  ['#i-email', '#i-ww'].forEach(function (s) {
+    $(s).addEventListener('input', function () { fout(s, ''); });
+    $(s).addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') $('#k-inloggen').click();
+    });
+  });
+
+  $('#k-inloggen').addEventListener('click', function () {
+    var e = $('#i-email').value.trim();
+    if (!e) return fout('#i-email', 'Vul je e-mailadres in.');
+    if (!geldigEmail(e)) return fout('#i-email', 'Dit lijkt geen geldig e-mailadres.');
+    fout('#i-email', '');
+
+    if (!$('#i-ww').value) return fout('#i-ww', 'Vul je wachtwoord in.');
+    fout('#i-ww', '');
+
+    var r = S.metWachtwoord(e, $('#i-ww').value);
+    if (!r.ok) {
+      if (r.reden === 'onbekend') {
+        return fout('#i-email', 'We kennen dit adres nog niet. Maak eerst een account aan.');
+      }
+      if (r.reden === 'geen-wachtwoord') {
+        return fout('#i-ww', 'Dit account gebruikt sociale login. Kies Google, Facebook of Apple.');
+      }
+      return fout('#i-ww', 'Het wachtwoord klopt niet.');
+    }
+    email = e;
+    naarBinnen();
+  });
+
+  /* ---------- naar de code ---------- */
+  function naarCode() {
+    var e = $('#i-email').value.trim();
+    if (geldigEmail(e)) $('#i-email2').value = e;
+    toon(2);
+    setTimeout(function () { $('#i-email2').focus(); }, 60);
+  }
+  $('#k-magisch').addEventListener('click', naarCode);
+  $('#vergeten').addEventListener('click', function (ev) { ev.preventDefault(); naarCode(); });
+
+  $('#i-email2').addEventListener('input', function () { fout('#i-email2', ''); });
+  $('#i-email2').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') $('#k-code-sturen').click();
+  });
+
+  $('#k-code-sturen').addEventListener('click', function () {
+    var e = $('#i-email2').value.trim();
+    if (!e) return fout('#i-email2', 'Vul je e-mailadres in.');
+    if (!geldigEmail(e)) return fout('#i-email2', 'Dit lijkt geen geldig e-mailadres.');
+    fout('#i-email2', '');
+
+    if (!S.zoekOpEmail(e)) {
+      return fout('#i-email2', 'We kennen dit adres nog niet. Maak eerst een account aan.');
+    }
+    email = e;
+    stuurCode();
+    toon(3);
+    $('#mail-naar').textContent = email;
+    leegCode();
+    setTimeout(function () { $$('#codevak input')[0].focus(); }, 80);
+  });
+
+  function stuurCode() {
+    code = String(Math.floor(100000 + Math.random() * 900000));
+    $('#demo-code').textContent = code;
+    pogingen = 0;
+    startTeller(60);
+  }
+
+  function startTeller(seconden) {
+    var knop = $('#k-opnieuw'), tel = $('#teller');
+    knop.disabled = true;
+    clearInterval(tellerLoopt);
+    function tik() {
+      tel.textContent = ' — opnieuw over ' + seconden + ' seconden';
+      if (seconden <= 0) {
+        clearInterval(tellerLoopt);
+        knop.disabled = false;
+        tel.textContent = '';
+        return;
+      }
+      seconden--;
+    }
+    tik();
+    tellerLoopt = setInterval(tik, 1000);
+  }
+
+  $('#k-opnieuw').addEventListener('click', function () {
+    stuurCode();
+    leegCode();
+    $('#m-code').textContent = '';
+    $$('#codevak input')[0].focus();
+  });
+
+  /* ---------- de zes vakjes ---------- */
+  var vakjes = $$('#codevak input');
+
+  function leegCode() {
+    vakjes.forEach(function (v) { v.value = ''; v.classList.remove('gevuld'); });
+    $('#codevak').classList.remove('mis');
+  }
+
+  function ingevuld() {
+    return vakjes.map(function (v) { return v.value; }).join('');
+  }
+
+  vakjes.forEach(function (vak, i) {
+    vak.addEventListener('input', function () {
+      vak.value = vak.value.replace(/\D/g, '').slice(0, 1);
+      vak.classList.toggle('gevuld', !!vak.value);
+      $('#m-code').textContent = '';
+      $('#codevak').classList.remove('mis');
+      if (vak.value && i < vakjes.length - 1) vakjes[i + 1].focus();
+      if (ingevuld().length === 6) controleer();
+    });
+
+    vak.addEventListener('keydown', function (e) {
+      if (e.key === 'Backspace' && !vak.value && i > 0) {
+        vakjes[i - 1].focus();
+        vakjes[i - 1].value = '';
+        vakjes[i - 1].classList.remove('gevuld');
+      }
+      if (e.key === 'ArrowLeft' && i > 0) vakjes[i - 1].focus();
+      if (e.key === 'ArrowRight' && i < vakjes.length - 1) vakjes[i + 1].focus();
+    });
+
+    vak.addEventListener('paste', function (e) {
+      e.preventDefault();
+      var geplakt = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
+      geplakt.split('').forEach(function (cijfer, j) {
+        if (vakjes[j]) { vakjes[j].value = cijfer; vakjes[j].classList.add('gevuld'); }
+      });
+      var volgende = Math.min(geplakt.length, 5);
+      vakjes[volgende].focus();
+      if (geplakt.length === 6) controleer();
+    });
+  });
+
+  function controleer() {
+    if (ingevuld() === code) {
+      $('#m-code').textContent = '';
+      var r = S.metEmail(email);
+      if (!r.ok) { $('#m-code').textContent = 'Dit account bestaat niet meer.'; return; }
+      naarBinnen();
+      return;
+    }
+    pogingen++;
+    $('#codevak').classList.add('mis');
+    if (pogingen >= 3) {
+      $('#m-code').textContent = 'Drie keer een verkeerde code. Vraag een nieuwe aan.';
+      leegCode();
+      startTeller(30);
+    } else {
+      $('#m-code').textContent = 'Deze code klopt niet. Nog ' + (3 - pogingen) + ' pogingen.';
+      setTimeout(function () {
+        leegCode();
+        vakjes[0].focus();
+      }, 420);
+    }
+  }
+
+  /* ---------- sociale knoppen ---------- */
+  $$('[data-sociaal]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var aanbieder = b.dataset.sociaal.toLowerCase();
+      var ingevuldEmail = $('#i-email').value.trim();
+      email = geldigEmail(ingevuldEmail) ? ingevuldEmail : 'demo@' + aanbieder + '-account.nl';
+      var r = S.metAanbieder(aanbieder, email, 'Demo');
+      if (!r.ok) return fout('#i-email', 'Inloggen via ' + b.dataset.sociaal + ' lukte niet.');
+      naarBinnen();
+    });
+  });
+
+  /* ---------- ingelogd ---------- */
+  function naarBinnen() {
+    window.location.href = terugPagina();
+  }
+
+  toon(1);
+})();
+</script>
+
+</body>
+</html>

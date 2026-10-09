@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Contentcreatie — FixedFlows</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="styles.css">
+<script src="app-sessie.js"></script>
+<script>
+  if (!window.Sessie.huidige()) {
+    window.location.replace('app-login.html?terug=app-contentcreatie.html');
+  }
+</script>
+<style>
+body{background:var(--bg);overflow:hidden}
+.scherm{display:grid;grid-template-columns:minmax(0,1fr) 452px;height:100vh}
+
+/* ---------------- linkerkant: AI ---------------- */
+.ai{display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--line);background:#fff}
+.ai-kop{padding:18px 26px 0;border-bottom:1px solid var(--line)}
+.ai-kop h1{font-size:21px;font-weight:700;letter-spacing:-.03em}
+.ai-kop p{font-size:14px;color:var(--ink-3);margin-top:5px}
+.tabs{display:flex;gap:26px;margin-top:16px}
+.tabs button{border:none;background:none;font-family:inherit;font-size:14.5px;font-weight:600;color:var(--ink-3);
+  padding:0 0 12px;cursor:pointer;border-bottom:2px solid transparent}
+.tabs button.on{color:var(--purple);border-bottom-color:var(--purple)}
+.ai-lijf{flex:1;overflow-y:auto;padding:24px 26px 40px}
+
+.veld{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+.veld label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.veld .hint{font-size:12.5px;color:var(--ink-3);line-height:1.45}
+.veld input,.veld select,.veld textarea{font-family:inherit;font-size:15px;color:var(--ink);background:#fff;
+  border:1.5px solid var(--line);border-radius:11px;padding:12px 13px;width:100%}
+.veld textarea{resize:vertical;line-height:1.55;min-height:88px}
+.veld input:focus,.veld select:focus,.veld textarea:focus{outline:none;border-color:var(--purple)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.chips{display:flex;gap:7px;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:8px 13px;font-family:inherit;
+  font-size:13.5px;font-weight:600;color:var(--ink-2);cursor:pointer;display:flex;align-items:center;gap:7px}
+.chips button.on{border-color:var(--purple);background:var(--purple-soft);color:#4A2BA8}
+.chips i{width:10px;height:10px;border-radius:3px;display:block}
+
+.schrijfknop{width:100%;justify-content:center;gap:10px}
+.schrijfknop:disabled{opacity:.5;cursor:not-allowed}
+.tolt{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;
+  border-radius:50%;animation:draai .7s linear infinite}
+@keyframes draai{to{transform:rotate(360deg)}}
+
+.geenstijl{background:var(--purple-soft);border-radius:12px;padding:14px 16px;font-size:13.5px;color:#4A2BA8;
+  line-height:1.5;margin-bottom:20px;display:flex;gap:11px;align-items:flex-start}
+.geenstijl button{border:none;background:none;font-family:inherit;font-size:13.5px;font-weight:700;
+  color:#4A2BA8;text-decoration:underline;cursor:pointer;padding:0}
+
+/* varianten */
+.varianten{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.vk{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .15s ease}
+.vk.gekozen{border-color:var(--purple);box-shadow:0 0 0 3px var(--purple-soft)}
+.vk-kop{display:flex;align-items:center;gap:10px;padding:11px 15px;background:#FBFCFE;border-bottom:1px solid var(--line-soft)}
+.vk-kop b{font-size:13.5px;font-weight:600}
+.vk-kop .tel{margin-left:auto;font-size:12px;color:var(--ink-3);font-weight:600}
+.vk-kop .tel.veel{color:#B0342A}
+.vk-tekst{padding:15px;font-size:14.5px;line-height:1.6;color:var(--ink);white-space:pre-wrap}
+.vk-voet{display:flex;gap:8px;padding:11px 15px;border-top:1px solid var(--line-soft);flex-wrap:wrap}
+.kl{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 12px;font-family:inherit;
+  font-size:12.5px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.kl:hover{border-color:var(--ink-3)}
+.kl.hoofd{background:var(--purple);border-color:var(--purple);color:#fff}
+.kl.hoofd:hover{background:#5A34C9}
+
+/* stijlprofiel */
+.meting{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:11px;margin:6px 0 20px}
+.mt{background:var(--bg);border-radius:12px;padding:14px 15px}
+.mt b{font-family:'Satoshi',system-ui,-apple-system,sans-serif;font-size:20px;font-weight:700;letter-spacing:-.03em;display:block}
+.mt span{font-size:12.5px;color:var(--ink-3);line-height:1.35;display:block;margin-top:3px}
+.woorden{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.woorden span{font-size:12.5px;background:#E7EDF8;color:var(--marine);padding:4px 10px;border-radius:999px;font-weight:600}
+.klaar{background:#E3F3EA;color:#12694A;border-radius:12px;padding:13px 16px;font-size:13.5px;font-weight:500;
+  margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.klaar svg{width:17px;height:17px;flex:none}
+
+/* ---------------- rechterkant: kalender ---------------- */
+.kal{display:flex;flex-direction:column;background:var(--bg);min-width:0}
+.kal-kop{padding:18px 22px 14px;border-bottom:1px solid var(--line);background:#fff}
+.kal-titel{display:flex;align-items:center;gap:8px}
+.kal-titel h2{font-size:16.5px;font-weight:700;letter-spacing:-.025em}
+.kal-titel .nav{margin-left:auto;display:flex;gap:4px}
+.kal-titel .nav button{border:1px solid var(--line);background:#fff;width:28px;height:28px;border-radius:8px;
+  font-size:15px;color:var(--ink-2);cursor:pointer;line-height:1}
+.kal-titel .nav button:hover{border-color:var(--ink-3)}
+.kal-hint{font-size:12.5px;color:var(--ink-3);margin-top:8px}
+.kal-hint.aan{color:var(--purple);font-weight:600}
+.kal-lijf{flex:1;overflow-y:auto;padding:16px}
+
+.mnd{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.mnd-kop{display:grid;grid-template-columns:repeat(5,1fr);background:#FBFCFE;border-bottom:1px solid var(--line-soft)}
+.mnd-kop span{padding:9px 0;text-align:center;font-size:10px;font-weight:600;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--ink-3)}
+.mnd-wk{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line-soft)}
+.mnd-wk:last-child{border-bottom:none}
+.dag{min-height:74px;border-right:1px solid var(--line-soft);padding:5px 5px 7px;position:relative;cursor:default}
+.dag:last-child{border-right:none}
+.dag.buiten{background:#FAFBFD}
+.dag.buiten .nr{color:#B4BCD0}
+.dag.nu .nr{background:var(--ink);color:#fff}
+.dag.kiesbaar{cursor:pointer}
+.dag.kiesbaar:hover{background:var(--purple-soft);box-shadow:inset 0 0 0 2px var(--purple)}
+.nr{font-size:10.5px;font-weight:600;color:var(--ink-3);display:inline-block;padding:2px 5px;border-radius:5px;margin-bottom:4px}
+.mp{border:1px solid var(--line-soft);border-radius:7px;padding:4px 6px;margin-bottom:4px;background:#fff;
+  display:flex;gap:6px;align-items:center}
+.mp i{width:14px;height:14px;border-radius:4px;flex:none;display:block}
+.mp span{font-size:10px;font-weight:600;line-height:1.25;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.mp.concept{border-style:dashed;background:#FAFBFD}
+.mp.review{border-left:2.5px solid var(--purple);background:#FBF9FF}
+.mp.gepland{border-left:2.5px solid var(--marine)}
+
+.kal-voet{padding:13px 20px;border-top:1px solid var(--line);background:#fff;display:flex;align-items:center;gap:12px;
+  font-size:13px;color:var(--ink-3)}
+.kal-voet a{margin-left:auto;font-size:13.5px;font-weight:600;color:var(--purple)}
+
+.melding{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(12px);background:var(--ink);color:#fff;
+  font-size:14.5px;padding:12px 21px;border-radius:999px;opacity:0;transition:all .2s ease;z-index:300;
+  pointer-events:none;max-width:88vw;text-align:center}
+.melding.zie{opacity:1;transform:translateX(-50%)}
+
+@media(max-width:1080px){
+  .scherm{grid-template-columns:1fr;height:auto}
+  body{overflow:auto}
+  .kal{border-top:1px solid var(--line)}
+}
+</style>
+</head>
+<body>
+
+<div class="scherm">
+
+  <!-- ============ AI-module ============ -->
+  <section class="ai">
+    <div class="ai-kop">
+      <h1>Contentcreatie</h1>
+      <p>Laat de assistent een post schrijven in jouw toon, en plan hem meteen in.</p>
+      <div class="tabs" role="tablist">
+        <button type="button" class="on" data-tab="schrijven">Schrijven</button>
+        <button type="button" data-tab="stijl">Mijn schrijfstijl</button>
+      </div>
+    </div>
+
+    <div class="ai-lijf">
+
+      <!-- ---- tab: schrijven ---- -->
+      <div data-paneel="schrijven">
+        <div class="geenstijl" id="geenstijl" hidden>
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.9" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 8v5" stroke-linecap="round"/><circle cx="12" cy="16.2" r=".9" fill="currentColor" stroke="none"/></svg>
+          <span>Je hebt nog geen schrijfstijl vastgelegd. De assistent schrijft nu neutraal.
+            <button type="button" id="naar-stijl">Bepaal je stijl</button></span>
+        </div>
+
+        <div class="veld">
+          <label for="f-onderwerp">Waar gaat de post over?</label>
+          <textarea id="f-onderwerp" placeholder="Bijvoorbeeld: we hebben deze week 18 panelen geplaatst op een jaren-30 woning in Zeist, in één dag klaar"></textarea>
+          <span class="hint">Hoe concreter je bent, hoe bruikbaarder de tekst. Noem een plaats, een aantal of een klant.</span>
+        </div>
+
+        <div class="veld">
+          <label>Wat wil je ermee bereiken?</label>
+          <div class="chips" id="f-doel"></div>
+        </div>
+
+        <div class="veld">
+          <label>Voor welk kanaal?</label>
+          <div class="chips" id="f-kanaal"></div>
+        </div>
+
+        <div class="duo">
+          <div class="veld">
+            <label for="f-lengte">Lengte</label>
+            <select id="f-lengte">
+              <option value="kort">Kort — een paar regels</option>
+              <option value="middel" selected>Gemiddeld</option>
+              <option value="lang">Uitgebreid</option>
+            </select>
+          </div>
+          <div class="veld">
+            <label for="f-trefwoord">Trefwoord (optioneel)</label>
+            <input id="f-trefwoord" type="text" placeholder="ZON" maxlength="20">
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary schrijfknop" id="k-schrijf">Schrijf drie varianten</button>
+
+        <div class="varianten" id="varianten"></div>
+      </div>
+
+      <!-- ---- tab: schrijfstijl ---- -->
+      <div data-paneel="stijl" hidden>
+        <div class="klaar" id="stijl-klaar" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.5 5.5L20 6"/></svg>
+          <span id="stijl-klaar-tekst">Je stijl is vastgelegd.</span>
+        </div>
+
+        <div class="veld">
+          <label for="f-voorbeelden">Plak een paar teksten die goed voelden</label>
+          <textarea id="f-voorbeelden" style="min-height:180px" placeholder="Plak hier twee tot vijf eerdere posts, e-mails of stukjes van je website. Zet een lege regel tussen elk stuk.
+
+Hoe meer je plakt, hoe scherper we je stijl kunnen meten."></textarea>
+          <span class="hint">Deze teksten blijven in je eigen werkruimte en worden alleen gebruikt om je stijl te bepalen.</span>
+        </div>
+
+        <button type="button" class="btn btn-primary schrijfknop" id="k-meet" style="margin-bottom:24px">Bepaal mijn stijl</button>
+
+        <div id="meting-uit" hidden>
+          <div class="veld"><label>Wat we in je teksten zien</label></div>
+          <div class="meting" id="meting"></div>
+          <div class="veld">
+            <label>Woorden die je vaak gebruikt</label>
+            <div class="woorden" id="eigenwoorden"></div>
+          </div>
+        </div>
+
+        <div class="veld">
+          <label>Aanspreekvorm</label>
+          <div class="chips" id="f-aanspreek"></div>
+        </div>
+
+        <div class="duo">
+          <div class="veld">
+            <label for="f-emoji">Emoji</label>
+            <select id="f-emoji">
+              <option value="nooit">Nooit gebruiken</option>
+              <option value="soms" selected>Af en toe</option>
+              <option value="vaak">Regelmatig</option>
+            </select>
+          </div>
+          <div class="veld">
+            <label for="f-hashtags">Hashtags per post</label>
+            <select id="f-hashtags">
+              <option value="0">Geen</option>
+              <option value="3" selected>Ongeveer 3</option>
+              <option value="6">Ongeveer 6</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="veld">
+          <label for="f-toon">Hoe zou je je toon omschrijven?</label>
+          <input id="f-toon" type="text" placeholder="nuchter, praktisch, geen verkooppraat">
+        </div>
+
+        <div class="veld">
+          <label for="f-publiek">Voor wie schrijf je?</label>
+          <input id="f-publiek" type="text" placeholder="huiseigenaren tussen de 35 en 65 die twijfelen over zonnepanelen">
+        </div>
+
+        <div class="veld">
+          <label for="f-verboden">Woorden die je nooit gebruikt</label>
+          <input id="f-verboden" type="text" placeholder="uniek, revolutionair, marktleider">
+          <span class="hint">Komma's ertussen. Deze woorden worden uit elke gegenereerde tekst gehaald.</span>
+        </div>
+
+        <button type="button" class="btn btn-primary schrijfknop" id="k-stijl-op">Stijl opslaan</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ kalender ============ -->
+  <aside class="kal">
+    <div class="kal-kop">
+      <div class="kal-titel">
+        <h2 id="mnd-titel">—</h2>
+        <div class="nav">
+          <button type="button" id="m-vorig" aria-label="Vorige maand">&lsaquo;</button>
+          <button type="button" id="m-volgend" aria-label="Volgende maand">&rsaquo;</button>
+        </div>
+      </div>
+      <p class="kal-hint" id="kal-hint">Schrijf eerst een post. Daarna kies je hier een dag.</p>
+    </div>
+    <div class="kal-lijf" id="kal-lijf"></div>
+    <div class="kal-voet">
+      <span id="kal-tel">—</span>
+      <a href="app-kalender.html">Volledige kalender →</a>
+    </div>
+  </aside>
+
+</div>
+
+<div class="melding" id="melding" role="status" aria-live="polite"></div>
+
+<script src="app-menu.js" data-actief="schrijven"></script>
+<script>
+(function () {
+  'use strict';
+
+  var S = window.Sessie;
+  var sessie = S.vereist();
+  if (!sessie) return;
+
+  var $ = function (s) { return document.querySelector(s); };
+  var veilig = function (t) {
+    return String(t == null ? '' : t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  };
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var sleutel = function (d) { return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); };
+  var maDag = function (d) { return (d.getDay() + 6) % 7; };
+
+  var MAANDNAAM = ['januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december'];
+
+  var KANALEN = [
+    { id: 'instagram', naam: 'Instagram', kleur: '#6B44DE', limiet: 2200 },
+    { id: 'linkedin',  naam: 'LinkedIn',  kleur: '#3B82C4', limiet: 3000 },
+    { id: 'facebook',  naam: 'Facebook',  kleur: '#0F3568', limiet: 5000 },
+    { id: 'tiktok',    naam: 'TikTok',    kleur: '#111111', limiet: 2200 }
+  ];
+
+  var DOELEN = [
+    { id: 'uitleg',   naam: 'Iets uitleggen' },
+    { id: 'verhaal',  naam: 'Klantverhaal' },
+    { id: 'aanbod',   naam: 'Aanbod doen' },
+    { id: 'schermen', naam: 'Achter de schermen' },
+    { id: 'vacature', naam: 'Vacature' }
+  ];
+
+  function melden(t) {
+    var m = $('#melding');
+    m.textContent = t;
+    m.classList.add('zie');
+    clearTimeout(melden._t);
+    melden._t = setTimeout(function () { m.classList.remove('zie'); }, 3000);
+  }
+
+  /* ============================================================
+     Schrijfstijl meten
+     ------------------------------------------------------------
+     Dit rekent echte eigenschappen uit je eigen teksten uit.
+     Geen schatting: zinslengte, aanspreekvorm, emoji en de
+     woorden die je vaker gebruikt dan gemiddeld.
+     ============================================================ */
+  var STOP = ('de het een en van in op te dat die is was voor met als er maar om aan bij ook nog dan zo naar door uit over ' +
+    'wij we je jij jouw u uw ik mij mijn ze zij hun deze dit daar hier wat wie hoe waar want dus al alle wel niet geen ' +
+    'heeft hebben heb had werd wordt worden zijn ben bent kan kun kunt kunnen zal zullen zou moet moeten mag ' +
+    'meer veel weinig heel erg zeer even nu straks altijd nooit soms').split(' ');
+
+  function meet(tekst) {
+    var schoon = tekst.replace(/\s+/g, ' ').trim();
+    if (schoon.length < 60) return null;
+
+    var zinnen = tekst.split(/[.!?\n]+/).map(function (z) { return z.trim(); }).filter(function (z) { return z.length > 3; });
+    var woorden = schoon.toLowerCase().match(/[a-zà-ÿ']+/g) || [];
+
+    var emoji = (tekst.match(/[\u231A-\u27BF\u2B00-\u2BFF\uD83C-\uDBFF\uDC00-\uDFFF]/g) || []).length;
+    var hashtags = (tekst.match(/#[\wà-ÿ]+/g) || []).length;
+    var vragen = (tekst.match(/\?/g) || []).length;
+    var uitroep = (tekst.match(/!/g) || []).length;
+
+    var jeVorm = woorden.filter(function (w) { return ['je','jij','jouw','jou','jullie'].indexOf(w) !== -1; }).length;
+    var uVorm  = woorden.filter(function (w) { return ['u','uw'].indexOf(w) !== -1; }).length;
+    var ikVorm = woorden.filter(function (w) { return ['ik','mij','mijn'].indexOf(w) !== -1; }).length;
+    var wijVorm= woorden.filter(function (w) { return ['wij','we','ons','onze'].indexOf(w) !== -1; }).length;
+
+    var telling = {};
+    woorden.forEach(function (w) {
+      if (w.length < 4 || STOP.indexOf(w) !== -1) return;
+      telling[w] = (telling[w] || 0) + 1;
+    });
+    var top = Object.keys(telling)
+      .filter(function (w) { return telling[w] > 1; })
+      .sort(function (a, b) { return telling[b] - telling[a]; })
+      .slice(0, 8);
+
+    var stukken = tekst.split(/\n\s*\n/).filter(function (s) { return s.trim().length > 30; });
+
+    return {
+      zinslengte: Math.round(woorden.length / Math.max(1, zinnen.length)),
+      woordlengte: Math.round(woorden.join('').length / Math.max(1, woorden.length) * 10) / 10,
+      zinnen: zinnen.length,
+      woorden: woorden.length,
+      stukken: Math.max(1, stukken.length),
+      emojiPerStuk: Math.round(emoji / Math.max(1, stukken.length) * 10) / 10,
+      hashtagsPerStuk: Math.round(hashtags / Math.max(1, stukken.length)),
+      vraagAandeel: Math.round(vragen / Math.max(1, zinnen.length) * 100),
+      uitroepAandeel: Math.round(uitroep / Math.max(1, zinnen.length) * 100),
+      aanspreek: uVorm > jeVorm ? 'u' : 'je',
+      perspectief: ikVorm > wijVorm ? 'ik' : 'wij',
+      eigenwoorden: top
+    };
+  }
+
+  /* ---------- stijl opslaan en laden ---------- */
+  var stijl = S.leesData('stijl') || {
+    aanspreek: 'je', emoji: 'soms', hashtags: 3, toon: '', publiek: '',
+    verboden: '', meting: null, voorbeelden: ''
+  };
+
+  function bewaarStijl() { S.schrijfData('stijl', stijl); }
+  function stijlIsGezet() { return !!(stijl.meting || stijl.toon || stijl.publiek); }
+
+  /* ============================================================
+     Tekst schrijven
+     ------------------------------------------------------------
+     In deze demo bouwt het scherm de tekst zelf op uit bouwstenen,
+     gestuurd door je stijlprofiel. In het echte product gaat dit
+     naar de Claude API, met je stijlprofiel als systeemprompt:
+
+       await fetch('/api/ai/schrijf', {
+         method: 'POST',
+         body: JSON.stringify({ onderwerp, doel, kanaal, lengte, stijl })
+       });
+
+     De server zet daar dan een prompt van in de vorm van:
+       "Je schrijft voor <publiek>. Toon: <toon>. Spreek aan met
+        <je|u>. Gemiddelde zinslengte <n> woorden. Gebruik nooit:
+        <verboden>. Schrijf een post over <onderwerp>."
+     ============================================================ */
+
+  var HAAK = {
+    uitleg: [
+      'Veel mensen denken dat @KERN. In de praktijk ligt dat anders.',
+      'De vraag die we het vaakst krijgen: @KERN?',
+      'Dit wordt vaker verkeerd gedaan dan je zou denken.',
+      'Even iets rechtzetten over @KERN.'
+    ],
+    verhaal: [
+      'Deze week bij een klant: @KERN.',
+      'Van twijfel naar tevreden in @KERN.',
+      'Een klus die precies liet zien waar het om draait.'
+    ],
+    aanbod: [
+      'Deze maand doen we iets extra\'s.',
+      'Al langer aan het twijfelen? Dan is dit je moment.',
+      'Even kort, want dit loopt af.'
+    ],
+    schermen: [
+      'Zo ziet een gewone werkdag er bij ons uit.',
+      'Wat je niet ziet op de foto\'s.',
+      'Achter elke installatie zit dit.'
+    ],
+    vacature: [
+      'We zoeken versterking.',
+      'Er is plek in ons team.',
+      'Vakmensen gezocht.'
+    ]
+  };
+
+  var SLOT = {
+    uitleg: ['Twijfel je over je eigen situatie? Stel je vraag hieronder.',
+             'Wil je weten hoe dit bij jou zit? Laat het weten.'],
+    verhaal: ['Benieuwd wat er bij jou mogelijk is?',
+              'Zoiets ook op je eigen dak? Laat het ons weten.'],
+    aanbod: ['Interesse? Reageer, dan nemen we contact op.',
+             'Plek is beperkt, dus wees er op tijd bij.'],
+    schermen: ['Vragen over hoe wij werken? Stel ze gerust.',
+               'Meer hiervan zien? Blijf ons volgen.'],
+    vacature: ['Herken je jezelf hierin? Stuur een bericht.',
+               'Interesse? We drinken graag een koffie met je.']
+  };
+
+  var EMOJI = { uitleg: '💡', verhaal: '🏠', aanbod: '⚡', schermen: '🔧', vacature: '🙌' };
+
+  function kern(onderwerp) {
+    var eerste = onderwerp.split(/[.!?\n]/)[0].trim();
+    return eerste.length > 4 ? eerste.charAt(0).toLowerCase() + eerste.slice(1) : onderwerp.trim();
+  }
+
+  function kies(lijst, n) { return lijst[n % lijst.length]; }
+
+  function pasAanspreekToe(t) {
+    if (stijl.aanspreek !== 'u') return t;
+    return t
+      .replace(/\bje\b/g, 'u').replace(/\bJe\b/g, 'U')
+      .replace(/\bjouw\b/g, 'uw').replace(/\bJouw\b/g, 'Uw')
+      .replace(/\bjezelf\b/g, 'uzelf').replace(/\bjij\b/g, 'u');
+  }
+
+  function haalVerbodenWeg(t) {
+    var lijst = (stijl.verboden || '').split(',').map(function (w) { return w.trim(); }).filter(Boolean);
+    lijst.forEach(function (w) {
+      t = t.replace(new RegExp('\\s*\\b' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi'), '');
+    });
+    return t.replace(/ {2,}/g, ' ').replace(/ ,/g, ',');
+  }
+
+  function maakHashtags(onderwerp) {
+    var n = Number(stijl.hashtags || 0);
+    if (!n) return '';
+    var woorden = (onderwerp.toLowerCase().match(/[a-zà-ÿ]{5,}/g) || [])
+      .filter(function (w) { return STOP.indexOf(w) === -1; });
+    var uniek = [];
+    woorden.forEach(function (w) { if (uniek.indexOf(w) === -1) uniek.push(w); });
+    var vast = ['zonnepanelen', 'duurzaam', 'energie', 'installatie'];
+    var uit = uniek.slice(0, Math.max(0, n - 2)).concat(vast).slice(0, n);
+    return '\n\n' + uit.map(function (w) { return '#' + w; }).join(' ');
+  }
+
+  function schrijf(gegevens, variant) {
+    var d = gegevens.doel, k = kern(gegevens.onderwerp);
+    var regels = [];
+
+    var sjabloon = kies(HAAK[d] || HAAK.uitleg, variant);
+    var haakGebruiktKern = sjabloon.indexOf('@KERN') !== -1;
+    var haak = sjabloon.replace('@KERN', k);
+    if (stijl.emoji === 'vaak') haak = EMOJI[d] + ' ' + haak;
+    regels.push(haak);
+
+    // Middenstuk. Zit de eerste zin al in de haak, dan slaan we
+    // die hier over — anders staat hij er twee keer.
+    var zinnen = gegevens.onderwerp.split(/[.\n]+/).map(function (z) { return z.trim(); }).filter(function (z) { return z.length > 3; });
+    var rest = haakGebruiktKern ? zinnen.slice(1) : zinnen;
+    var kort = stijl.meting && stijl.meting.zinslengte < 12;
+
+    if (gegevens.lengte !== 'kort' && rest.length) {
+      regels.push(rest.map(function (z) {
+        return z.charAt(0).toUpperCase() + z.slice(1) + '.';
+      }).join(kort ? '\n' : ' '));
+    }
+
+    if (gegevens.lengte === 'lang') {
+      var extra = {
+        uitleg: 'In negen van de tien gevallen zit het verschil in de details: de plaatsing, de hoek en de kwaliteit van de omvormer.',
+        verhaal: 'Wat ons betreft telt niet hoe snel het klaar was, maar of het over tien jaar nog steeds goed doet.',
+        aanbod: 'We plannen altijd eerst een schouw, zodat je vooraf weet wat het oplevert. Geen verrassingen achteraf.',
+        schermen: 'Voordat er ook maar één paneel op het dak gaat, is er gemeten, gerekend en overlegd.',
+        vacature: 'Je werkt in een klein team, met korte lijnen en materiaal dat in orde is.'
+      }[d];
+      if (extra) regels.push(extra);
+    }
+
+    if (gegevens.trefwoord) {
+      regels.push('Reageer met ' + gegevens.trefwoord.toUpperCase() + ' en we sturen je de informatie toe.');
+    } else {
+      regels.push(kies(SLOT[d] || SLOT.uitleg, variant));
+    }
+
+    var t = regels.join('\n\n');
+    if (stijl.emoji === 'soms' && !/[\u231A-\u27BF\uD83C-\uDBFF]/.test(t)) {
+      t = t.replace(/\n\n([^\n]*)$/, '\n\n' + EMOJI[d] + ' $1');
+    }
+    t = pasAanspreekToe(t);
+    t = haalVerbodenWeg(t);
+    t += maakHashtags(gegevens.onderwerp);
+    return t.trim();
+  }
+
+  /* ---------- keuzevakjes ---------- */
+  var gekozenDoel = 'uitleg', gekozenKanaal = 'instagram';
+
+  $('#f-doel').innerHTML = DOELEN.map(function (d) {
+    return '<button type="button" data-doel="' + d.id + '"' + (d.id === gekozenDoel ? ' class="on"' : '') + '>' + d.naam + '</button>';
+  }).join('');
+  $('#f-doel').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-doel]');
+    if (!b) return;
+    gekozenDoel = b.dataset.doel;
+    Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle('on', x === b); });
+  });
+
+  $('#f-kanaal').innerHTML = KANALEN.map(function (k) {
+    return '<button type="button" data-kanaal="' + k.id + '"' + (k.id === gekozenKanaal ? ' class="on"' : '') +
+      '><i style="background:' + k.kleur + '"></i>' + k.naam + '</button>';
+  }).join('');
+  $('#f-kanaal').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-kanaal]');
+    if (!b) return;
+    gekozenKanaal = b.dataset.kanaal;
+    Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle('on', x === b); });
+    tekenVarianten();
+  });
+
+  $('#f-aanspreek').innerHTML = [['je','Je en jij'],['u','U en uw']].map(function (a) {
+    return '<button type="button" data-aanspreek="' + a[0] + '"' + (stijl.aanspreek === a[0] ? ' class="on"' : '') + '>' + a[1] + '</button>';
+  }).join('');
+  $('#f-aanspreek').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-aanspreek]');
+    if (!b) return;
+    stijl.aanspreek = b.dataset.aanspreek;
+    Array.prototype.forEach.call(this.children, function (x) { x.classList.toggle('on', x === b); });
+  });
+
+  /* ---------- tabs ---------- */
+  document.querySelectorAll('[data-tab]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-tab]').forEach(function (x) { x.classList.toggle('on', x === b); });
+      document.querySelectorAll('[data-paneel]').forEach(function (p) {
+        p.hidden = p.dataset.paneel !== b.dataset.tab;
+      });
+      $('.ai-lijf').scrollTop = 0;
+    });
+  });
+  $('#naar-stijl').addEventListener('click', function () {
+    document.querySelector('[data-tab="stijl"]').click();
+  });
+
+  /* ---------- stijl meten ---------- */
+  $('#k-meet').addEventListener('click', function () {
+    var tekst = $('#f-voorbeelden').value;
+    var m = meet(tekst);
+    if (!m) { melden('Plak wat meer tekst, dan kunnen we er iets zinnigs over zeggen.'); return; }
+
+    stijl.meting = m;
+    stijl.voorbeelden = tekst;
+    stijl.aanspreek = m.aanspreek;
+    if (m.emojiPerStuk >= 2) stijl.emoji = 'vaak';
+    else if (m.emojiPerStuk >= 0.4) stijl.emoji = 'soms';
+    else stijl.emoji = 'nooit';
+    if (m.hashtagsPerStuk >= 5) stijl.hashtags = 6;
+    else if (m.hashtagsPerStuk >= 1) stijl.hashtags = 3;
+    else stijl.hashtags = 0;
+
+    vulStijlVelden();
+    toonMeting(m);
+    bewaarStijl();
+    melden('Je stijl is gemeten uit ' + m.stukken + ' stuk' + (m.stukken === 1 ? '' : 'ken') + ' tekst.');
+  });
+
+  function toonMeting(m) {
+    $('#meting-uit').hidden = false;
+    var korte = m.zinslengte <= 11 ? 'kort en direct' : (m.zinslengte <= 16 ? 'gemiddeld' : 'uitgebreid');
+    $('#meting').innerHTML = [
+      ['<b>' + m.zinslengte + ' woorden</b><span>gemiddelde zinslengte — ' + korte + '</span>'],
+      ['<b>' + (m.aanspreek === 'u' ? 'U en uw' : 'Je en jij') + '</b><span>zo spreek je mensen aan</span>'],
+      ['<b>' + (m.perspectief === 'ik' ? 'Ik' : 'Wij') + '</b><span>vanuit dit perspectief schrijf je</span>'],
+      ['<b>' + m.emojiPerStuk + '</b><span>emoji per bericht</span>'],
+      ['<b>' + m.vraagAandeel + '%</b><span>van je zinnen is een vraag</span>'],
+      ['<b>' + m.woorden + '</b><span>woorden geanalyseerd</span>']
+    ].map(function (r) { return '<div class="mt">' + r[0] + '</div>'; }).join('');
+
+    $('#eigenwoorden').innerHTML = m.eigenwoorden.length
+      ? m.eigenwoorden.map(function (w) { return '<span>' + veilig(w) + '</span>'; }).join('')
+      : '<span style="background:none;color:var(--ink-3);padding:0">Nog te weinig herhaling om patronen te zien.</span>';
+  }
+
+  function vulStijlVelden() {
+    $('#f-emoji').value = stijl.emoji;
+    $('#f-hashtags').value = String(stijl.hashtags);
+    $('#f-toon').value = stijl.toon || '';
+    $('#f-publiek').value = stijl.publiek || '';
+    $('#f-verboden').value = stijl.verboden || '';
+    $('#f-voorbeelden').value = stijl.voorbeelden || '';
+    Array.prototype.forEach.call($('#f-aanspreek').children, function (x) {
+      x.classList.toggle('on', x.dataset.aanspreek === stijl.aanspreek);
+    });
+    $('#geenstijl').hidden = stijlIsGezet();
+    if (stijl.meting) {
+      toonMeting(stijl.meting);
+      $('#stijl-klaar').hidden = false;
+      $('#stijl-klaar-tekst').textContent =
+        'Je stijl is vastgelegd. De assistent schrijft met zinnen van ongeveer ' +
+        stijl.meting.zinslengte + ' woorden en spreekt mensen aan met "' + stijl.aanspreek + '".';
+    }
+  }
+
+  $('#k-stijl-op').addEventListener('click', function () {
+    stijl.emoji = $('#f-emoji').value;
+    stijl.hashtags = Number($('#f-hashtags').value);
+    stijl.toon = $('#f-toon').value.trim();
+    stijl.publiek = $('#f-publiek').value.trim();
+    stijl.verboden = $('#f-verboden').value.trim();
+    bewaarStijl();
+    $('#geenstijl').hidden = stijlIsGezet();
+    melden('Je schrijfstijl is opgeslagen voor deze werkruimte.');
+  });
+
+  /* ---------- varianten ---------- */
+  var varianten = [], gekozen = -1, laatsteInvoer = null;
+
+  $('#k-schrijf').addEventListener('click', function () {
+    var onderwerp = $('#f-onderwerp').value.trim();
+    if (onderwerp.length < 12) { $('#f-onderwerp').focus(); melden('Vertel iets concreter waar de post over gaat.'); return; }
+
+    laatsteInvoer = {
+      onderwerp: onderwerp,
+      doel: gekozenDoel,
+      kanaal: gekozenKanaal,
+      lengte: $('#f-lengte').value,
+      trefwoord: $('#f-trefwoord').value.trim()
+    };
+
+    var knop = this;
+    knop.disabled = true;
+    knop.innerHTML = '<span class="tolt"></span> Aan het schrijven…';
+
+    setTimeout(function () {
+      varianten = [0, 1, 2].map(function (i) { return schrijf(laatsteInvoer, i); });
+      gekozen = -1;
+      tekenVarianten();
+      knop.disabled = false;
+      knop.textContent = 'Schrijf drie varianten';
+      $('#kal-hint').textContent = 'Kies een variant en klik daarna op een dag om in te plannen.';
+    }, 620);
+  });
+
+  function tekenVarianten() {
+    if (!varianten.length) { $('#varianten').innerHTML = ''; return; }
+    var k = KANALEN.filter(function (x) { return x.id === gekozenKanaal; })[0];
+
+    $('#varianten').innerHTML = varianten.map(function (t, i) {
+      var teveel = t.length > k.limiet;
+      return '<div class="vk' + (i === gekozen ? ' gekozen' : '') + '" data-v="' + i + '">' +
+        '<div class="vk-kop"><b>Variant ' + (i + 1) + '</b>' +
+          '<span class="tel' + (teveel ? ' veel' : '') + '">' + t.length + ' / ' + k.limiet + '</span></div>' +
+        '<div class="vk-tekst" contenteditable="true" data-tekst="' + i + '">' + veilig(t) + '</div>' +
+        '<div class="vk-voet">' +
+          '<button type="button" class="kl hoofd" data-kies="' + i + '">' +
+            (i === gekozen ? 'Gekozen' : 'Deze gebruiken') + '</button>' +
+          '<button type="button" class="kl" data-kopie="' + i + '">Kopiëren</button>' +
+          '<button type="button" class="kl" data-korter="' + i + '">Maak korter</button>' +
+        '</div></div>';
+    }).join('');
+  }
+
+  $('#varianten').addEventListener('click', function (e) {
+    var kiesKnop = e.target.closest('[data-kies]');
+    if (kiesKnop) {
+      gekozen = Number(kiesKnop.dataset.kies);
+      lees();
+      tekenVarianten();
+      tekenMaand();
+      melden('Variant ' + (gekozen + 1) + ' gekozen. Klik nu op een dag in de kalender.');
+      $('#kal-hint').textContent = 'Klik op een dag om deze post in te plannen.';
+      $('#kal-hint').classList.add('aan');
+      return;
+    }
+    var kop = e.target.closest('[data-kopie]');
+    if (kop) {
+      lees();
+      var t = varianten[Number(kop.dataset.kopie)];
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(function () { melden('Gekopieerd.'); });
+      else melden('Kopiëren wordt hier niet ondersteund.');
+      return;
+    }
+    var kort = e.target.closest('[data-korter]');
+    if (kort) {
+      var i = Number(kort.dataset.korter);
+      var stukken = varianten[i].split('\n\n');
+      if (stukken.length > 2) {
+        stukken.splice(1, 1);
+        varianten[i] = stukken.join('\n\n');
+        tekenVarianten();
+        melden('Ingekort.');
+      } else melden('Dit is al zo kort als het wordt.');
+    }
+  });
+
+  // aanpassingen in de tekst overnemen
+  function lees() {
+    document.querySelectorAll('[data-tekst]').forEach(function (el) {
+      varianten[Number(el.dataset.tekst)] = el.innerText.trim();
+    });
+  }
+  $('#varianten').addEventListener('input', function (e) {
+    if (e.target.dataset.tekst !== undefined) {
+      var i = Number(e.target.dataset.tekst);
+      varianten[i] = e.target.innerText;
+      var k = KANALEN.filter(function (x) { return x.id === gekozenKanaal; })[0];
+      var tel = e.target.parentNode.querySelector('.tel');
+      tel.textContent = varianten[i].length + ' / ' + k.limiet;
+      tel.classList.toggle('veel', varianten[i].length > k.limiet);
+    }
+  });
+
+  /* ============================================================
+     Kalender rechts
+     ============================================================ */
+  var kijk = new Date();
+
+  function kalData() { return S.leesData('kalender') || { posts: [], koppelingen: [] }; }
+
+  function maandRijen(peil) {
+    var eerste = new Date(peil.getFullYear(), peil.getMonth(), 1);
+    var laatste = new Date(peil.getFullYear(), peil.getMonth() + 1, 0);
+    var loop = new Date(eerste);
+    loop.setDate(loop.getDate() - maDag(eerste));
+    var rijen = [];
+    while (rijen.length < 7) {
+      var rij = [];
+      for (var i = 0; i < 7; i++) {
+        if (i < 5) rij.push(new Date(loop));
+        loop.setDate(loop.getDate() + 1);
+      }
+      rijen.push(rij);
+      if (loop > laatste) break;
+    }
+    return rijen;
+  }
+
+  function tekenMaand() {
+    var d = kalData();
+    var posts = d.posts || [];
+    var vandaag = sleutel(new Date());
+    var maand = kijk.getMonth();
+    var kiesbaar = gekozen >= 0;
+
+    $('#mnd-titel').textContent = MAANDNAAM[maand] + ' ' + kijk.getFullYear();
+
+    var h = '<div class="mnd"><div class="mnd-kop">' +
+      ['ma','di','wo','do','vr'].map(function (x) { return '<span>' + x + '</span>'; }).join('') + '</div>';
+
+    maandRijen(kijk).forEach(function (rij) {
+      h += '<div class="mnd-wk">';
+      rij.forEach(function (dag) {
+        var sl = sleutel(dag);
+        var opDag = posts.filter(function (p) { return p.datum === sl; })
+          .sort(function (a, b) { return (a.tijd || '').localeCompare(b.tijd || ''); });
+        var klas = 'dag' + (dag.getMonth() !== maand ? ' buiten' : '') +
+                   (sl === vandaag ? ' nu' : '') + (kiesbaar ? ' kiesbaar' : '');
+        h += '<div class="' + klas + '" data-datum="' + sl + '"><span class="nr">' + dag.getDate() + '</span>' +
+          opDag.slice(0, 2).map(function (p) {
+            var kk = KANALEN.filter(function (x) { return x.id === p.kanaal; })[0] || KANALEN[0];
+            return '<div class="mp ' + p.status + '"><i style="background:' + kk.kleur + '"></i>' +
+                   '<span>' + veilig(p.titel || 'Post') + '</span></div>';
+          }).join('') +
+          (opDag.length > 2 ? '<div class="mp"><span>+' + (opDag.length - 2) + ' meer</span></div>' : '') +
+          '</div>';
+      });
+      h += '</div>';
+    });
+
+    $('#kal-lijf').innerHTML = h + '</div>';
+
+    var wacht = posts.filter(function (p) { return p.status === 'review'; }).length;
+    $('#kal-tel').textContent = posts.length + ' posts' + (wacht ? ' · ' + wacht + ' wacht op goedkeuring' : '');
+  }
+
+  $('#kal-lijf').addEventListener('click', function (e) {
+    var cel = e.target.closest('.dag.kiesbaar');
+    if (!cel) return;
+    if (gekozen < 0) { melden('Kies eerst een variant.'); return; }
+    plan(cel.dataset.datum);
+  });
+
+  function plan(datum) {
+    lees();
+    var d = kalData();
+    d.posts = d.posts || [];
+    d.koppelingen = d.koppelingen || [];
+
+    var tekst = varianten[gekozen];
+    var titel = tekst.split('\n')[0].replace(/^[^\wà-ÿ]+/, '').slice(0, 42);
+
+    var trefwoord = (laatsteInvoer.trefwoord || '').toUpperCase();
+    if (trefwoord && d.posts.some(function (p) { return p.trefwoord === trefwoord; })) {
+      melden('Trefwoord ' + trefwoord + ' is al in gebruik bij een andere post.');
+      return;
+    }
+
+    var id = d.posts.reduce(function (m, p) { return Math.max(m, p.id || 0); }, 0) + 1;
+    d.posts.push({
+      id: id, datum: datum, tijd: '09:00', kanaal: laatsteInvoer.kanaal,
+      status: sessie.rol === 'creator' ? 'review' : 'concept',
+      titel: titel, tekst: tekst, trefwoord: trefwoord, reden: '',
+      media: null, medianaam: '', mediasoort: '',
+      log: [{ wie: sessie.rol === 'creator' ? 'Contentcreator' : 'Eigenaar',
+              wat: 'Geschreven met de assistent', wanneer: 'zojuist' }]
+    });
+
+    if (d.koppelingen.indexOf(laatsteInvoer.kanaal) === -1) d.koppelingen.push(laatsteInvoer.kanaal);
+
+    S.schrijfData('kalender', d);
+    gekozen = -1;
+    tekenVarianten();
+    tekenMaand();
+    $('#kal-hint').classList.remove('aan');
+    $('#kal-hint').textContent = 'Ingepland. Schrijf gerust nog een post.';
+
+    var dd = new Date(datum);
+    melden('Ingepland op ' + dd.getDate() + ' ' + MAANDNAAM[dd.getMonth()] + '. Te zien in de kalender.');
+  }
+
+  $('#m-vorig').addEventListener('click', function () {
+    kijk = new Date(kijk.getFullYear(), kijk.getMonth() - 1, 1); tekenMaand();
+  });
+  $('#m-volgend').addEventListener('click', function () {
+    kijk = new Date(kijk.getFullYear(), kijk.getMonth() + 1, 1); tekenMaand();
+  });
+
+  /* ---------- starten ---------- */
+  vulStijlVelden();
+  tekenMaand();
+})();
+</script>
+
+</body>
+</html>

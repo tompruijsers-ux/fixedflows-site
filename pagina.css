@@ -1,0 +1,222 @@
+/* ============================================================
+   FixedFlows — stijlen voor kanaalpagina's
+   Vult styles.css aan; laad beide.
+   ============================================================ */
+
+/* ---------- hero ---------- */
+.k-hero{padding:60px 0 80px}
+.k-hero-grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:64px;align-items:center}
+.k-badge{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:600;padding:8px 16px 8px 12px;border-radius:999px}
+.k-badge svg{width:17px;height:17px}
+.k-hero h1{font-weight:700;font-size:clamp(2.6rem,4.8vw,4rem);letter-spacing:-.034em;margin-top:22px}
+.k-sub{margin-top:16px;font-size:21px;font-weight:500;color:var(--ink);line-height:1.35;max-width:20em}
+.lede{margin-top:18px;font-size:17.5px;line-height:1.55;color:var(--ink-2);max-width:34em}
+.checks{list-style:none;margin:28px 0 0;display:flex;flex-direction:column;gap:13px}
+.checks li{display:flex;gap:13px;align-items:flex-start;font-size:16.5px;line-height:1.45}
+.cta-row{margin-top:34px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.fineprint{margin-top:16px;font-size:14px;color:var(--ink-3)}
+
+/* ---------- post-voorbeeld ---------- */
+.k-vis{display:flex;justify-content:center}
+.mock{width:100%;max-width:400px;background:#fff;border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 26px 60px -32px rgba(10,36,71,.5);overflow:hidden}
+.mock-top{display:flex;align-items:center;gap:11px;padding:14px 16px}
+.mock-av{width:36px;height:36px;border-radius:50%;flex:none;opacity:.85}
+.mock-name{font-size:14px;font-weight:600;display:flex;flex-direction:column;line-height:1.3}
+.mock-name em{font-style:normal;font-size:11.5px;font-weight:500;color:var(--ink-3)}
+.mock-ico{margin-left:auto}
+.mock-ico svg{width:20px;height:20px;display:block}
+.mock-media{position:relative;width:100%;height:0}
+.mock-play{position:absolute;inset:0;display:grid;place-items:center;opacity:.28}
+.mock-play svg{width:52px;height:52px}
+.mock-body{padding:14px 16px 4px;display:flex;flex-direction:column;gap:8px}
+.ln{height:9px;border-radius:5px;background:var(--line-soft);display:block}
+.mock-foot{display:flex;gap:8px;padding:12px 16px 16px;flex-wrap:wrap}
+.chip{font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.chip.ok{background:#E7EDF8;color:var(--marine)}
+
+/* ---------- voordelen ---------- */
+.k-voordelen{padding:0 0 88px}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(1.9rem,3.2vw,2.6rem)}
+.sec-head p:not(.sec-eyebrow){margin-top:14px;font-size:17.5px;color:var(--ink-2)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:18px}
+.cards .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px 28px}
+.cards .card h3{font-size:18px;font-weight:700;margin-bottom:9px}
+.cards .card p{font-size:15px;color:var(--ink-2);line-height:1.5}
+
+/* ---------- verdieping ---------- */
+.k-deep{padding:0 0 40px}
+.deep{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);gap:56px;align-items:center;
+  padding:44px 0;border-top:1px solid var(--line)}
+.deep.flip .deep-txt{order:2}
+.deep .kicker{font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--purple);margin-bottom:12px}
+.deep h3{font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-.026em;max-width:16em}
+.deep .deep-txt > p{margin-top:14px;font-size:17px;color:var(--ink-2);line-height:1.6;max-width:40em}
+.deep .btn{margin-top:22px}
+.deep-vis{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:11px}
+.deep-badge{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;margin-bottom:6px}
+.deep-badge svg{width:21px;height:21px}
+.deep-line{height:9px;border-radius:5px;background:var(--line-soft);display:block}
+.deep-block{width:100%;height:0;border-radius:10px;display:block;margin:6px 0}
+
+/* ---------- faq ---------- */
+.k-faq{padding:60px 0 88px}
+.faq-list{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:20px 44px 20px 0;font-size:17px;font-weight:600;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:8px;top:16px;font-size:23px;font-weight:400;color:var(--purple);line-height:1}
+details[open] summary::after{content:"−"}
+details p{padding:0 40px 22px 0;color:var(--ink-2);font-size:16px;max-width:62em}
+
+/* ---------- andere kanalen ---------- */
+.andere{padding:0 0 88px}
+.andere h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-bottom:26px}
+.chan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:12px}
+.chan-card{display:flex;flex-direction:column;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:22px 12px;font-size:14.5px;font-weight:600;transition:transform .16s ease,border-color .16s ease}
+.chan-card:hover{transform:translateY(-3px);border-color:var(--ink-3)}
+.chan-ico svg{width:24px;height:24px;display:block}
+
+/* ---------- overzichtspagina ---------- */
+.ov-hero{padding:70px 0 44px;text-align:center}
+.ov-hero h1{font-weight:700;font-size:clamp(2.5rem,4.6vw,3.9rem);letter-spacing:-.034em;margin-top:22px}
+.ov-hero .lede{margin:20px auto 0;text-align:center}
+.ov-hero .cta-row{justify-content:center}
+.ov-grid-wrap{padding:26px 0 88px}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:18px}
+.ov-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px 24px;display:flex;flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease}
+.ov-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(10,36,71,.5)}
+.ov-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:18px}
+.ov-ico svg{width:22px;height:22px}
+.ov-card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.ov-card p{font-size:14.5px;color:var(--ink-2);line-height:1.5;flex:1}
+.ov-link{margin-top:18px;font-size:14px;font-weight:600;color:var(--purple)}
+
+/* ---------- footer met kolommen ---------- */
+.foot-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:28px;padding-bottom:30px}
+.foot-cols h4{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:12px;letter-spacing:-.01em}
+.foot-cols a{display:block;font-size:14.5px;color:var(--ink-3);padding:3.5px 0}
+.foot-cols a:hover{color:var(--ink)}
+.foot-in{border-top:1px solid var(--line-soft);padding-top:22px}
+
+/* ---------- responsief ---------- */
+@media(max-width:1000px){
+  .k-hero-grid{grid-template-columns:1fr;gap:48px}
+  .deep{grid-template-columns:1fr;gap:32px}
+  .deep.flip .deep-txt{order:0}
+}
+@media(max-width:720px){
+  .k-hero{padding:44px 0 60px}
+  .k-sub{font-size:19px}
+  .cta-row .btn{width:100%}
+  .chan-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ---------- extra's voor servicepagina's ---------- */
+.mock-av.svc{display:grid;place-items:center;background:var(--purple-soft);border-radius:11px}
+.mock-av.svc svg{width:19px;height:19px}
+.mock-body.big{padding:16px;gap:12px}
+.mini{display:flex;flex-direction:column;gap:2px;padding:11px 13px;border:1px solid var(--line-soft);
+  border-left:3px solid var(--purple);border-radius:9px;background:#FBF9FF}
+.mini b{font-size:13.5px;font-weight:600}
+.mini em{font-style:normal;font-size:12px;color:var(--ink-3);line-height:1.4;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ov-stap{font-size:11.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--purple);margin-bottom:6px;display:block}
+.andere .svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.andere .svc-card{padding:20px 18px}
+.andere .svc-card h3{font-size:16px}
+.andere .svc-card p{font-size:13.5px}
+.svc-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px 24px;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease}
+.svc-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -22px rgba(10,36,71,.5)}
+.svc-ico{width:42px;height:42px;border-radius:12px;background:var(--purple-soft);color:var(--purple);display:grid;place-items:center;margin-bottom:16px}
+.svc-ico svg{width:21px;height:21px}
+.svc-card h3{font-size:18px;font-weight:700;margin-bottom:7px;letter-spacing:-.028em}
+.svc-card p{font-size:14.5px;color:var(--ink-2);line-height:1.5;flex:1}
+.svc-link{margin-top:14px;font-size:14px;font-weight:600;color:var(--purple)}
+
+/* ============================================================
+   Voorbeeldposts in de hero van de kanaalpagina's
+   Elk platform heeft zijn eigen opbouw, zodat het herkenbaar oogt.
+   ============================================================ */
+.pm{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;width:100%;max-width:428px;
+  box-shadow:0 26px 60px -34px rgba(10,36,71,.5)}
+.pm-kop{display:flex;align-items:center;gap:11px;padding:14px 16px}
+.pm-av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;
+  font-size:13.5px;font-weight:700}
+.pm-wie{min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.pm-wie b{font-size:14.5px;font-weight:600}
+.pm-wie em{font-style:normal;font-size:12px;color:var(--ink-3)}
+.pm-logo{margin-left:auto;flex:none}
+.pm-logo svg{width:19px;height:19px;display:block}
+
+.pm-tekst{padding:0 16px 14px;font-size:14.5px;line-height:1.55;color:var(--ink)}
+.pm-tekst p{margin-bottom:11px}
+.pm-tekst p:last-child{margin-bottom:0}
+.pm-tekst.lang{max-height:none}
+.pm-meer{border:none;background:none;font-family:inherit;font-size:14.5px;color:var(--ink-3);cursor:pointer;padding:0}
+
+.pm-beeld{position:relative;width:100%;background:var(--bg-2);overflow:hidden;line-height:0}
+.pm-beeld svg{width:100%;height:100%;display:block}
+.pm-beeld.r-instagram{aspect-ratio:1/1}
+.pm-beeld.r-facebook,.pm-beeld.r-x,.pm-beeld.r-threads{aspect-ratio:1.6/1}
+.pm-beeld.r-linkedin{aspect-ratio:1.5/1}
+.pm-beeld.r-pinterest{aspect-ratio:3/4}
+.pm-beeld.r-tiktok{aspect-ratio:9/15}
+
+.pm-stats{display:flex;align-items:center;gap:14px;padding:11px 16px;border-top:1px solid var(--line-soft);
+  font-size:13px;color:var(--ink-3)}
+.pm-stats.breed{gap:26px}
+.pm-stat{display:inline-flex;align-items:center;gap:6px}
+.pm-stat i{font-style:normal;font-size:13px}
+.pm-acties{display:flex;padding:6px 8px;border-top:1px solid var(--line-soft)}
+.pm-acties span{flex:1;text-align:center;padding:9px 4px;font-size:13.5px;font-weight:600;color:var(--ink-3);
+  border-radius:8px}
+
+/* Instagram */
+.pm-ig .pm-balk{display:flex;gap:14px;padding:12px 16px 8px;font-size:19px}
+.pm-ig .pm-balk b{margin-left:auto;font-weight:400}
+.pm-ig .pm-tel{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.pm-tags{display:flex;gap:7px;flex-wrap:wrap;padding:0 16px 16px}
+.pm-tags span{font-size:13.5px;color:#3B6FA8}
+
+/* LinkedIn */
+.pm-li .pm-stats{border-top:none;padding-top:12px}
+.pm-li .pm-acties span{color:var(--ink-2)}
+
+/* X */
+.pm-x .pm-tekst{padding-top:2px}
+.pm-x .pm-beeld{margin:0 16px 14px;width:calc(100% - 32px);border-radius:14px;border:1px solid var(--line-soft)}
+
+/* TikTok */
+.pm-tt{position:relative;background:#111}
+.pm-tt .pm-beeld{aspect-ratio:9/15}
+.pm-over{position:absolute;inset:auto 0 0 0;padding:18px 16px;
+  background:linear-gradient(to top,rgba(0,0,0,.72),rgba(0,0,0,0));display:flex;align-items:flex-end;gap:14px}
+.pm-over-tekst{color:#fff;font-size:13.5px;line-height:1.45;flex:1}
+.pm-over-tekst b{display:block;font-size:14.5px;margin-bottom:6px}
+.pm-over-tekst p{margin-bottom:6px}
+.pm-zij{display:flex;flex-direction:column;gap:14px;align-items:center;color:#fff;font-size:11.5px;font-weight:600}
+.pm-zij .pm-stat{flex-direction:column;gap:3px}
+.pm-zij .pm-stat i{font-size:21px}
+
+/* Pinterest */
+.pm-pin .pm-beeld{border-radius:16px 16px 0 0}
+.pm-pin .pm-tekst{padding-top:14px}
+.pm-pin .pm-tekst p:first-child{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:700;letter-spacing:-.02em}
+.pm-pin .pm-acties span{background:#C4453A;color:#fff;flex:0 0 auto;padding:9px 20px}
+
+/* YouTube */
+.pm-yt{border-radius:14px}
+.pm-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;line-height:0;background:var(--bg-2)}
+.pm-thumb svg{width:100%;height:100%;display:block}
+.pm-duur{position:absolute;right:9px;bottom:9px;background:rgba(0,0,0,.82);color:#fff;font-size:11.5px;
+  font-weight:600;padding:2px 6px;border-radius:4px}
+.pm-yt-onder{display:flex;gap:12px;padding:14px 16px 16px}
+.pm-yt-tx{min-width:0;display:flex;flex-direction:column;gap:4px}
+.pm-yt-tx b{font-size:15px;font-weight:600;line-height:1.35}
+.pm-yt-tx em{font-style:normal;font-size:12.5px;color:var(--ink-3)}
+
+@media(max-width:720px){ .pm{max-width:none} }

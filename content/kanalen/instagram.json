@@ -1,0 +1,92 @@
+{
+  "volgorde": 1,
+  "slug": "instagram",
+  "naam": "Instagram",
+  "kleur": "#D62976",
+  "ratio": "100%",
+  "handle": "devrieszonnepanelen",
+  "title": "Instagram posts plannen en automatisch DM's sturen | FixedFlows",
+  "description": "Plan je Instagram feed, reels en carrousels vooruit. Laat een reactie met een trefwoord automatisch een DM sturen die e-mailadressen verzamelt en segmenteert.",
+  "h1": "Instagram posts plannen",
+  "sub": "Plan je feed vooruit en laat elke reactie automatisch een gesprek starten.",
+  "lede": "Op Instagram zit je bereik in reels en je conversie in de DM. FixedFlows koppelt die twee: je plant de content vooruit en zet er een automatisch gesprek achter dat e-mailadressen ophaalt en mensen meteen in het juiste segment zet.",
+  "checks": [
+    "Feed, reels en carrousels vooruit plannen met voorbeeldweergave van je raster",
+    "Reactie met een trefwoord start automatisch een DM die vragen stelt en segmenteert",
+    "Het opgehaalde e-mailadres rolt direct door naar je e-mailflow"
+  ],
+  "voordelen": [
+    {
+      "t": "Zie je raster vooraf",
+      "d": "Bekijk hoe je profiel eruitziet voordat je publiceert, zodat je feed als geheel klopt en niet per losse post."
+    },
+    {
+      "t": "Van reactie naar e-mailadres",
+      "d": "Het gesprek vraagt om een e-mailadres en waar iemand mee zit, bevestigt het adres en levert daarna wat je beloofde."
+    },
+    {
+      "t": "Meteen gesegmenteerd",
+      "d": "Het antwoord in de DM bepaalt in welk segment iemand terechtkomt, dus je eerste e-mail gaat al over het juiste onderwerp."
+    },
+    {
+      "t": "Altijd een mens beschikbaar",
+      "d": "Wil iemand geen bot, dan neem je het gesprek over vanuit de gedeelde inbox. Dat is ook precies wat Meta van je vraagt."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Plannen",
+      "t": "Je feed als geheel, niet als losse posts",
+      "d": "Sleep posts naar een datum en zie direct hoe je raster eruit gaat zien. Reels, carrousels en losse foto's staan naast elkaar in dezelfde kalender, met per post een voorbeeld zoals het er op Instagram uit komt te zien."
+    },
+    {
+      "k": "Automatiseren",
+      "t": "Reageer met een woord, krijg een gesprek",
+      "d": "Je koppelt een trefwoord aan een post — bijvoorbeeld \"GIDS\". Reageert iemand daarmee, dan opent FixedFlows een gesprek in de DM, vraagt om een e-mailadres en waar iemand tegenaan loopt, en biedt daarbij drie keuzes. Elk antwoord is een segment. Daarna gaat er een bevestigingsmail uit en pas na bevestiging het beloofde bestand."
+    },
+    {
+      "k": "Meten",
+      "t": "Welke post leverde daadwerkelijk iets op",
+      "d": "Omdat elk trefwoord uniek is per post, weet je precies welke post welke leads opleverde. Niet alleen bereik en opslagacties, maar het aantal e-mailadressen en wat daar daarna mee gebeurde."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Wat heb ik nodig om Instagram te koppelen?",
+      "a": "Een zakelijk account of creator-account, gekoppeld aan een Facebook-pagina. Een persoonlijk account kan niet automatisch publiceren; dat is een beperking van Instagram zelf."
+    },
+    {
+      "v": "Mag automatisch DM'en van Instagram?",
+      "a": "Ja, mits het gesprek door de gebruiker wordt gestart — een reactie of een bericht telt als zo'n start. FixedFlows werkt uitsluitend via de officiële API en houdt zich aan het venster van 24 uur waarin je vrij mag berichten. Ongevraagde berichten naar mensen die niets deden, kunnen niet en zou je ook niet moeten willen: dat kost je je account."
+    },
+    {
+      "v": "Publiceren stories automatisch?",
+      "a": "Feedposts, carrousels en reels gaan automatisch live. Voor stories krijg je een melding op het geplande moment, omdat de API automatisch plaatsen daarvan niet toestaat."
+    },
+    {
+      "v": "Kan ik meerdere trefwoorden per post gebruiken?",
+      "a": "Ja, en dat is aan te raden. Gebruik een ander woord per post, dan kun je precies herleiden welke post welke leads opleverde en welk onderwerp aanslaat."
+    },
+    {
+      "v": "Wat gebeurt er na de DM?",
+      "a": "Het e-mailadres komt in je contactenlijst met het segment dat uit het gesprek volgde. Vanaf daar loopt de e-mailflow: bevestiging, levering, en daarna een reeks die past bij het gekozen onderwerp."
+    }
+  ],
+  "post": {
+    "naam": "devrieszonnepanelen",
+    "meta": "Zeist",
+    "beeld": "voorna",
+    "tekst": "Zelfde dak, andere energierekening ☀️\n\n14 panelen erop en de omvormer vervangen. De meter draait nu de andere kant op.\n\nReageer met ZON voor de gratis opbrengstcheck.",
+    "stats": [
+      [
+        "",
+        "312 vind-ik-leuks"
+      ]
+    ],
+    "acties": [
+      "#zonnepanelen",
+      "#utrecht",
+      "#duurzaam"
+    ]
+  }
+}

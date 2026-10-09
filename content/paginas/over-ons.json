@@ -1,0 +1,43 @@
+{
+  "slug": "over-ons",
+  "soort": "verhaal",
+  "volgorde": 2,
+  "titel": "Gebouwd door iemand die het zelf elke week deed.",
+  "sub": "FixedFlows komt niet uit een brainstorm over marktkansen. Het komt uit de frustratie van vier tools openhouden om één post live te krijgen.",
+  "title": "Over FixedFlows — waarom we dit bouwen",
+  "description": "Het verhaal achter FixedFlows: waarom een contentkalender met automatisering, gebouwd vanuit de praktijk van een marketingbureau.",
+  "cijfers": [
+    { "getal": "2026", "tekst": "opgericht in Nederland" },
+    { "getal": "8", "tekst": "kanalen ondersteund" },
+    { "getal": "100%", "tekst": "data op EU-servers" },
+    { "getal": "1 dag", "tekst": "waarin we meestal antwoorden" }
+  ],
+  "body": [
+    { "t": "h2", "tekst": "Waar het begon" },
+    { "t": "p", "tekst": "Bij het werken voor klanten in de installatiebranche viel steeds hetzelfde op. Niet dat er te weinig te vertellen was — er gebeurde elke week genoeg. Het probleem was dat er tussen \"we zouden hier iets mee moeten\" en een gepubliceerde post vier losse stappen zaten, verspreid over evenveel programma's. Een document met ideeën. Een appgroep om af te stemmen. De app van het platform zelf om te plaatsen. En dan een los mailprogramma voor de opvolging." },
+    { "t": "p", "tekst": "Wie dat één klant lang doet, redt het wel. Wie het voor vijf klanten doet, valt om. En de klant die het zelf probeert, valt na drie weken stil." },
+
+    { "t": "h2", "tekst": "Waarom er nog een tool bij moest" },
+    { "t": "p", "tekst": "Er zijn genoeg goede planningstools. Wat ze gemeen hebben is dat ze ophouden op het moment dat het interessant wordt: bij <b>publiceren</b>. De post staat online, er komen reacties, en daarna gebeurt er niets meer. Terwijl daar precies het verschil zit tussen bereik en omzet." },
+    { "t": "p", "tekst": "FixedFlows loopt door tot het einde. Een reactie met een trefwoord wordt een gesprek, dat gesprek levert een e-mailadres en een onderwerp op, en daar hangt een reeks achter die past bij wat iemand aangaf. Eén systeem, van het idee voor een post tot het telefoontje naar een klant die er klaar voor is." },
+
+    { "t": "feit", "titel": "Waarom Nederland en de EU", "tekst": "Alle data staat op servers binnen de Europese Unie. Niet omdat het goed staat op een website, maar omdat je als bureau een verwerkersovereenkomst moet kunnen overleggen aan je klant — en dat gesprek is een stuk korter als er geen doorgifte buiten de EU in staat." },
+
+    { "t": "h2", "tekst": "Hoe we het bouwen" },
+    { "t": "p", "tekst": "Klein en dicht bij de praktijk. We bouwen geen functie omdat een concurrent hem heeft, maar omdat een gebruiker ergens op vastliep en het ons kon uitleggen. Dat betekent ook dat we dingen bewust níét doen: geen tien dashboards, geen instellingen waar niemand aan komt, geen beloftes over automatisch publiceren waar het platform het niet toestaat." },
+    { "t": "p", "tekst": "We gebruiken FixedFlows zelf voor onze eigen content. Werkt iets niet fijn, dan merken we dat als eerste." },
+
+    { "t": "link", "titel": "Benieuwd hoe de klantreis loopt?", "tekst": "Zes stappen van het schrijven van een post tot het opvolgen van een lead — vijf daarvan gaan vanzelf.", "href": "index.html#reis" }
+  ],
+  "waardenTitel": "Waar we op letten",
+  "waarden": [
+    { "titel": "Eerlijk over wat er niet kan", "tekst": "Instagram staat automatisch plaatsen van stories niet toe. Dat schrijven we op, ook al leest het minder lekker. Liever een verwachting die klopt dan een teleurstelling in week twee." },
+    { "titel": "Minder knoppen, niet meer", "tekst": "Elke functie die erbij komt, maakt het product voor iedereen ingewikkelder. We voegen pas iets toe als het bij meerdere gebruikers een echt probleem oplost." },
+    { "titel": "Je data blijft van jou", "tekst": "Stoppen kan altijd, en je neemt je content, contacten en segmenten mee. Een export zit in het product, niet achter een supportverzoek." },
+    { "titel": "Een mens aan de lijn", "tekst": "Je krijgt geen ticketnummer en geen chatbot. Je mailt of belt en spreekt iemand die het product kent en er iets aan kan veranderen." },
+    { "titel": "Binnen de regels van de platforms", "tekst": "Alles loopt via de officiële koppelingen. Trucjes werken misschien even, maar kosten je uiteindelijk het account waar je hele leadstroom aan hangt." },
+    { "titel": "AI als hulpmiddel, niet als vervanger", "tekst": "De assistent zet een eerste versie neer op basis van jouw stijl. Wat het onderscheidend maakt — een klant, een cijfer, een blunder — komt van jou." }
+  ],
+  "slotTitel": "Zin om het te proberen?",
+  "slotTekst": "Veertien dagen gratis, zonder betaalgegevens. En als je iets mist of iets niet snapt, hoor ik dat graag."
+}

@@ -1,0 +1,70 @@
+{
+  "volgorde": 3,
+  "slug": "affiliate-marketing",
+  "naam": "Affiliate marketing",
+  "icoon": "link",
+  "kort": "Anderen laten verkopen, jij betaalt bij resultaat",
+  "title": "Affiliate marketing opzetten door FixedFlows | Diensten",
+  "description": "Wij zetten een affiliate- of partnerprogramma voor je op: werving van partners, trackinglinks, commissiestructuur en opvolging. Je betaalt pas als het daadwerkelijk klanten oplevert.",
+  "h1": "Affiliate marketing",
+  "sub": "Een netwerk van partners dat voor je verkoopt, tegen betaling per resultaat.",
+  "lede": "Naast je eigen kanalen kun je ook anderen voor je laten werven: partners, influencers of andere bedrijven die jouw product aanbevelen tegen een commissie. Wij zetten dat programma voor je op en zorgen dat het volledig te herleiden is wie welke klant heeft binnengebracht.",
+  "checks": [
+    "Opzet van een commissiestructuur die aantrekkelijk is voor partners én rendabel voor jou",
+    "Werving en aanmelding van geschikte partners in jouw branche",
+    "Trackinglinks en dashboards zodat elke aanmelding herleidbaar is naar de juiste partner"
+  ],
+  "voordelen": [
+    {
+      "t": "Je betaalt pas bij resultaat",
+      "d": "Anders dan bij advertenties betaal je een partner pas commissie zodra die daadwerkelijk een betalende klant aanbrengt, niet voor bereik of kliks."
+    },
+    {
+      "t": "Herleidbaar tot op de klant",
+      "d": "Elke partner krijgt een eigen link of code, zodat precies te zien is wie welke aanmelding of verkoop heeft aangebracht — geen discussie achteraf."
+    },
+    {
+      "t": "Partners die bij je branche passen",
+      "d": "We zoeken actief naar partners met een publiek dat aansluit bij jouw klanten, in plaats van willekeurig iedereen te werven."
+    },
+    {
+      "t": "Eén overzicht van alle partners",
+      "d": "Klikken, aanmeldingen, betalende klanten en de bijbehorende commissie per partner staan overzichtelijk bij elkaar, zodat uitbetaling nooit een uitzoekwerk wordt."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Opzetten",
+      "t": "Een commissiestructuur die werkt voor beide kanten",
+      "d": "We bepalen samen een percentage en periode die aantrekkelijk genoeg is om partners te motiveren, zonder dat het je marge opeet."
+    },
+    {
+      "k": "Werven",
+      "t": "De juiste partners benaderen",
+      "d": "We benaderen bedrijven, influencers of bestaande klanten die een geloofwaardig publiek hebben voor jouw product of dienst."
+    },
+    {
+      "k": "Opvolgen",
+      "t": "Actieve partners, geen slapend netwerk",
+      "d": "Een partnerprogramma zonder opvolging verwatert snel. We houden contact met actieve partners en helpen ze op weg met materiaal om mee te werven."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Hoe wordt bijgehouden welke partner een klant heeft aangebracht?",
+      "a": "Elke partner krijgt een unieke link of code. Een klik en de eventuele aanmelding of aankoop die daarna volgt, worden automatisch aan die partner gekoppeld."
+    },
+    {
+      "v": "Wie bepaalt de hoogte van de commissie?",
+      "a": "Wij adviseren op basis van je marge en branche, maar de uiteindelijke structuur bepaal jij. Dat kan een percentage per verkoop zijn, of een vast bedrag per aanmelding."
+    },
+    {
+      "v": "Kan dit gecombineerd worden met de affiliate-functie in FixedFlows zelf?",
+      "a": "Ja. FixedFlows heeft zelf al trackinglinks en een commissieberekening ingebouwd; wij gebruiken dezelfde aanpak om een programma voor jouw eigen product op te zetten."
+    },
+    {
+      "v": "Wat is de looptijd van deze dienst?",
+      "a": "De opzet is eenmalig; de opvolging en werving van partners lopen daarna maandelijks door, opzegbaar met een maand opzegtermijn."
+    }
+  ]
+}

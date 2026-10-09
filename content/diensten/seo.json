@@ -1,0 +1,70 @@
+{
+  "volgorde": 1,
+  "slug": "seo",
+  "naam": "SEO",
+  "icoon": "zoeken",
+  "kort": "Gevonden worden, zonder te betalen per klik",
+  "title": "SEO-diensten door FixedFlows | Zoekmachineoptimalisatie",
+  "description": "Wij zorgen dat je gevonden wordt op Google: technische SEO, contentoptimalisatie en linkopbouw. Gericht op zoektermen die daadwerkelijk tot klanten leiden.",
+  "h1": "SEO",
+  "sub": "Bovenaan in Google op de zoektermen die klanten opleveren.",
+  "lede": "Advertenties stoppen zodra je stopt met betalen. SEO bouwt aan iets dat blijft: een positie in Google die maand na maand bezoekers oplevert zonder dat je per klik betaalt. Dat kost tijd om op te bouwen, maar betaalt zich daarna steeds opnieuw uit.",
+  "checks": [
+    "Technische audit van je website: snelheid, structuur en indexering",
+    "Zoekwoordenonderzoek gericht op koopintentie, niet op volume alleen",
+    "Contentoptimalisatie en linkopbouw met maandelijkse rapportage"
+  ],
+  "voordelen": [
+    {
+      "t": "Technisch fundament eerst",
+      "d": "Een trage of slecht geïndexeerde site scoort nooit goed, hoeveel content je er ook bovenop zet. We beginnen met een technische audit en lossen knelpunten op."
+    },
+    {
+      "t": "Zoekwoorden met koopintentie",
+      "d": "Veel bezoekers is niet hetzelfde als veel klanten. We richten ons op de zoektermen waarmee mensen zoeken naar wat jij aanbiedt, niet op de termen met de hoogste volumes."
+    },
+    {
+      "t": "Content die ook echt scoort",
+      "d": "Pagina's en artikelen die zowel voor Google als voor de bezoeker geschreven zijn — geen opgevulde teksten die alleen op zoekwoorden mikken."
+    },
+    {
+      "t": "Rapportage die klopt met de werkelijkheid",
+      "d": "Posities, organisch verkeer en welke pagina's daadwerkelijk leads opleveren, elke maand overzichtelijk op een rij."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Analyseren",
+      "t": "Waar sta je nu en waar verlies je punten",
+      "d": "Een volledige audit van laadtijd, sitestructuur, indexering en de huidige posities van je belangrijkste pagina's, met een concreet actieplan."
+    },
+    {
+      "k": "Optimaliseren",
+      "t": "Bestaande pagina's en nieuwe content",
+      "d": "We herschrijven en structureren bestaande pagina's op basis van zoekintentie en vullen aan met nieuwe content op onderwerpen die nu ontbreken."
+    },
+    {
+      "k": "Opbouwen",
+      "t": "Autoriteit die geleidelijk groeit",
+      "d": "Linkopbouw en vermeldingen op relevante plekken, opgebouwd in een tempo dat past bij een gezonde, blijvende positie — niet een snelle piste die net zo snel weer zakt."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Hoe snel zie ik resultaat?",
+      "a": "De eerste technische verbeteringen zijn vaak binnen enkele weken zichtbaar. Merkbare stijgingen in posities en verkeer duren doorgaans drie tot zes maanden."
+    },
+    {
+      "v": "Werkt dit voor elke branche?",
+      "a": "SEO werkt het best voor bedrijven waar mensen actief naar zoeken voordat ze kopen, zoals lokale dienstverleners en webshops. We geven vooraf eerlijk aan of het voor jouw situatie de moeite waard is."
+    },
+    {
+      "v": "Kan dit samen met Google Ads?",
+      "a": "Ja, en dat versterkt elkaar vaak: advertenties leveren op korte termijn verkeer terwijl SEO op de langere termijn groeit."
+    },
+    {
+      "v": "Wat is de looptijd van deze dienst?",
+      "a": "Minimaal zes maanden, omdat zoekmachines tijd nodig hebben om wijzigingen te verwerken en het effect daarvan pas na een paar maanden echt zichtbaar wordt."
+    }
+  ]
+}

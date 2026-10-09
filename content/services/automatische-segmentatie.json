@@ -1,0 +1,75 @@
+{
+  "volgorde": 4,
+  "slug": "automatische-segmentatie",
+  "naam": "Automatische segmentatie",
+  "icoon": "segment",
+  "kort": "Segmenten die meebewegen",
+  "stap": 5,
+  "title": "Automatische segmentatie op antwoord en gedrag | FixedFlows",
+  "description": "Segmenteer op wat mensen zeggen én op wat ze doen. Scores verschuiven mee, zodat je bericht altijd past bij waar iemand staat.",
+  "h1": "Automatische segmentatie",
+  "sub": "Een label dat meebeweegt met wat iemand doet, niet één dat blijft plakken.",
+  "lede": "De meeste bedrijven segmenteren één keer, bij binnenkomst, en gaan daarna maanden door alsof er niets veranderde. Hier verschuift het segment met het gedrag mee — want wat iemand zegt en wat iemand doet, zijn twee verschillende dingen.",
+  "checks": [
+    "Segmenteren op het antwoord uit het gesprek én op wat iemand daarna doet",
+    "Een score die stijgt bij interesse en daalt bij stilte",
+    "Melding zodra iemand klaar is voor persoonlijk contact"
+  ],
+  "voordelen": [
+    {
+      "t": "Drie lagen diep",
+      "d": "Wat iemand aangaf, wat iemand aanklikt, en welke pagina's hij bezoekt. Alle drie tellen mee."
+    },
+    {
+      "t": "Scores die verschuiven",
+      "d": "Prijzenpagina bekeken telt zwaarder dan een mail openen. Drie mails genegeerd trekt de score omlaag."
+    },
+    {
+      "t": "Hete leads eruit gefilterd",
+      "d": "Boven een drempel krijg je bericht, zodat je belt op het moment dat iemand er klaar voor is."
+    },
+    {
+      "t": "Zelf de regels bepalen",
+      "d": "Je stelt de voorwaarden in zonder formules te schrijven. Segmenten herberekenen zichzelf bij elke gebeurtenis."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Verzamelen",
+      "t": "Alles wat iemand doet, wordt vastgelegd",
+      "d": "Elk gesprek, elke klik, elke bezochte pagina en elke aankoop komt binnen als gebeurtenis onder hetzelfde contact. Ook als iemand binnenkomt via Instagram en later een e-mailadres achterlaat, blijft dat één persoon in plaats van twee halve profielen."
+    },
+    {
+      "k": "Indelen",
+      "t": "Zeggen en doen zijn niet hetzelfde",
+      "d": "Iemand koos in het gesprek voor onderwerp A, maar klikt alleen op links over B. Dan hoort hij in B. Segmenten zijn hier geen vaste lijst maar een set voorwaarden, die opnieuw wordt getoetst zodra er iets gebeurt."
+    },
+    {
+      "k": "Scoren",
+      "t": "Wie is er klaar voor een gesprek",
+      "d": "Je hangt punten aan gedrag: prijzenpagina bezoeken telt zwaar, drie mails negeren trekt af. Boven een drempel krijg je een melding, zodat je belt wanneer het uitmaakt in plaats van willekeurig door je lijst te werken."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Moet ik dit zelf instellen?",
+      "a": "Je begint met een standaardopzet die voor de meeste bedrijven werkt. Wil je het aanpassen, dan doe je dat met voorwaarden in gewone taal, niet met formules."
+    },
+    {
+      "v": "Hoe vaak worden segmenten bijgewerkt?",
+      "a": "Bij elke gebeurtenis. Bezoekt iemand nu je prijzenpagina, dan is het segment een paar seconden later bijgewerkt."
+    },
+    {
+      "v": "Kan iemand in meerdere segmenten zitten?",
+      "a": "Ja. Voor het versturen geldt een prioriteitsvolgorde, zodat niemand twee reeksen tegelijk krijgt."
+    },
+    {
+      "v": "Wat als iemand niets doet?",
+      "a": "Dan zakt de score en komt het contact op termijn in de reactivatiereeks. Blijft het stil, dan wordt het contact gemarkeerd als inactief zodat je er niet voor blijft betalen."
+    },
+    {
+      "v": "Mag websitegedrag bijhouden onder de AVG?",
+      "a": "Met toestemming wel. FixedFlows plaatst pas een tracker nadat je bezoeker die heeft geaccepteerd, en legt dat moment vast in het toestemmingslogboek."
+    }
+  ]
+}

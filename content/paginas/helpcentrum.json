@@ -1,0 +1,92 @@
+{
+  "slug": "helpcentrum",
+  "soort": "help",
+  "volgorde": 3,
+  "titel": "Waar kunnen we mee helpen?",
+  "sub": "Korte uitleg per onderwerp. Kom je er niet uit, mail dan support@fixedflows.nl — dan kijken we mee.",
+  "title": "Helpcentrum — FixedFlows",
+  "description": "Uitleg over aan de slag gaan, kanalen koppelen, posts inplannen, goedkeuring, schrijfstijl en facturatie.",
+  "groepen": [
+    {
+      "titel": "Aan de slag",
+      "tekst": "De eerste stappen in je nieuwe werkruimte.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linejoin=\"round\"><path d=\"M12 3l2.4 5 5.6.8-4 3.9 1 5.5-5-2.6-5 2.6 1-5.5-4-3.9 5.6-.8L12 3z\"/></svg>",
+      "artikelen": [
+        { "titel": "Een account aanmaken en je proefperiode starten", "href": "app-account.html" },
+        { "titel": "Je eerste social media profiel koppelen" },
+        { "titel": "Wat is een merk en wat telt als één merk?", "href": "prijzen.html" },
+        { "titel": "Iemand uitnodigen voor je werkruimte" },
+        { "titel": "Het verschil tussen eigenaar, beheerder, contentcreator en klant" }
+      ]
+    },
+    {
+      "titel": "Kanalen koppelen",
+      "tekst": "Instagram, Facebook, LinkedIn en de rest.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"><path d=\"M9.5 14.5l5-5\"/><path d=\"M13 6.5l1.5-1.5a3.5 3.5 0 015 5L18 11.5\"/><path d=\"M11 17.5L9.5 19a3.5 3.5 0 01-5-5L6 12.5\"/></svg>",
+      "artikelen": [
+        { "titel": "Instagram koppelen: wat je nodig hebt", "href": "kanaal-instagram.html" },
+        { "titel": "Waarom een persoonlijk Instagram-account niet werkt" },
+        { "titel": "Mijn koppeling is verlopen. Wat nu?" },
+        { "titel": "Welke rechten geef ik FixedFlows precies?" },
+        { "titel": "Alle kanalen en wat er per kanaal mogelijk is", "href": "kanalen.html" }
+      ]
+    },
+    {
+      "titel": "Plannen en publiceren",
+      "tekst": "Posts schrijven, inplannen en live laten gaan.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"16\" rx=\"3\"/><path d=\"M3 10h18M8 3v4M16 3v4\" stroke-linecap=\"round\"/></svg>",
+      "artikelen": [
+        { "titel": "Een post aanmaken en inplannen", "href": "service-contentkalender.html" },
+        { "titel": "Foto's en video's toevoegen aan een post" },
+        { "titel": "Waarom stories en Facebook-groepen een melding geven" },
+        { "titel": "Wat gebeurt er als publiceren mislukt?" },
+        { "titel": "Posts verplaatsen door te slepen" }
+      ]
+    },
+    {
+      "titel": "Goedkeuring",
+      "tekst": "Laat je klant meekijken zonder gedoe.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8.5\" stroke-width=\"1.7\"/><path d=\"M8.2 12.2l2.6 2.6L16 9.6\"/></svg>",
+      "artikelen": [
+        { "titel": "Een post ter goedkeuring indienen" },
+        { "titel": "Een post afkeuren met een reden" },
+        { "titel": "Waarom een goedgekeurde post op slot gaat" },
+        { "titel": "Wie mag wat? De rollen op een rij" },
+        { "titel": "Het logboek: wie deed wat en wanneer" }
+      ]
+    },
+    {
+      "titel": "Schrijfstijl en AI",
+      "tekst": "Laat de assistent schrijven zoals jij schrijft.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linejoin=\"round\"><path d=\"M16.5 3.5a2.12 2.12 0 013 3L7.5 18.5l-4 1 1-4L16.5 3.5z\"/></svg>",
+      "artikelen": [
+        { "titel": "Je schrijfstijl laten bepalen uit eerdere teksten", "href": "service-contentcreatie.html" },
+        { "titel": "Woorden opgeven die nooit gebruikt mogen worden" },
+        { "titel": "Waarom je een gegenereerde tekst altijd moet aanscherpen" },
+        { "titel": "Contentthema's en de verdeling ertussen" }
+      ]
+    },
+    {
+      "titel": "Abonnement en facturatie",
+      "tekst": "Pakketten, facturen en opzeggen.",
+      "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><rect x=\"2.5\" y=\"5.5\" width=\"19\" height=\"13\" rx=\"2.5\"/><path d=\"M2.5 10h19\" stroke-linecap=\"round\"/></svg>",
+      "artikelen": [
+        { "titel": "Wat er gebeurt als je proefperiode afloopt", "href": "prijzen.html" },
+        { "titel": "Van pakket wisselen", "href": "prijzen.html" },
+        { "titel": "Facturen terugvinden" },
+        { "titel": "Opzeggen en je data meenemen" },
+        { "titel": "Btw voor bedrijven binnen en buiten Nederland", "href": "prijzen.html" }
+      ]
+    }
+  ],
+  "faq": [
+    { "v": "Ik ben mijn wachtwoord vergeten. Hoe kom ik binnen?", "a": "Klik op het inlogscherm op <a href=\"app-login.html\">Wachtwoord vergeten</a>. Je krijgt dan een code van zes cijfers per e-mail waarmee je direct inlogt. Daarna kun je in je instellingen een nieuw wachtwoord kiezen." },
+    { "v": "Kan mijn klant meekijken zonder licentie?", "a": "Ja. Je betaalt per merk, niet per gebruiker. Meekijkers en goedkeurders kosten niets, ongeacht hoeveel je er uitnodigt." },
+    { "v": "Waarom kan ik nog geen post aanmaken?", "a": "Je hebt eerst minimaal één social media profiel nodig. Klik in de kalender op <b>Kanalen koppelen</b> in de zijbalk, of gebruik de knop in het lege scherm." },
+    { "v": "Mijn post is niet gepubliceerd. Wat ging er mis?", "a": "Open de post en kijk in het logboek onderaan. Meestal is de koppeling met het platform verlopen; dat zie je bij <b>Kanalen</b> aan de status. Koppel opnieuw en plan de post daarna opnieuw in." },
+    { "v": "Hoe verwijder ik mijn account en al mijn gegevens?", "a": "Mail je verzoek naar <a href=\"mailto:privacy@fixedflows.nl\">privacy@fixedflows.nl</a> vanaf het adres waarmee je bent geregistreerd. We verwijderen je gegevens binnen een maand en bevestigen dat schriftelijk. Exporteer eerst je content als je die wilt bewaren." },
+    { "v": "Werkt FixedFlows ook op mijn telefoon?", "a": "Goedkeuren en meekijken werkt op je telefoon. Plannen en schrijven doe je prettiger op een groter scherm; daar is de kalender op ingericht." }
+  ],
+  "slotTitel": "Staat je vraag er niet bij?",
+  "slotTekst": "Mail support@fixedflows.nl of bel ons op werkdagen. We nemen de tijd om mee te kijken."
+}

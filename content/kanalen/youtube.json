@@ -1,0 +1,88 @@
+{
+  "volgorde": 7,
+  "slug": "youtube",
+  "naam": "YouTube",
+  "kleur": "#FF0000",
+  "ratio": "56%",
+  "handle": "De Vries Zonnepanelen",
+  "title": "YouTube video's en Shorts plannen | FixedFlows",
+  "description": "Plan je YouTube-video's en Shorts vooruit, schrijf titels en beschrijvingen die gevonden worden en houd een publicatieritme vast.",
+  "h1": "YouTube video's plannen",
+  "sub": "Shorts en lange video's vooruit klaarzetten, met titels die gevonden worden.",
+  "lede": "YouTube is na Google de tweede zoekmachine van Nederland, en een video die goed staat blijft jaren binnenkomen. Dat maakt de titel en de beschrijving belangrijker dan het publicatiemoment — en beide schrijf je hier vooraf.",
+  "checks": [
+    "Shorts en lange video's inplannen vanuit dezelfde kalender",
+    "Titels en beschrijvingen vooraf uitschrijven op zoekwoord",
+    "Zien welke video's maanden later nog steeds bekeken worden"
+  ],
+  "voordelen": [
+    {
+      "t": "De titel doet het werk",
+      "d": "Schrijf je titel op wat mensen daadwerkelijk intypen, niet op wat intern logisch klinkt."
+    },
+    {
+      "t": "Beschrijving als vindplaats",
+      "d": "De tekst onder je video bepaalt mede waarop je gevonden wordt. FixedFlows helpt die op te bouwen rond je zoekwoorden."
+    },
+    {
+      "t": "Shorts en lang naast elkaar",
+      "d": "Plan korte en lange video's in hetzelfde overzicht, zodat je ziet of de verhouding klopt."
+    },
+    {
+      "t": "Een lange staart",
+      "d": "Anders dan bij social blijft een goede video jaren opleveren. Je rapportage kijkt daarom naar totaal, niet naar de eerste dag."
+    }
+  ],
+  "secties": [
+    {
+      "k": "Voorbereiden",
+      "t": "Eerst het zoekwoord, dan de opname",
+      "d": "De meeste video's van bedrijven worden nooit gevonden omdat de titel bedacht is vanuit het bedrijf. In FixedFlows leg je per video het zoekwoord vast waarop je gevonden wilt worden en bouw je titel, beschrijving en hoofdstukken daaromheen."
+    },
+    {
+      "k": "Inplannen",
+      "t": "Shorts en lange video's in één ritme",
+      "d": "Shorts zorgen voor bereik, lange video's voor vertrouwen. In dezelfde kalender zie je of je verhouding klopt en waar de gaten vallen in je publicatieritme."
+    },
+    {
+      "k": "Meten",
+      "t": "Wat blijft binnenkomen",
+      "d": "Je rapportage laat per video zien hoeveel weergaven die in totaal opleverde en of het verkeer op gang blijft. Dat vertelt je welk onderwerp een vervolg verdient."
+    }
+  ],
+  "faq": [
+    {
+      "v": "Kan ik Shorts inplannen?",
+      "a": "Ja, Shorts en gewone video's plan je op dezelfde manier in, met per type de juiste velden voor titel en beschrijving."
+    },
+    {
+      "v": "Publiceert FixedFlows automatisch?",
+      "a": "Ja, je video wordt geüpload en op het ingestelde moment openbaar gemaakt. Je kunt hem ook eerst als verborgen klaarzetten om zelf te controleren."
+    },
+    {
+      "v": "Kan ik thumbnails meesturen?",
+      "a": "Ja, mits je kanaal geverifieerd is bij YouTube — dat is een voorwaarde die YouTube stelt aan aangepaste thumbnails."
+    },
+    {
+      "v": "Hoeveel video's kan ik per dag plannen?",
+      "a": "YouTube hanteert een dagelijkse limiet op uploads via de API. Voor het ritme van de meeste bedrijven is dat ruim voldoende; FixedFlows waarschuwt als je eraan zit."
+    },
+    {
+      "v": "Kan ik een video ook naar andere kanalen sturen?",
+      "a": "Een Short kun je koppelen aan TikTok en Reels, met per kanaal een eigen beschrijving. Lange video's deel je als link vanuit je andere posts."
+    }
+  ],
+  "post": {
+    "naam": "De Vries Zonnepanelen",
+    "meta": "4.812 weergaven · 1 week geleden",
+    "beeld": "monteur",
+    "tekst": "Zo verloopt een schouw: wat wij op je dak bekijken voordat we een offerte maken",
+    "stats": [
+      [
+        "",
+        "8:24"
+      ]
+    ],
+    "acties": []
+  }
+}
