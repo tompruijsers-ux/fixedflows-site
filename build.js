@@ -638,6 +638,8 @@ const homeBody = `<section class="hero">
     <div class="cal-stage">
       <div class="hero-carrousel" id="heroCarrousel">
         ${heroSlides.map((s, i) => `<div class="hero-slide${i === 0 ? ' actief' : ''}">${s}</div>`).join('\n        ')}
+        <button type="button" class="hero-pijl hero-pijl-l" id="heroVorige" aria-label="Vorige voorbeeld"><svg viewBox="0 0 24 24" fill="none"><path d="M15 6 9 12l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button type="button" class="hero-pijl hero-pijl-r" id="heroVolgende" aria-label="Volgend voorbeeld"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
       <div class="hero-dots" id="heroDots"></div>
     </div>
@@ -747,8 +749,9 @@ const homeBody = `<section class="hero">
 const heroScript = `(function(){
   var wrap=document.getElementById('heroCarrousel'), dotsWrap=document.getElementById('heroDots');
   if(!wrap||!dotsWrap) return;
-  var slides=Array.prototype.slice.call(wrap.children);
+  var slides=Array.prototype.slice.call(wrap.querySelectorAll('.hero-slide'));
   if(slides.length<2) return;
+  var vorigeBtn=document.getElementById('heroVorige'), volgendeBtn=document.getElementById('heroVolgende');
   var idx=0, timer=null;
   slides.forEach(function(_,i){
     var b=document.createElement('button');
@@ -762,8 +765,10 @@ const heroScript = `(function(){
     dots.forEach(function(d,i){ d.classList.toggle('actief', i===idx); });
   }
   function ga(i){ idx=((i%slides.length)+slides.length)%slides.length; render(); }
-  function herstart(){ clearInterval(timer); timer=setInterval(function(){ ga(idx+1); },4500); }
+  function herstart(){ clearInterval(timer); timer=setInterval(function(){ ga(idx+1); },5000); }
   render(); herstart();
+  if(vorigeBtn) vorigeBtn.onclick=function(){ ga(idx-1); herstart(); };
+  if(volgendeBtn) volgendeBtn.onclick=function(){ ga(idx+1); herstart(); };
   wrap.addEventListener('mouseenter',function(){ clearInterval(timer); });
   wrap.addEventListener('mouseleave', herstart);
 })();`;
