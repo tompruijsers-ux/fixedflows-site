@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const inhoud = require('./inhoud.js');
 const { kanalen, services, diensten, home, instellingen } = inhoud;
-const { nav, footer, ICONEN, svg, APP_URL } = require('./partials.js');
+const { nav, footer, ICONEN, svg } = require('./partials.js');
 const blogbouw = require('./blogbouw.js');
 const paginabouw = require('./paginabouw.js');
 const { visueel, illustratie } = require('./mockups.js');
@@ -62,44 +62,6 @@ ${body}
 </main>
 
 ${footer()}
-<script>
-// Affiliate-code (+ optioneel een zelfgekozen kanaal-label) onthouden
-// (?ref=CODE&bron=LABEL, of ?via=CODE) en meesturen naar de
-// app-koppelknoppen, plus één klik loggen bij de app (los van of iemand
-// ooit aanmeldt -- zo is een conversiepercentage te zien, en met welk
-// label per kanaal welke link het beste werkt). Eén klik per
-// browser-sessie, niet per paginaweergave, om het cijfer niet kunstmatig
-// op te blazen.
-(function(){
-  var qs=new URLSearchParams(location.search);
-  var ref=qs.get('ref')||qs.get('via');
-  var bron=qs.get('bron')||'';
-  if(ref){
-    document.cookie='fixedflows_ref='+encodeURIComponent(ref)+';max-age=7776000;path=/;SameSite=Lax';
-    document.cookie='fixedflows_bron='+encodeURIComponent(bron)+';max-age=7776000;path=/;SameSite=Lax';
-  }
-  var m=document.cookie.match(/(?:^|; )fixedflows_ref=([^;]*)/);
-  var opgeslagen=m&&decodeURIComponent(m[1]);
-  var mb=document.cookie.match(/(?:^|; )fixedflows_bron=([^;]*)/);
-  var opgeslagenBron=mb&&decodeURIComponent(mb[1]);
-  if(opgeslagen) document.querySelectorAll('a[href*="/#/inloggen"]').forEach(function(a){
-    try{
-      var u=new URL(a.href);
-      if(!u.searchParams.get('ref')) u.searchParams.set('ref',opgeslagen);
-      if(opgeslagenBron&&!u.searchParams.get('bron')) u.searchParams.set('bron',opgeslagenBron);
-      a.href=u.toString();
-    }catch(e){}
-  });
-  if(ref){
-    try{
-      if(!sessionStorage.getItem('ff_klik_gelogd')){
-        sessionStorage.setItem('ff_klik_gelogd','1');
-        fetch('${APP_URL}/api/openbaar/affiliate-klik',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({code:ref,bron:bron,verwijzer:document.referrer||''})}).catch(function(){});
-      }
-    }catch(e){}
-  }
-})();
-</script>
 ${scripts ? `\n<script>\n${scripts}\n</script>` : ''}
 </body>
 </html>

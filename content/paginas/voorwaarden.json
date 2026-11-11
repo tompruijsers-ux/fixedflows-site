@@ -4,8 +4,8 @@
   "volgorde": 11,
   "label": "Juridisch",
   "titel": "Algemene voorwaarden",
-  "versie": "1.0",
-  "bijgewerkt": "21 augustus 2026",
+  "versie": "1.1",
+  "bijgewerkt": "12 november 2026",
   "title": "Algemene voorwaarden — FixedFlows",
   "description": "De afspraken tussen FixedFlows en jou als klant: abonnement, proefperiode, opzeggen, aansprakelijkheid en beschikbaarheid.",
   "sub": "De afspraken tussen ons, zo kort als het kan.",
@@ -47,7 +47,7 @@
       "t": "lijst",
       "items": [
         "Prijzen zijn exclusief btw. Bedrijven binnen de EU met een geldig btw-nummer betalen geen Nederlandse btw.",
-        "Je betaalt vooraf, per maand of per jaar. Bij jaarbetaling geldt de korting die op de prijzenpagina staat.",
+        "Een abonnement heeft een minimumlooptijd van twaalf maanden, gerekend vanaf de dag dat je een pakket kiest. Facturatie gebeurt per maand.",
         "Facturen worden per e-mail verstuurd en zijn terug te vinden in je account.",
         "Bij een mislukte betaling proberen we het nog drie keer. Lukt het daarna niet, dan pauzeren we het publiceren; je data blijft staan.",
         "Prijswijzigingen kondigen we minimaal dertig dagen van tevoren aan en gaan pas in bij je volgende verlenging."
@@ -55,11 +55,11 @@
     },
     {
       "t": "h2",
-      "tekst": "5. Opzeggen"
+      "tekst": "5. Opzeggen en verlenging"
     },
     {
       "t": "p",
-      "tekst": "Je kunt maandelijks opzeggen, met opzegtermijn tot het einde van de lopende betaalperiode. Er is geen minimumduur en geen boete. Bij een jaarabonnement loopt de periode af op de verlengingsdatum; tussentijds opzeggen kan, maar geeft geen recht op terugbetaling van de resterende maanden."
+      "tekst": "Na de eerste twaalf maanden wordt je abonnement stilzwijgend verlengd met telkens weer twaalf maanden, tenzij je minstens één maand voor zo'n verlengingsdatum opzegt. Zeg je binnen die maand op, dan loopt de lopende periode nog gewoon af en stopt het abonnement pas bij de verlenging daarna. Tussentijds opzeggen binnen een lopende periode van twaalf maanden geeft geen recht op terugbetaling van de resterende maanden."
     },
     {
       "t": "p",

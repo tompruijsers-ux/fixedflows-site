@@ -5,12 +5,12 @@
 
 const { kanalen, services, diensten } = require('./inhoud.js');
 
-// Waar het ECHTE product staat (de losse stratella-api-server, niet de
-// oude losse mockup-schermen app-login.html/app-account.html hiernaast --
-// die zijn een browser-only prototype van vóór de echte backend en horen
-// niet meer in de navigatie). Zet dit op je eigen domein zodra het product
-// online staat, bv. https://app.fixedflows.net
-const APP_URL = process.env.STRATELLA_APP_URL || 'http://localhost:4000';
+// De app draait op hetzelfde domein als deze marketingsite (zie
+// stratella-api/src/server.js: ingelogd -> index.html, uitgelogd ->
+// marketing-home.html, allebei achter www.fixedflows.net). Daarom zijn dit
+// gewone relatieve links, geen apart app-domein -- leeg laten dus, tenzij
+// je ooit weer naar een los app-domein splitst.
+const APP_URL = process.env.STRATELLA_APP_URL || '';
 
 const LOGO = `<svg class="logo-mark" viewBox="0 0 27 27" fill="none" aria-hidden="true">
         <rect width="27" height="27" rx="7.5" fill="#2563EB"/>
