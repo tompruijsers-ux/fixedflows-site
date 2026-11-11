@@ -39,6 +39,13 @@ jobs:
 
       - name: Site bouwen
         working-directory: site
+        # ENDORSELY_SITE_ID moet HIER ook staan (als Actions-secret in
+        # deze repo), niet alleen in Netlify -- Netlify's eigen build
+        # (voor het CMS) en deze build (voor de live site op
+        # www.fixedflows.net) zijn twee aparte builds die build.js elk
+        # voor zichzelf met process.env.ENDORSELY_SITE_ID uitlezen.
+        env:
+          ENDORSELY_SITE_ID: ${{ secrets.ENDORSELY_SITE_ID }}
         run: node bouw.js
 
       - name: API-repo uitchecken
