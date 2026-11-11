@@ -642,9 +642,7 @@ const homeBody = `<section class="hero">
       <h2>${esc(H.reisTitel)}</h2>
       <p>${esc(H.reisLede)}</p>
     </div>
-  </div>
-  <div class="reis-wrap">
-    <ol class="reis-track">
+    <ol class="reis-lijn">
       ${H.reisStappen.map((st, i) => {
         const soort = st.label === 'AI' ? 'ai' : (st.label === 'Jij' ? 'mens' : '');
         return `<li class="stap${st.label === 'Jij' ? ' jij' : ''}">
@@ -656,9 +654,6 @@ const homeBody = `<section class="hero">
       </li>`;
       }).join('\n      ')}
     </ol>
-  </div>
-  <div class="wrap">
-    <div class="reis-dots" role="tablist" aria-label="Stappen van de klantreis"></div>
   </div>
 </section>
 
@@ -730,50 +725,13 @@ const homeBody = `<section class="hero">
   </div>
 </section>`;
 
-// Carrousel van de klantreis (sectie .reis hierboven): schuift
-// automatisch door de 6 stappen, de actieve kaart gecentreerd en
-// vergroot, de rest kleiner/grijzer. Puur op gemeten breedtes (geen
-// hardcoded pixels) zodat dit standhoudt bij CSS-aanpassingen; pauzeert
-// bij hover, en de bolletjes eronder springen direct naar een stap.
-const reisScript = `(function(){
-  var wrap=document.querySelector('.reis-wrap');
-  var track=document.querySelector('.reis-track');
-  var dotsWrap=document.querySelector('.reis-dots');
-  if(!wrap||!track||!dotsWrap) return;
-  var kaarten=Array.prototype.slice.call(track.children);
-  if(!kaarten.length) return;
-  var idx=0, timer=null;
-  kaarten.forEach(function(_,i){
-    var b=document.createElement('button');
-    b.type='button';
-    b.setAttribute('aria-label','Ga naar stap '+(i+1));
-    b.onclick=function(){ ga(i); herstart(); };
-    dotsWrap.appendChild(b);
-  });
-  var dots=Array.prototype.slice.call(dotsWrap.children);
-  function render(){
-    kaarten.forEach(function(k,i){ k.classList.toggle('actief', i===idx); });
-    dots.forEach(function(d,i){ d.classList.toggle('actief', i===idx); });
-    var kaart=kaarten[idx];
-    var doel=wrap.clientWidth/2-(kaart.offsetLeft+kaart.offsetWidth/2);
-    track.style.transform='translateX('+doel+'px)';
-  }
-  function ga(i){ idx=((i%kaarten.length)+kaarten.length)%kaarten.length; render(); }
-  function herstart(){ clearInterval(timer); timer=setInterval(function(){ ga(idx+1); },4200); }
-  render(); herstart();
-  wrap.addEventListener('mouseenter',function(){ clearInterval(timer); });
-  wrap.addEventListener('mouseleave', herstart);
-  window.addEventListener('resize', render);
-})();`;
-
 fs.writeFileSync(path.join(UIT, 'index.html'), html({
   titel: H.titel,
   beschrijving: H.description,
   canoniek: 'index.html',
   actief: 'home',
   extraCss: lees('pages/index.style.css'),
-  body: homeBody,
-  scripts: reisScript
+  body: homeBody
 }));
 
 // prijzen

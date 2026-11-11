@@ -80,23 +80,12 @@ h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.09em;heigh
 
 /* klantreis */
 .reis{padding:88px 0 92px}
-
-/* Carrousel: alle stappen schuiven door, de actieve stap in het midden
-   groter/helderder, de rest kleiner/grijzer -- geïnspireerd op de
-   ActiveCampaign-homepage, met eigen FixedFlows-kaarten/kleuren.
-   reis-wrap randloos/overflow-hidden zodat kaarten links/rechts half
-   zichtbaar "wegglijden"; reis-track is de rij die effectief verschuift
-   (transform, berekend in JS -- zie het scripts-blok bij de homepage
-   in build.js). */
-.reis-wrap{overflow:hidden;padding:26px 0 10px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.reis-track{list-style:none;display:flex;gap:22px;padding:0 4px;transition:transform .7s cubic-bezier(.65,0,.35,1)}
-.stap{position:relative;flex:none;width:320px;min-height:238px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:26px 24px 24px;opacity:.4;filter:grayscale(.9);transform:scale(.84);transition:opacity .5s ease,filter .5s ease,transform .5s ease,border-color .5s ease,box-shadow .5s ease}
-.stap.actief{opacity:1;filter:none;transform:scale(1.07);border-color:var(--marine);box-shadow:0 26px 54px -26px rgba(14,96,215,.35);z-index:1}
+.reis-lijn{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:none}
+.stap{position:relative;background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px 24px}
 .stap.jij{background:var(--ink);border-color:var(--ink)}
 .stap.jij h3,.stap.jij p{color:#fff}
 .stap.jij p{color:#A7B2CC}
 .stap.jij a{color:var(--purple-mid)}
-.stap.jij.actief{box-shadow:0 26px 54px -26px rgba(10,14,24,.5)}
 .stap-nr{font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;font-size:13px;font-weight:700;color:var(--ink-3);letter-spacing:.04em}
 .stap.jij .stap-nr{color:#7C88A6}
 .stap-tag{position:absolute;top:24px;right:22px;font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
@@ -105,10 +94,6 @@ h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.09em;heigh
 .stap h3{font-size:19px;font-weight:700;margin:14px 0 9px;letter-spacing:-.028em}
 .stap p{font-size:15px;color:var(--ink-2);line-height:1.5}
 .stap a{display:inline-block;margin-top:14px;font-size:14px;font-weight:600;color:var(--purple)}
-
-.reis-dots{display:flex;justify-content:center;gap:9px;margin-top:10px}
-.reis-dots button{width:9px;height:9px;border-radius:50%;background:var(--line);border:none;cursor:pointer;padding:0;transition:background .2s ease,transform .2s ease}
-.reis-dots button.actief{background:var(--marine);transform:scale(1.3)}
 
 /* ai-blok */
 .ai-blok{padding:0 0 96px}
@@ -150,7 +135,7 @@ h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.09em;heigh
 @media(max-width:1080px){
   .hero-grid{grid-template-columns:1fr;gap:50px}
   .cal-stage::before{inset:18px -8px -14px 18px}
-  .stap{width:270px;min-height:220px}
+  .reis-lijn{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ai-grid{grid-template-columns:1fr;gap:40px}
 }
 @media(max-width:720px){
@@ -165,7 +150,6 @@ h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.09em;heigh
   .post-t{display:none}
   .chan,.seg{display:none}
   .cta-row .btn{width:100%}
-  .stap{width:230px;min-height:260px}
-  .reis-track{gap:14px}
+  .reis-lijn{grid-template-columns:1fr}
   .chan-grid{grid-template-columns:repeat(3,1fr)}
 }
