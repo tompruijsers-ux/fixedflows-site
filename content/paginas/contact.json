@@ -10,16 +10,16 @@
     {
       "titel": "Support",
       "tekst": "Vastgelopen in het product, iets dat niet werkt, of een vraag over hoe iets moet. Vermeld je werkruimte, dan kunnen we meteen meekijken.",
-      "knop": "support@fixedflows.nl",
-      "href": "mailto:support@fixedflows.nl",
+      "knop": "info@fixedflows.net",
+      "href": "mailto:info@fixedflows.net",
       "onder": "Meestal antwoord binnen één werkdag",
       "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\"/><path d=\"M4 8l7.1 4.8a1.6 1.6 0 001.8 0L20 8\" stroke-linecap=\"round\"/></svg>"
     },
     {
       "titel": "Verkoop en offertes",
       "tekst": "Benieuwd wat FixedFlows voor jouw bedrijf of bureau kan doen, of wil je een voorstel op maat? Vertel kort hoeveel merken en kanalen je beheert.",
-      "knop": "verkoop@fixedflows.nl",
-      "href": "mailto:verkoop@fixedflows.nl?subject=Voorstel%20aanvragen&body=Aantal%20merken%3A%0AAantal%20kanalen%3A%0AWat%20je%20nu%20gebruikt%3A%0A",
+      "knop": "info@fixedflows.net",
+      "href": "mailto:info@fixedflows.net?subject=Voorstel%20aanvragen&body=Aantal%20merken%3A%0AAantal%20kanalen%3A%0AWat%20je%20nu%20gebruikt%3A%0A",
       "onder": "Liever meteen bellen? Dat kan ook",
       "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 16.9v2.6a1.7 1.7 0 01-1.9 1.7 17 17 0 01-7.4-2.6 16.7 16.7 0 01-5.1-5.1A17 17 0 013.9 6a1.7 1.7 0 011.7-1.9h2.6a1.7 1.7 0 011.7 1.5c.1.8.3 1.6.6 2.4a1.7 1.7 0 01-.4 1.8l-1.1 1.1a13.6 13.6 0 005.1 5.1l1.1-1.1a1.7 1.7 0 011.8-.4c.8.3 1.6.5 2.4.6A1.7 1.7 0 0121 16.9z\"/></svg>"
     },
@@ -34,8 +34,8 @@
     {
       "titel": "Privacy en gegevens",
       "tekst": "Vragen over hoe we met gegevens omgaan, een verwerkersovereenkomst nodig, of een verzoek om inzage of verwijdering? Dit adres komt bij de juiste persoon terecht.",
-      "knop": "privacy@fixedflows.nl",
-      "href": "mailto:privacy@fixedflows.nl",
+      "knop": "info@fixedflows.net",
+      "href": "mailto:info@fixedflows.net",
       "onder": "Verzoeken worden binnen een maand afgehandeld",
       "ico": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linejoin=\"round\"><path d=\"M12 3l7.5 3v5.5c0 4.4-3 8.3-7.5 9.5-4.5-1.2-7.5-5.1-7.5-9.5V6L12 3z\"/></svg>"
     }
@@ -45,13 +45,13 @@
     { "dagen": "Vrijdag", "tijd": "9.00 – 16.00 uur" },
     { "dagen": "Weekend en feestdagen", "tijd": "Gesloten" }
   ],
-  "reactietijd": "Mail je buiten deze uren, dan lees je ons antwoord de volgende werkdag. Bij een storing die je hele publicatie raakt, kijken we ook buiten kantooruren mee — meld die via support@fixedflows.nl met het woord STORING in het onderwerp.",
+  "reactietijd": "Mail je buiten deze uren, dan lees je ons antwoord de volgende werkdag. Bij een storing die je hele publicatie raakt, kijken we ook buiten kantooruren mee — meld die via info@fixedflows.net met het woord STORING in het onderwerp.",
   "gegevens": [
     { "k": "Bedrijfsnaam", "v": "FixedFlows" },
     { "k": "KvK-nummer", "v": "00000000" },
     { "k": "Btw-nummer", "v": "NL000000000B00" },
     { "k": "Adres", "v": "Nog in te vullen" },
-    { "k": "Algemeen", "v": "hallo@fixedflows.nl" },
+    { "k": "Algemeen", "v": "info@fixedflows.net" },
     { "k": "Servers", "v": "Binnen de Europese Unie" }
   ],
   "slotTitel": "Liever eerst zelf rondkijken?",

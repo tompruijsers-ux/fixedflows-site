@@ -40,7 +40,7 @@ function html({ titel, beschrijving, canoniek, extraCss = '', extraHead = '', ac
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(titel)}</title>
 <meta name="description" content="${esc(beschrijving)}">
-${canoniek ? `<link rel="canonical" href="https://fixedflows.nl/${canoniek}">` : ''}
+${canoniek ? `<link rel="canonical" href="https://fixedflows.net/${canoniek}">` : ''}
 <meta property="og:title" content="${esc(titel)}">
 <meta property="og:description" content="${esc(beschrijving)}">
 <meta property="og:type" content="website">

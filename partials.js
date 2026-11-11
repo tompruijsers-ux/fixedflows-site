@@ -9,7 +9,7 @@ const { kanalen, services, diensten } = require('./inhoud.js');
 // oude losse mockup-schermen app-login.html/app-account.html hiernaast --
 // die zijn een browser-only prototype van vóór de echte backend en horen
 // niet meer in de navigatie). Zet dit op je eigen domein zodra het product
-// online staat, bv. https://app.fixedflows.nl
+// online staat, bv. https://app.fixedflows.net
 const APP_URL = process.env.STRATELLA_APP_URL || 'http://localhost:4000';
 
 const LOGO = `<svg class="logo-mark" viewBox="0 0 27 27" fill="none" aria-hidden="true">

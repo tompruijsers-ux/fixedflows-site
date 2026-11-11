@@ -22,7 +22,7 @@
     },
     {
       "t": "p",
-      "tekst": "FixedFlows, gevestigd in Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 00000000. Voor privacyvragen: <a href=\"mailto:privacy@fixedflows.nl\">privacy@fixedflows.nl</a>."
+      "tekst": "FixedFlows, gevestigd in Nederland, ingeschreven bij de Kamer van Koophandel onder nummer 00000000. Voor privacyvragen: <a href=\"mailto:info@fixedflows.net\">info@fixedflows.net</a>."
     },
     {
       "t": "h2",
@@ -205,7 +205,7 @@
       "items": [
         {
           "k": "Stuur je verzoek",
-          "v": "Mail naar privacy@fixedflows.nl vanaf het adres waarmee je bent geregistreerd."
+          "v": "Mail naar info@fixedflows.net vanaf het adres waarmee je bent geregistreerd."
         },
         {
           "k": "We controleren wie je bent",
@@ -259,7 +259,7 @@
     {
       "t": "cta",
       "titel": "Vraag over je gegevens?",
-      "tekst": "Mail privacy@fixedflows.nl. Je krijgt antwoord van een mens, meestal binnen één werkdag.",
+      "tekst": "Mail info@fixedflows.net. Je krijgt antwoord van een mens, meestal binnen één werkdag.",
       "knop": "Neem contact op",
       "href": "contact.html"
     }

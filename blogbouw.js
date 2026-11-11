@@ -132,9 +132,9 @@ function artikel(a, index, html) {
       </div>
       <div class="art-deel">
         <h4>Delen</h4>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://fixedflows.nl/blog-${a.slug}.html" target="_blank" rel="noopener" aria-label="Deel op LinkedIn">LinkedIn</a>
-        <a href="mailto:?subject=${encodeURIComponent(a.titel)}&body=${encodeURIComponent('https://fixedflows.nl/blog-' + a.slug + '.html')}" aria-label="Deel via e-mail">E-mail</a>
-        <button type="button" class="deel-kopie" data-link="https://fixedflows.nl/blog-${a.slug}.html">Link kopiëren</button>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://fixedflows.net/blog-${a.slug}.html" target="_blank" rel="noopener" aria-label="Deel op LinkedIn">LinkedIn</a>
+        <a href="mailto:?subject=${encodeURIComponent(a.titel)}&body=${encodeURIComponent('https://fixedflows.net/blog-' + a.slug + '.html')}" aria-label="Deel via e-mail">E-mail</a>
+        <button type="button" class="deel-kopie" data-link="https://fixedflows.net/blog-${a.slug}.html">Link kopiëren</button>
       </div>
     </aside>
 

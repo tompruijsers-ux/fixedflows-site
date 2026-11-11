@@ -9,7 +9,7 @@
   "title": "Verwerkersovereenkomst — FixedFlows",
   "description": "De verwerkersovereenkomst tussen FixedFlows en klanten die met de dienst persoonsgegevens van derden verwerken.",
   "sub": "Verwerk je met FixedFlows gegevens van jouw eigen klanten? Dan gelden deze afspraken.",
-  "intro": "Deze verwerkersovereenkomst hoort bij de algemene voorwaarden en geldt automatisch zodra je FixedFlows gebruikt om persoonsgegevens van anderen te verwerken. Je hoeft hem niet apart te ondertekenen, maar dat kan wel — mail privacy@fixedflows.nl en je krijgt een ondertekenbaar exemplaar.",
+  "intro": "Deze verwerkersovereenkomst hoort bij de algemene voorwaarden en geldt automatisch zodra je FixedFlows gebruikt om persoonsgegevens van anderen te verwerken. Je hoeft hem niet apart te ondertekenen, maar dat kan wel — mail info@fixedflows.net en je krijgt een ondertekenbaar exemplaar.",
   "body": [
     {
       "t": "h2",
@@ -203,7 +203,7 @@
     {
       "t": "cta",
       "titel": "Een ondertekend exemplaar nodig?",
-      "tekst": "Veel bureaus moeten dit kunnen overleggen aan hun klant. Mail privacy@fixedflows.nl en je krijgt een ondertekenbare versie op naam.",
+      "tekst": "Veel bureaus moeten dit kunnen overleggen aan hun klant. Mail info@fixedflows.net en je krijgt een ondertekenbare versie op naam.",
       "knop": "Vraag het aan",
       "href": "contact.html"
     }

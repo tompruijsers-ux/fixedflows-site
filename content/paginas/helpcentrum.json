@@ -3,7 +3,7 @@
   "soort": "help",
   "volgorde": 3,
   "titel": "Waar kunnen we mee helpen?",
-  "sub": "Korte uitleg per onderwerp. Kom je er niet uit, mail dan support@fixedflows.nl — dan kijken we mee.",
+  "sub": "Korte uitleg per onderwerp. Kom je er niet uit, mail dan info@fixedflows.net — dan kijken we mee.",
   "title": "Helpcentrum — FixedFlows",
   "description": "Uitleg over aan de slag gaan, kanalen koppelen, posts inplannen, goedkeuring, schrijfstijl en facturatie.",
   "groepen": [
@@ -84,9 +84,9 @@
     { "v": "Kan mijn klant meekijken zonder licentie?", "a": "Ja. Je betaalt per merk, niet per gebruiker. Meekijkers en goedkeurders kosten niets, ongeacht hoeveel je er uitnodigt." },
     { "v": "Waarom kan ik nog geen post aanmaken?", "a": "Je hebt eerst minimaal één social media profiel nodig. Klik in de kalender op <b>Kanalen koppelen</b> in de zijbalk, of gebruik de knop in het lege scherm." },
     { "v": "Mijn post is niet gepubliceerd. Wat ging er mis?", "a": "Open de post en kijk in het logboek onderaan. Meestal is de koppeling met het platform verlopen; dat zie je bij <b>Kanalen</b> aan de status. Koppel opnieuw en plan de post daarna opnieuw in." },
-    { "v": "Hoe verwijder ik mijn account en al mijn gegevens?", "a": "Mail je verzoek naar <a href=\"mailto:privacy@fixedflows.nl\">privacy@fixedflows.nl</a> vanaf het adres waarmee je bent geregistreerd. We verwijderen je gegevens binnen een maand en bevestigen dat schriftelijk. Exporteer eerst je content als je die wilt bewaren." },
+    { "v": "Hoe verwijder ik mijn account en al mijn gegevens?", "a": "Mail je verzoek naar <a href=\"mailto:info@fixedflows.net\">info@fixedflows.net</a> vanaf het adres waarmee je bent geregistreerd. We verwijderen je gegevens binnen een maand en bevestigen dat schriftelijk. Exporteer eerst je content als je die wilt bewaren." },
     { "v": "Werkt FixedFlows ook op mijn telefoon?", "a": "Goedkeuren en meekijken werkt op je telefoon. Plannen en schrijven doe je prettiger op een groter scherm; daar is de kalender op ingericht." }
   ],
   "slotTitel": "Staat je vraag er niet bij?",
-  "slotTekst": "Mail support@fixedflows.nl of bel ons op werkdagen. We nemen de tijd om mee te kijken."
+  "slotTekst": "Mail info@fixedflows.net of bel ons op werkdagen. We nemen de tijd om mee te kijken."
 }
