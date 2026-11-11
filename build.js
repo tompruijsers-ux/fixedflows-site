@@ -607,7 +607,18 @@ fs.writeFileSync(path.join(UIT, 'diensten.html'), dienstenOverzicht());
 
 // homepage — teksten komen uit content/home.json
 const H = home;
-const kalenderBlok = lees('pages/index.kalender.html');
+// Hero-carrousel: vier visuele productmockups (geen tekst eronder,
+// puur beeld) i.p.v. alleen de kalender -- contentkalender, ideeënbord,
+// de automatiseringsbouwer en automatische chatgesprekken. Elke
+// pages/index.*.html hergebruikt dezelfde .cal-kaartchrome (zie
+// pages/index.kalender.html als origineel) zodat ze in de carrousel
+// niet van stijl/maat springen.
+const heroSlides = [
+  lees('pages/index.kalender.html'),
+  lees('pages/index.ideeenbord.html'),
+  lees('pages/index.agent.html'),
+  lees('pages/index.chat.html'),
+];
 
 const homeBody = `<section class="hero">
   <div class="wrap hero-grid">
@@ -624,7 +635,12 @@ const homeBody = `<section class="hero">
       </div>
       <p class="fineprint">${esc(H.heroFineprint)}</p>
     </div>
-    <div class="cal-stage">${kalenderBlok}</div>
+    <div class="cal-stage">
+      <div class="hero-carrousel" id="heroCarrousel">
+        ${heroSlides.map((s, i) => `<div class="hero-slide${i === 0 ? ' actief' : ''}">${s}</div>`).join('\n        ')}
+      </div>
+      <div class="hero-dots" id="heroDots"></div>
+    </div>
   </div>
 </section>
 
@@ -725,13 +741,41 @@ const homeBody = `<section class="hero">
   </div>
 </section>`;
 
+// Schuift elke ~4,5s door de hero-slides (fade, geen tekst/onderschrift
+// -- puur het mockup zelf). Pauzeert bij hover; de bolletjes springen
+// direct naar een slide.
+const heroScript = `(function(){
+  var wrap=document.getElementById('heroCarrousel'), dotsWrap=document.getElementById('heroDots');
+  if(!wrap||!dotsWrap) return;
+  var slides=Array.prototype.slice.call(wrap.children);
+  if(slides.length<2) return;
+  var idx=0, timer=null;
+  slides.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.type='button'; b.setAttribute('aria-label','Toon voorbeeld '+(i+1));
+    b.onclick=function(){ ga(i); herstart(); };
+    dotsWrap.appendChild(b);
+  });
+  var dots=Array.prototype.slice.call(dotsWrap.children);
+  function render(){
+    slides.forEach(function(s,i){ s.classList.toggle('actief', i===idx); });
+    dots.forEach(function(d,i){ d.classList.toggle('actief', i===idx); });
+  }
+  function ga(i){ idx=((i%slides.length)+slides.length)%slides.length; render(); }
+  function herstart(){ clearInterval(timer); timer=setInterval(function(){ ga(idx+1); },4500); }
+  render(); herstart();
+  wrap.addEventListener('mouseenter',function(){ clearInterval(timer); });
+  wrap.addEventListener('mouseleave', herstart);
+})();`;
+
 fs.writeFileSync(path.join(UIT, 'index.html'), html({
   titel: H.titel,
   beschrijving: H.description,
   canoniek: 'index.html',
   actief: 'home',
   extraCss: lees('pages/index.style.css'),
-  body: homeBody
+  body: homeBody,
+  scripts: heroScript
 }));
 
 // prijzen
