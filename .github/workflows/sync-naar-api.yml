@@ -1,0 +1,81 @@
+name: Marketingsite doorzetten naar de app
+
+# Draait bij elke push naar main -- ook de commits die het CMS zelf
+# maakt via Netlify Identity/git-gateway wanneer Tom iets publiceert.
+# Bouwt de site (zelfde "node bouw.js" als Netlify gebruikt) en zet de
+# resulterende pagina's door naar de stratella-api-repo (web/-map), die
+# op Render automatisch opnieuw deployt zodra daar een nieuwe commit
+# binnenkomt. Zie web/server.js (fixedflows-api) voor hoe die map
+# wordt geserveerd: "/" toont marketing-home.html zonder sessiecookie,
+# index.html (de app) mét.
+#
+# Drie bestanden worden BEWUST overgeslagen bij het kopiëren:
+#  - admin/   (het CMS zelf; blijft alleen op Netlify's eigen domein
+#              werken, Netlify Identity/git-gateway is daaraan gebonden)
+#  - media/   (CMS-afbeeldingen; zou botsen met de bestaande /media/-
+#              route voor geüploade klantbestanden in de API, andere
+#              fysieke map)
+#  - index.html van de marketingsite wordt NIET web/index.html (dat is
+#    de app zelf) maar web/marketing-home.html.
+#  - robots.txt wordt niet overschreven (handmatig samengesteld, zie
+#    web/robots.txt in de API-repo).
+on:
+  push:
+    branches: [main]
+
+jobs:
+  doorzetten:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Marketingsite uitchecken
+        uses: actions/checkout@v4
+        with:
+          path: site
+
+      - name: Node installeren
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Site bouwen
+        working-directory: site
+        run: node bouw.js
+
+      - name: API-repo uitchecken
+        uses: actions/checkout@v4
+        with:
+          repository: tompruijsers-ux/fixedflows-api
+          token: ${{ secrets.API_REPO_TOKEN }}
+          path: api
+
+      - name: Gebouwde pagina's doorzetten
+        # BEWUST zonder --delete: web/ bevat ook de app zelf (index.html,
+        # stratella-api-client.js, afspraak-widget.js, widget.js), die
+        # geen tegenhanger hebben in de marketingsite -- --delete zou
+        # die bij de eerste de beste sync verwijderen. Verwijdert een
+        # marketingpagina ooit uit het CMS, dan blijft het oude bestand
+        # hier onschuldig achter (dode, onbereikbare HTML) i.p.v. de app
+        # kapot te maken.
+        run: |
+          set -e
+          rsync -a \
+            --exclude 'admin/' \
+            --exclude 'media/' \
+            --exclude 'index.html' \
+            --exclude 'robots.txt' \
+            site/dist/ api/web/
+          cp site/dist/index.html api/web/marketing-home.html
+
+      - name: Wijziging committen en pushen (alleen als er iets veranderde)
+        working-directory: api
+        run: |
+          set -e
+          git config user.name "FixedFlows marketingsite-bot"
+          git config user.email "info@fixedflows.net"
+          git add web/
+          if git diff --cached --quiet; then
+            echo "Geen inhoudelijke wijzigingen -- geen nieuwe deploy nodig."
+            exit 0
+          fi
+          git commit -m "Marketinginhoud bijgewerkt vanuit fixedflows-site"
+          git push
