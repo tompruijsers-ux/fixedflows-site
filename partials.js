@@ -93,8 +93,8 @@ function nav(actief) {
     </nav>
 
     <div class="nav-right">
-      <a href="${APP_URL}/#/inloggen" class="link-quiet">Inloggen</a>
-      <a href="${APP_URL}/#/inloggen?modus=reg" class="btn btn-primary btn-sm">Start gratis</a>
+      <a href="${APP_URL}/inloggen" class="link-quiet">Inloggen</a>
+      <a href="${APP_URL}/inloggen?modus=reg" class="btn btn-primary btn-sm">Start gratis</a>
     </div>
 
     <button type="button" class="nav-burger" aria-label="Menu" aria-expanded="false"
@@ -122,7 +122,7 @@ function footer() {
         <a href="index.html" class="logo">${LOGO} FixedFlows</a>
         <p>Je hele klantreis automatisch: van het schrijven van een post tot de opvolging van een klant. Gebouwd en gehost in de EU.</p>
         <div class="foot-cta">
-          <a href="${APP_URL}/#/inloggen?modus=reg" class="btn btn-primary btn-sm">Probeer 14 dagen gratis</a>
+          <a href="${APP_URL}/inloggen?modus=reg" class="btn btn-primary btn-sm">Probeer 14 dagen gratis</a>
         </div>
         <div class="foot-social" aria-label="Volg FixedFlows">
           <a href="#" aria-label="LinkedIn">${svg('linkedin')}</a>
