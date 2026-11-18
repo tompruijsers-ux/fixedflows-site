@@ -132,3 +132,18 @@
 .hg li:last-child .nog{border-bottom:none}
 .hg li .nog em{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
   background:var(--bg-2);color:var(--ink-3);padding:2px 8px;border-radius:999px;flex:none;margin-left:auto}
+
+/* ---------------- cookiebanner ---------------- */
+.cookiebanner{position:fixed;left:0;right:0;bottom:0;z-index:200;background:var(--card);
+  border-top:1px solid var(--line);box-shadow:0 -14px 34px -18px rgba(10,36,71,.25)}
+.cookiebanner[hidden]{display:none}
+.cookiebanner-inner{max-width:1180px;margin:0 auto;padding:18px 24px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px;flex-wrap:wrap}
+.cookiebanner-inner p{margin:0;font-size:14.5px;line-height:1.55;color:var(--ink-2);flex:1;min-width:240px}
+.cookiebanner-inner p a{color:var(--purple);text-decoration:underline;text-underline-offset:2px}
+.cookiebanner-knoppen{display:flex;gap:10px;flex:none;flex-wrap:wrap}
+@media(max-width:560px){
+  .cookiebanner-inner{padding:16px 18px}
+  .cookiebanner-knoppen{width:100%}
+  .cookiebanner-knoppen .btn{flex:1}
+}

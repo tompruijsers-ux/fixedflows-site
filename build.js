@@ -24,10 +24,65 @@ const FONTS = `<link rel="stylesheet" href="fonts.css">`;
 // want dit is een statisch gebouwde site zonder eigen server om 'm runtime
 // uit te lezen. Leeg = geen script, niets breekt -- zelfde "leeg = uit"-
 // patroon als de andere losse koppelingen in stratella-api/.env.example.
+// NIET meer rechtstreeks in <head> geplaatst (zie COOKIEBANNER hieronder)
+// -- dit is precies de "Advertentiemeting"-cookie uit content/paginas/
+// cookies.json, en die mag volgens diezelfde pagina alleen MET
+// toestemming geplaatst worden. De banner-script laadt 'm zelf, pas na
+// een "Accepteren"-klik of een eerder opgeslagen "alles"-keuze.
 const ENDORSELY_SITE_ID = process.env.ENDORSELY_SITE_ID || '';
-const ENDORSELY_SCRIPT = ENDORSELY_SITE_ID
-  ? `<script async src="https://assets.endorsely.com/endorsely.js" data-endorsely="${ENDORSELY_SITE_ID}"></script>`
-  : '';
+
+// Cookiebanner: op elke pagina (via html() hieronder), noodzakelijke
+// cookies (sessie/voorkeuren/beveiliging) staan al vast, alleen de
+// advertentiemeting (Endorsely) is toestemmingsplichtig -- zie
+// content/paginas/cookies.json voor de exacte, al bestaande tekst
+// waarnaar deze banner linkt. Keuze komt in localStorage te staan (een
+// statische site heeft geen eigen server/sessie om dit te onthouden),
+// en blijft daarna weg totdat iemand bewust op "Cookievoorkeuren"
+// (voettekst, elke pagina) klikt om 'm opnieuw te openen.
+function cookiebanner() {
+  return `<div id="ff-cookiebanner" class="cookiebanner" role="dialog" aria-label="Cookiemelding" aria-hidden="true" hidden data-endorsely="${ENDORSELY_SITE_ID}">
+  <div class="cookiebanner-inner">
+    <p>We gebruiken noodzakelijke cookies om de site te laten werken. Met jouw toestemming gebruiken we ook een cookie om te meten of een advertentie tot een aanmelding leidt. Lees meer in ons <a href="cookies.html">cookiebeleid</a>.</p>
+    <div class="cookiebanner-knoppen">
+      <button type="button" id="ff-cookie-nodig" class="btn btn-ghost btn-sm">Alleen noodzakelijke</button>
+      <button type="button" id="ff-cookie-alles" class="btn btn-primary btn-sm">Accepteren</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var SLEUTEL='ff_cookie_keuze';
+  var banner=document.getElementById('ff-cookiebanner');
+  var endorselyId=banner?banner.getAttribute('data-endorsely'):'';
+  function laadEndorsely(){
+    if(!endorselyId) return;
+    if(document.querySelector('script[data-endorsely]')) return;
+    var s=document.createElement('script');
+    s.async=true;
+    s.src='https://assets.endorsely.com/endorsely.js';
+    s.setAttribute('data-endorsely', endorselyId);
+    document.head.appendChild(s);
+  }
+  function toon(){ if(!banner) return; banner.hidden=false; banner.setAttribute('aria-hidden','false'); }
+  function verberg(){ if(!banner) return; banner.hidden=true; banner.setAttribute('aria-hidden','true'); }
+  function kies(waarde){
+    try{ localStorage.setItem(SLEUTEL, waarde); }catch(e){}
+    verberg();
+    if(waarde==='alles') laadEndorsely();
+  }
+  var keuze=null;
+  try{ keuze=localStorage.getItem(SLEUTEL); }catch(e){}
+  if(keuze==='alles'){ laadEndorsely(); }
+  else if(keuze!=='noodzakelijk'){ toon(); }
+  var btnAlles=document.getElementById('ff-cookie-alles');
+  var btnNodig=document.getElementById('ff-cookie-nodig');
+  if(btnAlles) btnAlles.addEventListener('click', function(){ kies('alles'); });
+  if(btnNodig) btnNodig.addEventListener('click', function(){ kies('noodzakelijk'); });
+  var voorkeurenLink=document.getElementById('ff-cookievoorkeuren');
+  if(voorkeurenLink) voorkeurenLink.addEventListener('click', function(e){ e.preventDefault(); toon(); });
+})();
+</script>`;
+}
 
 const vink = c => `<svg viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M3 7.8l3.1 3.1L12 5" stroke="${c}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const tick = (i) => `<span class="tick${i === 1 ? ' p' : ''}" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none"><path d="M2.5 6.3l2.4 2.4L9.6 3.9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
@@ -51,7 +106,6 @@ ${FONTS}
 <link rel="stylesheet" href="pagina-extra.css">
 ${extraCss ? `<style>\n${extraCss}\n</style>` : ''}
 ${extraHead}
-${ENDORSELY_SCRIPT}
 </head>
 <body>
 
@@ -62,6 +116,7 @@ ${body}
 </main>
 
 ${footer()}
+${cookiebanner()}
 ${scripts ? `\n<script>\n${scripts}\n</script>` : ''}
 </body>
 </html>

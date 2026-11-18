@@ -168,7 +168,7 @@ function footer() {
 
     <div class="foot-onder">
       <span>© 2026 FixedFlows · KvK 00000000 · Data op EU-servers</span>
-      <span class="foot-mini"><a href="cookies.html">Cookievoorkeuren</a><a href="sitemap.xml">Sitemap</a></span>
+      <span class="foot-mini"><a href="cookies.html" id="ff-cookievoorkeuren">Cookievoorkeuren</a><a href="sitemap.xml">Sitemap</a></span>
     </div>
   </div>
 </footer>`;
