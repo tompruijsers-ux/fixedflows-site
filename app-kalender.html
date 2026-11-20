@@ -1108,18 +1108,11 @@ body.met-rail .app{margin-left:66px}
     if (a === 'terug')      return wegschrijven('concept', 'Teruggezet naar concept.');
     if (a === 'goedkeuren') return wegschrijven('gepland', 'Goedgekeurd. Gaat automatisch live op het gekozen moment.');
 
+    // In de demo hoeft geen reden van afkeuring ingevuld te worden -- dat
+    // extra stapje hoort bij een echt team dat elkaars werk beoordeelt,
+    // en voegt in een demo met één bezoeker alleen wrijving toe.
     if (a === 'afkeuren') {
-      var vak = $('#vak-reden');
-      if (vak.hidden) {
-        vak.hidden = false;
-        $('#f-reden').focus();
-        melden('Vertel kort wat er anders moet.');
-        return;
-      }
-      var reden = $('#f-reden').value.trim();
-      if (!reden) { $('#f-reden').focus(); melden('Geef een reden, anders weet de maker niet wat te doen.'); return; }
-      concept.reden = reden;
-      return wegschrijven('afgekeurd', 'Afgekeurd met toelichting.');
+      return wegschrijven('afgekeurd', 'Afgekeurd.');
     }
 
     if (a === 'verwijder' && bewerkt) {
