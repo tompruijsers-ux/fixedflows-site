@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const inhoud = require('./inhoud.js');
 const { kanalen, services, diensten, home, instellingen } = inhoud;
-const { nav, footer, ICONEN, svg } = require('./partials.js');
+const { nav, footer, ICONEN, svg, APP_URL } = require('./partials.js');
 const blogbouw = require('./blogbouw.js');
 const paginabouw = require('./paginabouw.js');
 const { visueel, illustratie } = require('./mockups.js');
@@ -648,7 +648,7 @@ const homeBody = `<section class="hero">
       </ul>
       <div class="cta-row">
         <a href="app-account.html" class="btn btn-primary">${esc(instellingen.knopProef)}</a>
-        <a href="app-kalender.html" class="btn btn-ghost"><span class="play" aria-hidden="true"><svg viewBox="0 0 11 11" fill="none"><path d="M2 1.2l7 4.3-7 4.3V1.2z" fill="#6B44DE"/></svg></span> ${esc(H.heroKnop2)}</a>
+        <a href="${APP_URL}/#/demo" class="btn btn-ghost"><span class="play" aria-hidden="true"><svg viewBox="0 0 11 11" fill="none"><path d="M2 1.2l7 4.3-7 4.3V1.2z" fill="#6B44DE"/></svg></span> ${esc(H.heroKnop2)}</a>
       </div>
       <p class="fineprint">${esc(H.heroFineprint)}</p>
     </div>
